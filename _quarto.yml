@@ -12,9 +12,11 @@ website:
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    theme:
+      - litera
+      - html/custom.scss
     toc: true
+    highlight-style: monokai
 
-editor: visual
+
 
