@@ -6,13 +6,10 @@ details: |
 sidebar: false
 toc: false
 page-layout: full
-format: 
-  html:
-    template-partials:
-      - html/home/title-block.html
+format: html
 ---
 
-::: {.grid .course-details}
+::: {.grid}
 
 ::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
 ### Instructor
@@ -37,4 +34,6 @@ format:
 ### Contacting me
 
 {{< var instructor.contact_policy >}}
+:::
+
 :::
