@@ -37,9 +37,3 @@ knitr:
 - {{< fa brands slack >}} &nbsp; [Slack]({{< var course.slack >}})
 :::
 
-
-```{r echo=FALSE}
-knitr::include_graphics(here::here("files", "img", "eval-flowchart.png"), error = FALSE)
-```
-
-:::
