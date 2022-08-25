@@ -3,9 +3,9 @@ project:
   output-dir: docs
 
 website:
-  title: "dspsf22.classes.chrisbirdsall.com"
+  title: "Data Science for Public Service"
   navbar:
-    left:
+    right:
       - href: index.qmd
         text: Home
       - about.qmd

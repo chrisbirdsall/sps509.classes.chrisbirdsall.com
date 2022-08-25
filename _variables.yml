@@ -1,0 +1,31 @@
+author: Chris Birdsall
+
+instructor:
+  name: Dr. Chris Birdsall
+  name_no_title: Chris Birdsall
+  email: chrisbirdsall@boisestate.edu
+  url: "https://www.chrisbirdsall.com"
+  twitter: chrisbirdsall
+  github: chrisbirdsall
+  office: "Environmental Research Building 1149"
+
+
+course:
+  number: "SPS 502"
+  semester: "Fall 2022"
+  days: "Thursdays"
+  time: "6:00-8:45 p.m."
+  location: "Bronco Gymnasium"
+  dates: "August 25–December 15, 2022"
+  github: "https://github.com/SPS-502"
+  url: "https://evalf22.classes.andrewheiss.com"
+  copyright_year: "2022"
+  slack: "https://gsuevalf2022.slack.com"
+
+university:
+  name: Boise State University
+  url: "https://www.boisestate.edu"
+
+school:
+  name: The School of Public Service
+  url: "https://www.boisestate.edu/sps/"

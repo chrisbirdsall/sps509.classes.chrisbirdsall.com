@@ -1,5 +1,5 @@
 ---
-title: "dspsf22.classes.chrisbirdsall.com"
+title: "Data Science for Public Service"
 format: html
 knitr:
   opts_chunk: 
