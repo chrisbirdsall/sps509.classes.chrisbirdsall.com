@@ -15,6 +15,7 @@ format:
 
 
 ::: {.home}
+:::
 
 ::: {.grid .course-details}
 
