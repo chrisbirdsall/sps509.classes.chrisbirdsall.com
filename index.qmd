@@ -2,7 +2,10 @@
 title: "Data Science for Public Service"
 details: |
   SPS 502 • Fall 2022<br>School of Public Service<br>Boise State University
-format: html
+format: 
+  html:
+    template-partials:
+      - html/home/title-block.html
 knitr:
   opts_chunk: 
     collapse: true
@@ -34,13 +37,6 @@ knitr:
 - {{< fa brands slack >}} &nbsp; [Slack]({{< var course.slack >}})
 :::
 
-::: {.g-col-12 .g-col-md-4 .contact-policy}
-### Contacting me
-
-{{< var instructor.contact_policy >}}
-:::
-
-:::
 
 ```{r echo=FALSE}
 knitr::include_graphics(here::here("files", "img", "eval-flowchart.png"), error = FALSE)
