@@ -12,11 +12,6 @@ format:
       - html/home/title-block.html
 ---
 
-
-
-::: {.home}
-:::
-
 ::: {.grid .course-details}
 
 ::: {.g-col-12 .g-col-sm-6 .g-col-md-4}
