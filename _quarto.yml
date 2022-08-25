@@ -18,6 +18,8 @@ website:
 
 format:
   html:
+   template-partials:
+    - html/home/title-block.html
    theme:
     light: flatly
     dark: darkly
