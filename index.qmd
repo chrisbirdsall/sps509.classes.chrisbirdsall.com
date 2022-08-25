@@ -37,4 +37,8 @@ format:
 -   {{< fa brands slack >}}   [Slack](%7B%7B%3C%20var%20course.slack%20%3E%7D%7D)
 :::
 
+::: {.g-col-12 .g-col-md-4 .contact-policy}
+### Contacting me
+
+{{< var instructor.contact_policy >}}
 :::
