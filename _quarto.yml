@@ -12,11 +12,9 @@ website:
 
 format:
   html:
-    theme:
-      - litera
-      - html/custom.scss
-    toc: true
-    highlight-style: monokai
+   theme:
+    light: flatly
+    dark: darkly
 
 
 
