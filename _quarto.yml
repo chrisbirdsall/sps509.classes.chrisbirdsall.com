@@ -8,7 +8,13 @@ website:
     right:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - icon: slack
+        href: "https://sps502f22.slack.com"
+        aria-label: Slack
+      - icon: cloud-fill
+        href: "https://rstudio.cloud"
+        aria-label: RStudio.cloud
+
 
 format:
   html:
