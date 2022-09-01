@@ -12,5 +12,47 @@
     "title": "About",
     "section": "",
     "text": "1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "labs/Lab01.html",
+    "href": "labs/Lab01.html",
+    "title": "SPS 502 | Data Science",
+    "section": "",
+    "text": "The main goal of this lab is to introduce you to R and RStudio, which we will be using throughout the course both to learn the statistical concepts discussed in the course and to analyze real data and come to informed conclusions.\nAn additional goal is to introduce you to git and GitHub, which is the collaboration and version control system that we will be using throughout the course. Github is extremely helpful for tracking down problems with your code and for managing collaboration, which we’ll do in some labs later in the semester.\nAs the labs progress, you are encouraged to explore beyond what the labs dictate; a willingness to experiment will make you a much better programmer. Before we get to that stage, however, you need to build some basic fluency in R. Today we begin with the fundamental building blocks of R and RStudio: the interface, reading in data, and basic commands."
+  },
+  {
+    "objectID": "labs/Lab01.html#project-name",
+    "href": "labs/Lab01.html#project-name",
+    "title": "SPS 502 | Data Science",
+    "section": "Project name:",
+    "text": "Project name:\nCurrently your project is called Untitled Project. Update the name of your project to be “Lab 01 - Hello R”.\n\n\n\n\n\n\nThe top portion of your R Markdown file (between the three dashed lines) is called YAML. It stands for \"YAML Ain't Markup Language\". It is a human friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document."
+  },
+  {
+    "objectID": "labs/Lab01.html#yaml",
+    "href": "labs/Lab01.html#yaml",
+    "title": "SPS 502 | Data Science",
+    "section": "YAML:",
+    "text": "YAML:\nOpen the R Markdown (Rmd) file in your project, change the author name to your name, and knit the document."
+  },
+  {
+    "objectID": "labs/Lab01.html#commiting-changes",
+    "href": "labs/Lab01.html#commiting-changes",
+    "title": "SPS 502 | Data Science",
+    "section": "Commiting changes:",
+    "text": "Commiting changes:\nThen Go to the Git pane in your RStudio.\nIf you have made changes to your Rmd file, you should see it listed here. Click on it to select it in this list and then click on Diff. This shows you the difference between the last committed state of the document and its current state that includes your changes. If you’re happy with these changes, write “Update author name” in the Commit message box and hit Commit.\n\n\n\n\n\nYou don’t have to commit after every change, this would get quite cumbersome. You should consider committing states that are meaningful to you for inspection, comparison, or restoration. In the first few assignments we will tell you exactly when to commit and in some cases, what commit message to use. As the semester progresses we will let you make these decisions."
+  },
+  {
+    "objectID": "labs/Lab01.html#pushing-changes",
+    "href": "labs/Lab01.html#pushing-changes",
+    "title": "SPS 502 | Data Science",
+    "section": "Pushing changes:",
+    "text": "Pushing changes:\nNow that you have made an update and committed this change, it’s time to push these changes to the web! Or more specifically, to your repo on GitHub. Why? So that others can see your changes. And by others, we mean the course teaching team (your repos in this course are private to you and us, only).\nIn order to push your changes to GitHub, click on Push. This will prompt a dialogue box where you first need to enter your user name, and then your password. This might feel cumbersome. Bear with me… We will teach you how to save your password so you don’t have to enter it every time. But for this one assignment you’ll have to manually enter each time you push in order to gain some experience with it."
+  },
+  {
+    "objectID": "labs/Lab01.html#thought-exercise",
+    "href": "labs/Lab01.html#thought-exercise",
+    "title": "SPS 502 | Data Science",
+    "section": "Thought exercise:",
+    "text": "Thought exercise:\nFor which of the above steps (changing project name, making updates to the document, committing, and pushing changes) do you need to have an internet connection? Discuss with your classmates."
   }
 ]
