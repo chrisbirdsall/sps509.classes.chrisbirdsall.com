@@ -1,5 +1,5 @@
 ---
-title: "Lab 01 - Hello R!"
+title: "Lab 01 - R & RStudio & Dinosaurs! Oh my!"
 sidebar: false
 toc: true
 editor: source
@@ -199,11 +199,11 @@ Click the Knit button at the top left side of the screen to "knit" the file, or 
 
 Note: If you see the popup below you can just hit cancel:
 
-![](https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com/o/imgs%252Fapp%252FBirdsall%252F6ITdw9RsRz.png?alt=media&token=74bb917e-a08a-4f90-afce-5cf0a9df34e2)
+![](img/pop-up-block.png)
 
 Then click on the html file in the "Files" pane to open it in your web browser:
 
-![](https://firebasestorage.googleapis.com/v0/b/firescript-577a2.appspot.com/o/imgs%252Fapp%252FBirdsall%252FOyw3gwXuhI.png?alt=media&token=4bdbfa5e-3218-45fe-8f2d-cdd3beb605de)
+![](img/click-on-html.png)
 
 ## Finishing touches
 
@@ -240,6 +240,6 @@ Finally, you need to save your html file and submit it to me on Canvas. Here's h
 1.  First, click the checkbox next to the html file in your files pane.
 2.  Next, click "More" and select "Export"
 3.  Save the html file somewhere on your computer where you can find it (e.g., downloads folder, documents folder, desktop, or a folder you created for the class).
-4.  Go to our class page on canvas and click on "assignments". Navigate to "Lab 01" and submit just as you would a paper in any other class.
+4.  Go to our class page on canvas and click on "assignments". Navigate to "Lab 01" under "Labs" and submit just as you would a paper in any other class.
 
 *And you're done!*
