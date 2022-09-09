@@ -1,6 +1,6 @@
 ---
 title: "SPS 502 - Homework 1"
-subtitle: "Due by 5 p.m. September 15"
+subtitle: "Due by 11:59 p.m., Friday September 16"
 toc: true
 editor: source
 execute: 
