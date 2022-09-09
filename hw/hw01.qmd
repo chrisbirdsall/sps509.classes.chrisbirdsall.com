@@ -29,7 +29,7 @@ Copying and editing code from other answers or examples is a great way to both s
 ### If you're stuck
 If you get stuck, don't panic! Before you ask for help, give yourself a few minutes to figure it out. Search ModernDive, look at your previous labs, and google your problem with "tidyverse". Also, step away from your computer for a few minutes if you need a break. Finally (and this doesn't have to be the last step), ask for help on [Slack!](https://sps502f22.slack.com)
 
-# Set-up
+# Setup
 
 First, enter your name in the YAML header and rename your RMarkdown file.
 
