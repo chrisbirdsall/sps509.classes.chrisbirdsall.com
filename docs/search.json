@@ -194,5 +194,89 @@
     "title": "SPS 502 | Data Science",
     "section": "Exercise 7",
     "text": "Exercise 7\nVisualize the relationship between plastic waste per capita and total population as well as plastic waste per capita and coastal population. You will need to make two separate plots. Do either of these pairs of variables appear to be more strongly linearly associated?"
+  },
+  {
+    "objectID": "hw/hw01.html#logistics-and-tips-for-success",
+    "href": "hw/hw01.html#logistics-and-tips-for-success",
+    "title": "SPS 502 | Data Science",
+    "section": "Logistics and tips for success",
+    "text": "Logistics and tips for success\nThis lab will require you to write some of your own code (similar to lab 2). Read these instructions carefully as you work through the homework assignment.\n\nHow to answer questions\nSome questions will direct you to write code, while others will direct you to write a response. You’ll see TYPE YOUR ANSWER HERE in your RMarkdown file in places where I expect you to write a response. And you’ll see code blocks with #Delete and enter your code where I expect you to write your own code."
+  },
+  {
+    "objectID": "hw/hw01.html#load-packages",
+    "href": "hw/hw01.html#load-packages",
+    "title": "SPS 502 | Data Science",
+    "section": "Load Packages",
+    "text": "Load Packages\n\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(scales)"
+  },
+  {
+    "objectID": "hw/hw01.html#import-data",
+    "href": "hw/hw01.html#import-data",
+    "title": "SPS 502 | Data Science",
+    "section": "Import Data",
+    "text": "Import Data\nNext, let’s load the data:\n\n# Load raw data\nidaho_crashes_raw <- read_csv(\"data/Crash_Data_2005__Present.csv\")\n\nRows: 299135 Columns: 9\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr  (3): Severity, County, IntersectionRelated\ndbl  (5): OBJECTID, Mile_Point, Accident_Year, Number_Of_Fatalities, Number_...\ndttm (1): Accident_Date_Time\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\nWhat do the data look like? Here are a few ways to view data in r\n\nidaho_crashes_raw\n\n\nglimpse(idaho_crashes_raw)\n\n\nstr(idaho_crashes_raw)\n\nRun the already provided code in your Rmarkdown file to get a sense of the dataset. More detail about these commands is available in ModernDive."
+  },
+  {
+    "objectID": "hw/hw01.html#data-overview",
+    "href": "hw/hw01.html#data-overview",
+    "title": "SPS 502 | Data Science",
+    "section": "Data Overview",
+    "text": "Data Overview\n\nQuestion 1\n\nWhat is another method you’ve used/learned to View a dataset? (HINT: The command is in the question). Type the code in the code block under “Question 1” in your RMarkdown file in RStudio Cloud. If you have no idea go back to ModernDive Chapter 1 (sec 1.4.3).\n\n\n\nQuestion 2\n\nWhat have we learned about the data? How many car accidents (observations/rows) do we have? How many variables (columns)? Type your answers in your RMarkdown sheet."
+  },
+  {
+    "objectID": "hw/hw01.html#clean-the-data",
+    "href": "hw/hw01.html#clean-the-data",
+    "title": "SPS 502 | Data Science",
+    "section": "Clean the data",
+    "text": "Clean the data\nOkay, let’s clean up the raw data a little and get some useful information along the way. First, we’ll use the lubridate package to get useful information from the Accident_Date_Time variable, as well as rename a variable to make it easier to remember (we’ll cover more about the lubridate package in the future).\n\nidaho_crashes_clean <- idaho_crashes_raw %>% \n  mutate(Hour= hour(Accident_Date_Time),\n         Month = month(Accident_Date_Time, label = TRUE, abbr = TRUE),\n         Day = wday(Accident_Date_Time, label = TRUE, abbr = TRUE)) %>%\n    rename(Year = Accident_Year)\n\nThe lubridate package allowed us to extract useful information from the Accident_Date_Time variable.\nRun the code below to learn more about the lubridate package:\n\n?lubridate\n\nNow we have a “cleaned” version of the data stored in a dataframe called ‘idaho_crashes_clean’.\nLet’s take another look at the data:\n\nidaho_crashes_clean\n\n\nQuestion 3\n\nWhat’s new in this dataset (idaho_crashes_clean) compared to the raw version? Write your answer in your RMarkdown sheet."
+  },
+  {
+    "objectID": "hw/hw01.html#accidents-over-time",
+    "href": "hw/hw01.html#accidents-over-time",
+    "title": "SPS 502 | Data Science",
+    "section": "Accidents over time",
+    "text": "Accidents over time\nNow that we have our data in shape, let’s see if we can gain any insights about car accidents in Idaho.\n\nQuestion 4\n4a. First, has the number of accidents increased since 2005?\nThings to try:\nCreate a new dataframe that counts the number of accidents per year:\n\naccidents_per_year <- idaho_crashes_clean %>% \n  count(Year)\n\n#Print the result \naccidents_per_year\n\n# A tibble: 13 × 2\n    Year     n\n   <dbl> <int>\n 1  2005 28137\n 2  2006 24156\n 3  2007 26452\n 4  2008 25069\n 5  2009 22625\n 6  2010 22170\n 7  2011 20600\n 8  2012 11459\n 9  2013 21387\n10  2014 22279\n11  2015 23904\n12  2016 25181\n13  2017 25716\n\n\nTry adding , sort = TRUE in count() in the code above and run the command again in another code block. Copy the code and paste it into the code block provided in your RMarkdown file. Then edit the code accordingly and run it again.\n4b. Why would you want to sort this list? Why would you not want to sort this list? Write your answer in your RMarkdown file.\n\n\nQuestion 5\nNext, let’s try a visualization:\n\nggplot(data = accidents_per_year, \n       mapping = aes(x = Year, y = n)) +\n      labs(y = \"Car Crashes\",\n           x = \"Year\") +\n  scale_x_continuous(breaks = pretty_breaks())+\n  geom_line()\n\n\n\n\n\nNotice anything strange? What’s going on in 2012? Which did you find more informative, the tibble (table with the count of accidents) or the visualization? Write your answer in your RMarkdown file."
+  },
+  {
+    "objectID": "hw/hw01.html#accidents-by-month",
+    "href": "hw/hw01.html#accidents-by-month",
+    "title": "SPS 502 | Data Science",
+    "section": "Accidents by month",
+    "text": "Accidents by month\n\nQuestion 6\n\nWhich is the most dangerous month? Let’s create a new dataframe that counts accidents by month then create a line graph to visualize the data. Try writing the code yourself this time. (HINT: the code is nearly identical to the three codeblocks above)."
+  },
+  {
+    "objectID": "hw/hw01.html#accidents-by-time-of-day",
+    "href": "hw/hw01.html#accidents-by-time-of-day",
+    "title": "SPS 502 | Data Science",
+    "section": "Accidents by time of day",
+    "text": "Accidents by time of day\nLet’s see what the worst time of day is for accidents.\nWe have the hour of the crash recorded in the variable Hour, which lists the hour from 0 to 23.\n\nidaho_crashes_clean %>% \n  count(Hour, sort = TRUE)\n\n# A tibble: 24 × 2\n    Hour     n\n   <int> <int>\n 1    17 25822\n 2    16 24816\n 3    15 24368\n 4    12 19454\n 5    14 19305\n 6    18 18277\n 7    13 18230\n 8    11 15617\n 9     7 15519\n10     8 14967\n# … with 14 more rows\n\n\n\nQuestion 7\n\nWhich are the top 3 worst hours for car accidents? What time of day is this? Type your answer in the RMarkdown file."
+  },
+  {
+    "objectID": "hw/hw01.html#accidents-by-county",
+    "href": "hw/hw01.html#accidents-by-county",
+    "title": "SPS 502 | Data Science",
+    "section": "Accidents by county",
+    "text": "Accidents by county\n\nQuestion 8\n8a. Which is the most dangerous county? Run the code below to find out!\n\naccidents_by_county <- idaho_crashes_clean %>%\n  count(County, sort = TRUE)\n\n#Print the result\naccidents_by_county\n\n8b. Are you surprised? Why or why not?\n8c. This may not be the best measure to determine which is the most dangerous county. Why? What might be a better measure? Do we need additional data?"
+  },
+  {
+    "objectID": "hw/hw01.html#fatal-accidents",
+    "href": "hw/hw01.html#fatal-accidents",
+    "title": "SPS 502 | Data Science",
+    "section": "Fatal Accidents",
+    "text": "Fatal Accidents\nThe dataset has information on whether accidents are fatal recorded in the variable, Number_Of_Fatalities. Let’s focus on those and see if the trends are any different.\nThere are a number of ways to do this, but let’s keep it simple for now and use the subset function to create a new dataframe which only includes fatal accidents (i.e. observations where number of fatalities is greater than zero).\n\nidaho_fatal_crashes <- subset(idaho_crashes_clean, subset = Number_Of_Fatalities > 0)\n\n#Print the result\nidaho_fatal_crashes\n\nAlright. A much smaller dataset. Let’s dig in a bit.\n\nQuestion 9\nFirst, let’s see if the most dangerous counties are also the deadliest. You’ll need to write this code yourself.\n9a. Create a new dataframe that counts the number of fatal crashes per county and print the result.\n9b. Next, create a visualization showing fatal crashes by county. Enter your code in the codeblocks provided in the RMarkdown file.\n9c. What are the similarities and differences between this and the original county list? Type your answer in the RMarkdown file.\n\n\nHint: The code will be very, very similar to the code in Question 8 (in codeblock count-county) and the code in Question 5 (in codeblock count-year-viz). You will just need to figure out which inputs to replace so that you’re using the right data.\n\n\nQuestion 10\nNow let’s look at fatal accidents by month.\n10a. Create a new dataframe counting fatal accidents by month.\n10b. Next, create a linegraph to visualize the data.\nBased on your tables and visualizations, how do fatal accidents by month differ from total accidents by month? What might explain the differences? Provide your code and your written answer in your RMarkdown file."
+  },
+  {
+    "objectID": "hw/hw01.html",
+    "href": "hw/hw01.html",
+    "title": "SPS 502 | Data Science",
+    "section": "",
+    "text": "Due by 5 p.m. September 15"
+  },
+  {
+    "objectID": "hw/hw01.html#exploring-the-data",
+    "href": "hw/hw01.html#exploring-the-data",
+    "title": "SPS 502 | Data Science",
+    "section": "Exploring the Data",
+    "text": "Exploring the Data\n\nQuestion 1\n\nWhat is another method you’ve used/learned to View a dataset? (HINT: The command is in the question). Type the code in the code block under “Question 1” in your RMarkdown file in RStudio Cloud.\n\n\n\nQuestion 2\n\nWhat have we learned about the data? How many car accidents (observations/rows) do we have? How many variables (columns)? Type your answers in your RMarkdown sheet."
   }
 ]
