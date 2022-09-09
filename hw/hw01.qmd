@@ -23,6 +23,12 @@ This lab will require you to write some of your own code (similar to lab 2). Rea
 
 Some questions will direct you to write code, while others will direct you to write a response. You'll see `TYPE YOUR ANSWER HERE` in your RMarkdown file in places where I expect you to write a response. And you'll see code blocks with `#Delete and enter your code` where I expect you to write your own code.
 
+### Copying/pasting and writing code
+Copying and editing code from other answers or examples is a great way to both save time and learn. If you copy code over and something isn't working, look carefully at the edits you made to see whether you missed something in the copying/pasting process. Also, be sure you've edited ALL the variable/object names appropriately so you're accomplishing what the question is asking you to do. You should also make sure that you're typing the variable and object names EXACTLY as they appear in the dataset or environment pane (spelling and case must match exactly).
+
+### If you're stuck
+If you get stuck, don't panic! Before you ask for help, give yourself a few minutes to figure it out. Search ModernDive, look at your previous labs, and google your problem with "tidyverse". Also, step away from your computer for a few minutes if you need a break. Finally (and this doesn't have to be the last step), ask for help on [Slack!](https://sps502f22.slack.com)
+
 # Set-up
 
 First, enter your name in the YAML header and rename your RMarkdown file.
@@ -120,7 +126,7 @@ Now that we have our data in shape, let's see if we can gain any insights about 
 
 Things to try:
 
-Create a new dataframe that counts the number of accidents per year:
+Create a new dataframe that groups the number of accidents per year:
 
 ```{r count-year}
 accidents_per_year <- idaho_crashes_clean %>% 
@@ -154,7 +160,7 @@ ggplot(data = accidents_per_year,
 
 ### Question 6
 
-6.  Which is the most dangerous month? Let's create a new dataframe that counts accidents by month then create a line graph to visualize the data. Try writing the code yourself this time. (HINT: the code is *nearly* identical to the three codeblocks above).
+6.  Which is the most dangerous month? Let's create a new dataframe that groups accidents by month then create a line graph to visualize the data. Try writing the code yourself this time. (HINT: the code is *nearly* identical to the three codeblocks above).
 
 ## Accidents by time of day
 

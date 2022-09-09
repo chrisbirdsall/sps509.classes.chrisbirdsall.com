@@ -179,6 +179,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#logistics-and-tips-for-success" id="toc-logistics-and-tips-for-success" class="nav-link" data-scroll-target="#logistics-and-tips-for-success">Logistics and tips for success</a>
   <ul class="collapse">
   <li><a href="#how-to-answer-questions" id="toc-how-to-answer-questions" class="nav-link" data-scroll-target="#how-to-answer-questions">How to answer questions</a></li>
+  <li><a href="#copyingpasting-and-writing-code" id="toc-copyingpasting-and-writing-code" class="nav-link" data-scroll-target="#copyingpasting-and-writing-code">Copying/pasting and writing code</a></li>
+  <li><a href="#if-youre-stuck" id="toc-if-youre-stuck" class="nav-link" data-scroll-target="#if-youre-stuck">If you’re stuck</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#set-up" id="toc-set-up" class="nav-link" data-scroll-target="#set-up">Set-up</a>
@@ -270,6 +272,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="how-to-answer-questions" class="level3">
 <h3 class="anchored" data-anchor-id="how-to-answer-questions">How to answer questions</h3>
 <p>Some questions will direct you to write code, while others will direct you to write a response. You’ll see <code>TYPE YOUR ANSWER HERE</code> in your RMarkdown file in places where I expect you to write a response. And you’ll see code blocks with <code>#Delete and enter your code</code> where I expect you to write your own code.</p>
+</section>
+<section id="copyingpasting-and-writing-code" class="level3">
+<h3 class="anchored" data-anchor-id="copyingpasting-and-writing-code">Copying/pasting and writing code</h3>
+<p>Copying and editing code from other answers or examples is a great way to both save time and learn. If you copy code over and something isn’t working, look carefully at the edits you made to see whether you missed something in the copying/pasting process. Also, be sure you’ve edited ALL the variable/object names appropriately so you’re accomplishing what the question is asking you to do. You should also make sure that you’re typing the variable and object names EXACTLY as they appear in the dataset or environment pane (spelling and case must match exactly).</p>
+</section>
+<section id="if-youre-stuck" class="level3">
+<h3 class="anchored" data-anchor-id="if-youre-stuck">If you’re stuck</h3>
+<p>If you get stuck, don’t panic! Before you ask for help, give yourself a few minutes to figure it out. Search ModernDive, look at your previous labs, and google your problem with “tidyverse”. Also, step away from your computer for a few minutes if you need a break. Finally (and this doesn’t have to be the last step), ask for help on <a href="https://sps502f22.slack.com">Slack!</a></p>
 </section>
 </section>
 </section>
@@ -375,7 +385,7 @@ dttm (1): Accident_Date_Time
 <h3 class="anchored" data-anchor-id="question-4">Question 4</h3>
 <p>4a. First, has the number of accidents increased since 2005?</p>
 <p>Things to try:</p>
-<p>Create a new dataframe that counts the number of accidents per year:</p>
+<p>Create a new dataframe that groups the number of accidents per year:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>accidents_per_year <span class="ot">&lt;-</span> idaho_crashes_clean <span class="sc">%&gt;%</span> </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Year)</span>
@@ -428,7 +438,7 @@ dttm (1): Accident_Date_Time
 <section id="question-6" class="level3">
 <h3 class="anchored" data-anchor-id="question-6">Question 6</h3>
 <ol start="6" type="1">
-<li>Which is the most dangerous month? Let’s create a new dataframe that counts accidents by month then create a line graph to visualize the data. Try writing the code yourself this time. (HINT: the code is <em>nearly</em> identical to the three codeblocks above).</li>
+<li>Which is the most dangerous month? Let’s create a new dataframe that groups accidents by month then create a line graph to visualize the data. Try writing the code yourself this time. (HINT: the code is <em>nearly</em> identical to the three codeblocks above).</li>
 </ol>
 </section>
 </section>
