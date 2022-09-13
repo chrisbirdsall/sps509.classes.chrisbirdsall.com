@@ -278,5 +278,152 @@
     "title": "SPS 502 | Data Science",
     "section": "Exploring the Data",
     "text": "Exploring the Data\n\nQuestion 1\n\nWhat is another method you’ve used/learned to View a dataset? (HINT: The command is in the question). Type the code in the code block under “Question 1” in your RMarkdown file in RStudio Cloud.\n\n\n\nQuestion 2\n\nWhat have we learned about the data? How many car accidents (observations/rows) do we have? How many variables (columns)? Type your answers in your RMarkdown sheet."
+  },
+  {
+    "objectID": "labs/Lab03.html#packages",
+    "href": "labs/Lab03.html#packages",
+    "title": "SPS 502 | Data Science",
+    "section": "Packages",
+    "text": "Packages\nRun the following to load the necessary packages for this lab:\n\nlibrary(ggplot2)\nlibrary(dplyr)"
+  },
+  {
+    "objectID": "labs/Lab03.html#data",
+    "href": "labs/Lab03.html#data",
+    "title": "SPS 502 | Data Science",
+    "section": "Data",
+    "text": "Data\nRun the following to load and take a glimpse of the data:\n\ndata(txhousing)\nglimpse(txhousing)\n\nThese data are about housing in Texas. Each row is monthly data for a given city in Texas in a given year. There are multiple years of data for each city."
+  },
+  {
+    "objectID": "labs/Lab03.html#exercise-1",
+    "href": "labs/Lab03.html#exercise-1",
+    "title": "SPS 502 | Data Science",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nTake a look at the data in the data viewer. You can accomplish this two different ways: A) click on the name of the data in the Environment pane, or b) type View(txhousing) in the console. What is the last city listed in the data set (in row 8602)?\n\n\nIn homework 1 we learned (and I was reminded) that RStudio does not like to knit documents that execute the View() command. So from now on, we’ll just run it in the console to avoid additional headaches."
+  },
+  {
+    "objectID": "labs/Lab03.html#exercise-2",
+    "href": "labs/Lab03.html#exercise-2",
+    "title": "SPS 502 | Data Science",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nTake a look at the variable descriptions by typing ?txhousing into the console. What is the listings variable in this data set?"
+  },
+  {
+    "objectID": "labs/Lab03.html#select",
+    "href": "labs/Lab03.html#select",
+    "title": "SPS 502 | Data Science",
+    "section": "select",
+    "text": "select\nSometimes we want to pull out or extract just one or two columns of data. The following code will extract only the column in the data set for the variables sales and volume.\n\ntxhousing %>% select(sales, volume)\n\nThe %>% symbol is called the piping operator. Here, it takes the txhousing data frame and “pipes” or feeds it into the select function. You can think of the %>% symbol as the word “then”.\nNote that we did not use an assignment operator <- so we did not save these extracted, selected values. In the following code, we save the results, in a data frame ASLO called txhousing. By putting - in front of the date variable we tell R to select all except the date variable. Run the following code:\n\ntxhousing <- txhousing %>% select(-date)\n\nIf you look at txhousing in the data viewer, the date variable is no longer included."
+  },
+  {
+    "objectID": "labs/Lab03.html#filter",
+    "href": "labs/Lab03.html#filter",
+    "title": "SPS 502 | Data Science",
+    "section": "filter",
+    "text": "filter\nThe filter function allows you to pull out just the rows (cases or observations) you want, based on some criteria in one of the columns.\nImagine for instance that we wanted to reduce the data set include data for only 2012, in Austin. This code chunk takes the txhousing data, then filters it to only include rows in which the year is 2012, and the city is Austin. The results are saved in a new data frame called austin_12 that shows up in the workspace.\n\naustin_12 <- txhousing %>% filter(year == 2012, city == \"Austin\")\n\n\nNote that we use == to identify the desired criteria.\n\nWhat if we wanted to restrict our data set to only years before 2004 and the City of Austin? Below we use the < symbol to accomplish this. Note we did not SAVE these results in a new data frame…so no new data frame showed up in our Environment pane, but the results print out immediately below the code chunk.\n\ntxhousing %>% filter(year < 2004, city == \"Austin\")\n\nWhat if we wanted to use multiple cities? Below we use the | symbol to indicate that the city could be Austin OR Abilene. In this case, we saved these results as a new data frame called aust_ab that appears in your Environment pane.\n\naust_ab <- txhousing %>% filter(city == \"Austin\" | city == \"Abilene\")"
+  },
+  {
+    "objectID": "labs/Lab03.html#mutate",
+    "href": "labs/Lab03.html#mutate",
+    "title": "SPS 502 | Data Science",
+    "section": "mutate",
+    "text": "mutate\nThe mutate function can add new columns (variables) to a data frame. For instance, the following will add a new column to the data called vol_100k that expresses volume in units of $100000.\n\ntxhousing <- txhousing %>%\n  mutate(vol_100k = volume/100000)\n\nNote that we SAVED these results in new data frame called txhousing. This therefore overwrote the old txhousing data frame with a new version that contains this column. You can open the txhousing data frame in the viewer to confirm that it now contains this new column."
+  },
+  {
+    "objectID": "labs/Lab03.html#summarize",
+    "href": "labs/Lab03.html#summarize",
+    "title": "SPS 502 | Data Science",
+    "section": "summarize",
+    "text": "summarize\nOne of the first tasks in data analysis is often to get descriptive statistics that help to understand the central tendency and variability in the data. The summarize() command can take a column of data, and reduce it to a summary statistic.\nFor instance, the code below uses the austin_12 data set made earlier to calculate the mean monthly number of sales in Austin in 2012.\n\naustin_12 %>% summarize(x_bar_sales = mean(sales))\n\nThis code tells R to calculate the mean of the variable sales, and to save the results in a variable called x_bar_sales.\nYou can also calculate multiple summary statistics at once, and even for multiple variables. Below we also calculate a standard deviation sd() of sales, a minimum min() of the volume variable, a maximum max() of the volume variable, etc. The n() calculates sample size…or the number of rows/ cases in the data frame.\n\naustin_12 %>% summarize(x_bar_sales = mean(sales), \n                        sd_sales = sd(sales), \n                        min_vol = min(volume), \n                        max_vol = max(volume), \n                        mdn_list = median(listings), \n                        iqr_list = IQR(listings),\n                        sample_size = n())\n\n# A tibble: 1 × 7\n  x_bar_sales sd_sales   min_vol   max_vol mdn_list iqr_list sample_size\n        <dbl>    <dbl>     <dbl>     <dbl>    <dbl>    <dbl>       <int>\n1       2127.     501. 265821275 791281075     7925     949.          12\n\n\nNote that the names of the elements you calculate are user defined, like xbar_sales, min_vol, and mdn_list. You could customize these names as you like (but don’t use spaces in your names)."
+  },
+  {
+    "objectID": "labs/Lab03.html#arrange",
+    "href": "labs/Lab03.html#arrange",
+    "title": "SPS 502 | Data Science",
+    "section": "arrange",
+    "text": "arrange\nYou just determined that the maximum volume of monthly sales in Austin in 2012 was a total of $791,281,075 ….but what if you wanted to know WHAT MONTH that occurred in? Copy paste, and run the following into a new code chunk:\n\naustin_12 %>%\n  arrange(desc(volume))\n\nThis tells R to arrange the rows in the data set based on the volume column, and to do so in descending order. So the row with the $791,281,075 in sales is shown at the top! We can see that this volume occurred in the sixth month (June)."
+  },
+  {
+    "objectID": "labs/Lab03.html#group_by",
+    "href": "labs/Lab03.html#group_by",
+    "title": "SPS 502 | Data Science",
+    "section": "group_by",
+    "text": "group_by\nSometimes we also want to calculate summary statistics across different levels of another variable. For instance, here we find the average number of monthly sales that occurred in Abilene and Austin across all years in the data set. Note that we use the aust_ab data frame we created earlier, to restrict our analysis to those two cities.\n\naust_ab %>% group_by(city) %>% \n  summarize(x_bar_sales = mean(sales))\n\n# A tibble: 2 × 2\n  city    x_bar_sales\n  <chr>         <dbl>\n1 Abilene        150.\n2 Austin        1997.\n\n\nFrom the results we can see that there were an average of 150 sales per month in Abilene, and 1996 in Austin.\nWe can give R multiple variables to group by. For instance, this code gives us the mean sales for each month in each city, averaged across all the years. So for instance the mean number of sales in January, in Abilene was 96 homes.\n\naust_ab %>% group_by(city, month) %>% \n  summarize(x_bar_sales = mean(sales))"
+  },
+  {
+    "objectID": "labs/Lab03.html#exercise-3",
+    "href": "labs/Lab03.html#exercise-3",
+    "title": "SPS 502 | Data Science",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nWrite a code chunk to remove the inventory variable. Save the results in a data frame called txhousing. Confirm in the data viewer that the variable has been removed."
+  },
+  {
+    "objectID": "labs/Lab03.html#exercise-4",
+    "href": "labs/Lab03.html#exercise-4",
+    "title": "SPS 502 | Data Science",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nMake a data set called dallas_sub that includes data only from the city of Dallas in 2012 & 2013."
+  },
+  {
+    "objectID": "labs/Lab03.html#exercise-5",
+    "href": "labs/Lab03.html#exercise-5",
+    "title": "SPS 502 | Data Science",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nAdd a column to the dallas_sub data set called prct_sold that calculates the percentage of listings that were sold (sales/listings * 100). Be sure to save the results also as a data frame called dallas_sub."
+  },
+  {
+    "objectID": "labs/Lab03.html#exercise-6",
+    "href": "labs/Lab03.html#exercise-6",
+    "title": "SPS 502 | Data Science",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nCalculate the average percentage of listings that were sold in Dallas in each month of the year based on your dallas_sub data set. Save the results of the calculation in an data frame called dallas_summary."
+  },
+  {
+    "objectID": "labs/Lab03.html#exercise-7",
+    "href": "labs/Lab03.html#exercise-7",
+    "title": "SPS 502 | Data Science",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nArrange the dallas_summary in descending order based on the average percentage of listings, so you can see which month had the greatest average percentage of listings sold. You do not need to save the results."
+  },
+  {
+    "objectID": "labs/Lab03.html#advanced-wrangling-exercises",
+    "href": "labs/Lab03.html#advanced-wrangling-exercises",
+    "title": "SPS 502 | Data Science",
+    "section": "Advanced Wrangling Exercises",
+    "text": "Advanced Wrangling Exercises\nYou may have to use multiple dplyr functions to answer each question. Think through the steps of how to get to the answer you are trying to find."
+  },
+  {
+    "objectID": "labs/Lab03.html#exercise-8",
+    "href": "labs/Lab03.html#exercise-8",
+    "title": "SPS 502 | Data Science",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nRun the following code chunk. Study the code, and the output. Explain in your own words what this code chunk calculated.\n\ntxhousing %>% \n  filter(year == 2012 | year == 2013, city == \"Dallas\") %>%\n  mutate(prct_sold = sales/listings *100) %>%\n  group_by(month) %>%\n  summarize(mean_prct_sold = mean(prct_sold)) %>% \n  arrange(desc(mean_prct_sold))"
+  },
+  {
+    "objectID": "labs/Lab03.html#exercise-9",
+    "href": "labs/Lab03.html#exercise-9",
+    "title": "SPS 502 | Data Science",
+    "section": "Exercise 9",
+    "text": "Exercise 9\nIn January of 2015, what city had the fewest houses listed for sale?"
+  },
+  {
+    "objectID": "labs/Lab03.html#exercise-10",
+    "href": "labs/Lab03.html#exercise-10",
+    "title": "SPS 502 | Data Science",
+    "section": "Exercise 10",
+    "text": "Exercise 10\nIn 2012, in which month were the most houses sold in Texas?"
+  },
+  {
+    "objectID": "labs/Lab03.html#exercise-11",
+    "href": "labs/Lab03.html#exercise-11",
+    "title": "SPS 502 | Data Science",
+    "section": "Exercise 11",
+    "text": "Exercise 11\nGenerate a single table that shows the total number of houses sold in Austin in 2000 and 2001 (total over the entire period), and the total number of houses sold in Dallas in 2000 and 2001 (total over the entire period). This calculation requires a number of steps, so it might help you to first write out on paper the different steps you will need to take. That will help you set out a “blueprint” for tackling the problem.\n\n\nHint: recall the sum() function can add(+) values."
+  },
+  {
+    "objectID": "labs/Lab03.html",
+    "href": "labs/Lab03.html",
+    "title": "SPS 502 | Data Science",
+    "section": "",
+    "text": "#Lab 03 - Data Wrangling"
   }
 ]
