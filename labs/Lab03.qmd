@@ -1,14 +1,13 @@
 ---
-title: ""
+title: "Lab 03 - Data Wrangling"
 sidebar: false
 toc: true
 editor: source
 execute: 
   enabled: true
 ---
-# Lab 03 - Data Wrangling
-![](img/wrangling.png){width="25%"}
 
+![](img/wrangling.png){width="25%"}
 
 # Introduction
 
