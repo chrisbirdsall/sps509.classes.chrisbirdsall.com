@@ -6,8 +6,8 @@ editor: source
 execute: 
   enabled: true
 ---
-
-![#Lab 03 - Data Wrangling](img/wrangling.png){width="25%"}
+# Lab 03 - Data Wrangling
+![](img/wrangling.png){width="25%"}
 
 
 # Introduction
