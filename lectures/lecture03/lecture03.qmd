@@ -1,0 +1,265 @@
+---
+title: "Data Wrangling"
+subtitle: "SPS 502"
+format: 
+  revealjs:
+    theme: [simple]
+editor: visual
+---
+
+```{r Setup}
+library(tidyverse)
+library(fGarch)
+library(gganimate)
+library(lubridate)
+library(scales)
+options(knitr.table.format = "latex")
+```
+
+# Descriptive Statistics
+
+::: incremental
+-   Descriptive statistics aim to summarize a sample; there are two types of descriptive statistics:
+    1.  **Measures of central tendency** provide information about the most typical or average value of a variable
+    2.  **Measures of variability (dispersion)** provide information about the distribution of a variable
+:::
+
+# Measures of Central Tendency
+
+## Mean
+
+::: incremental
+-   **Arithmetic Mean (**$\bar{x}$ or $\mu$): the sum of a series of observations divided by the number of observations $$\bar{x} = \frac{1}{n}\left (\sum_{i=1}^n{x_i}\right ) = \frac{x_1+x_2+\cdots +x_n}{n}$$
+-   Use when describing continuous variables
+-   ***Sensitive to extreme values (e.g., income)***
+:::
+
+## Median
+
+::: incremental
+-   The middle value in a series of observations
+    -   Arrange a series of observations from smallest to greatest then take the middle value
+        -   Note: if there is an even number of observations, then there is no single middle value; the median is then usually defined to be the mean of the two middle values
+-   In a distribution, the median is the $2^{nd}$ quartile and the $50^{th}$ percentile
+-   Use when describing continuous variables
+-   ***Robust to extreme values (e.g., income)***
+:::
+
+## Normal Distribution {auto-animate="true"}
+
+```{r Central Tendency (Normal Distribution), fig.width = 10, fig.height = 5}
+set.seed(1)
+d <- data.frame(Height = round(rnorm(mean = 65, sd = 2, n = 1000), 1))
+ggplot(d, aes(Height)) +
+  stat_density(geom = "line", size = 2) +
+  theme(axis.text = element_text(size = 16), axis.title = element_text(size = 18,face = "bold")) +
+  geom_vline(xintercept = mean(d$Height), linetype = 1, size = 1, color = "red") +
+  geom_vline(xintercept = median(d$Height), linetype = 1, size = 1, color = "blue") +
+  annotate("text", y = 0, label = "Mean", size = 8, color = "red", x = mean(d$Height), vjust = 0.5, hjust = 0) +
+  annotate("text", y = 0, label = "Median", size = 8, color = "blue", x = median(d$Height), vjust = 0.5, hjust = 1) +
+  ylab("Density") + xlab("Height (Inches)")
+```
+
+## Postive Skewed Distribution {auto-animate="true"}
+
+```{r Central Tendency (Postive Skewed Distribution), fig.width = 10, fig.height = 5}
+set.seed(1)
+d <- data.frame(Height = round(rsnorm(mean = 65, sd = 2, xi = 3, n = 1000), 1))
+ggplot(d, aes(Height)) +
+  stat_density(geom = "line", size = 2) +
+  theme(axis.text = element_text(size = 16), axis.title = element_text(size = 18,face = "bold")) +
+  geom_vline(xintercept = mean(d$Height), linetype = 1, size = 1, color = "red") +
+  geom_vline(xintercept = median(d$Height), linetype = 1, size = 1, color = "blue") +
+  annotate("text", y = 0, label = "Mean", size = 8, color = "red", x = mean(d$Height), vjust = 0.5, hjust = 0) +
+  annotate("text", y = 0, label = "Median", size = 8, color = "blue", x = median(d$Height), vjust = 0.5, hjust = 1) +
+  ylab("Density") + xlab("Height (Inches)")
+```
+
+## Negative Skewed Distribution {auto-animate="true"}
+
+```{r Central Tendency (Negative Skewed Distribution), fig.width = 10, fig.height = 5}
+set.seed(1)
+d <- data.frame(Height = round(rsnorm(mean = 65, sd = 2, xi = -3, n = 1000), 1))
+ggplot(d, aes(Height)) +
+  stat_density(geom = "line", size = 2) +
+  theme(axis.text = element_text(size = 16), axis.title = element_text(size = 18,face = "bold")) +
+  geom_vline(xintercept = mean(d$Height), linetype = 1, size = 1, color = "red") +
+  geom_vline(xintercept = median(d$Height), linetype = 1, size = 1, color = "blue") +
+  annotate("text", y = 0, label = "Mean", size = 8, color = "red", x = mean(d$Height), vjust = 0.5, hjust = 1.2) +
+  annotate("text", y = 0, label = "Median", size = 8, color = "blue", x = median(d$Height), vjust = 0.5, hjust = -0.2) +
+  ylab("Density") + xlab("Height (Inches)")
+```
+
+## Mode
+
+-   **Mode:** the most common value in a series of observations
+    -   Some variables include multiple modes (multimodal)
+-   Use when describing discrete (e.g., categorical) variables
+
+## Central Tendency Review
+
+-   **Arithmetic mean:** sum of values divided by number of values
+
+-   **Median:** middle value
+
+-   **Mode:** most frequent value
+
+-   What is the mean, median, and mode of $x$?
+
+    -   $x$ = {1, 2, 2, 3, 4, 7, 9, 10, 11, 12, 12}
+
+# Measures of Dispersion
+
+## Variance
+
+-   **Variance (**$s^{2}$, $\sigma^{2}$): the extent to which a variable's values deviate from or vary around it's mean; the average distance of each observation from the mean $$s^{2} = \frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})^2$$
+
+## Variance
+
+-   Measures how far observations are from their average value (spread of the data)
+    -   Low variance $\rightarrow$ observations are relatively close to the mean value
+    -   High variance $\rightarrow$ observations are relatively far from the mean value
+-   ***Expressed in square units (i.e.,*** $\text{inches}^2$)
+
+## Standard Deviation
+
+-   **Standard Deviation (**$s$, $\sigma$): standardized measure of variance $$s = \sqrt{s^2} = \sqrt{\frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})^2}$$
+-   ***Expressed in the same units as the mean (i.e., inches)***
+    -   Mean distance from the mean
+
+# Data Wrangling
+
+## Traditional Nested Functions
+
+```{r load-data, include=FALSE}
+# Load raw data
+idaho_crashes_raw <- read_csv("data/Crash_Data_2005__Present.csv")
+
+idaho_crashes <- idaho_crashes_raw %>% 
+  mutate(Hour= hour(Accident_Date_Time),
+         Month = month(Accident_Date_Time, label = TRUE, abbr = TRUE),
+         Day = wday(Accident_Date_Time, label = TRUE, abbr = TRUE)) %>%
+    rename(Year = Accident_Year)
+```
+
+```{r eval=FALSE, echo=TRUE}
+leave_house(get_dressed(get_out_of_bed(wake_up(chris))))
+```
+
+## pipe %\>%
+
+```{r eval=FALSE, echo=TRUE}
+leave_house(get_dressed(get_out_of_bed(wake_up(chris))))
+```
+
+-   "Pipe" a data frame into a "verb" command
+-   "Chain" the results from one "verb" command into another
+-   Think of it as the word "then"
+
+::: notes
+Writing it out using pipes give it a more natural (and easier to read) structure
+:::
+
+```{r eval=FALSE, echo=TRUE}
+chris %>% 
+  wake_up() %>% 
+  get_out_of_bed() %>% 
+  get_dressed() %>% 
+  leave_house()
+```
+
+## Data Wrangling
+
+## `filter()`
+
+![](images/paste-6EFD0079.png){fig-align="center"}
+
+## `filter()` to select a subset of rows
+
+for crashes in Canyon county
+
+```{r, echo=TRUE}
+idaho_crashes %>%
+  filter(County == "Canyon") 
+```
+
+::: notes
+dbl = numerical chr = text data See moderndive 1.4.3 for more info
+:::
+
+## `filter()` for many conditions at once
+
+for crashes in Canyon county in 2017
+
+```{r, echo=TRUE}
+idaho_crashes %>%
+  filter(County == "Canyon", Year == 2017) 
+```
+
+## `select()` to keep variables
+
+```{r, echo=TRUE}
+idaho_crashes %>%
+  filter(County == "Canyon", Year == 2017) %>% 
+  select(IntersectionRelated, Number_Of_Injuries)
+```
+
+## `select()` to exclude variables
+
+```{r, echo=TRUE}
+idaho_crashes %>% 
+  select(-OBJECTID)
+```
+
+## `select()` a range of variables
+
+```{r, echo=TRUE}
+idaho_crashes %>% 
+  select(Severity:Mile_Point)
+```
+
+## `summarize()`
+
+![](images/paste-4890C576.png)
+
+::: notes
+Summary functions take many values and return one value meant to describe all those values as a group.
+:::
+
+## `summarize()`
+
+```{r, echo=TRUE}
+idaho_crashes %>% 
+  summarize(avg_injuries = mean(Number_Of_Injuries))
+```
+
+## `group_by()` & `summarize()`
+
+```{r, echo=TRUE}
+idaho_crashes %>% 
+  group_by(IntersectionRelated) %>% 
+  summarize(avg_injuries = mean(Number_Of_Injuries))
+```
+
+## `mutate()` to add new variables
+
+![](images/paste-94859903.png)
+
+## `mutate()` to add new variables
+
+```{r, echo=TRUE}
+idaho_crashes %>% 
+  mutate(total_inj_fat = Number_Of_Injuries + Number_Of_Fatalities)
+```
+
+## "Save" when you `mutate`
+
+```{r, echo=TRUE}
+idaho_crashes <- idaho_crashes %>% 
+  mutate(total_inj_fat = Number_Of_Injuries + Number_Of_Fatalities)
+```
+
+::: notes
+Most often when you define a new variable with `mutate` you'll also want to save the resulting data frame, often by writing over the original data frame.
+:::
+

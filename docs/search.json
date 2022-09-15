@@ -425,5 +425,271 @@
     "title": "SPS 502 | Data Science",
     "section": "",
     "text": "#Lab 03 - Data Wrangling"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#testing-this",
+    "href": "lectures/lecture03/lecture03.html#testing-this",
+    "title": "Data Wrangling",
+    "section": "Testing this",
+    "text": "Testing this\nTesting"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#mean",
+    "href": "lectures/lecture03/lecture03.html#mean",
+    "title": "Data Wrangling",
+    "section": "Mean",
+    "text": "Mean\n\n\nArithmetic Mean (\\(\\bar{x}\\) or \\(\\mu\\)): the sum of a series of observations divided by the number of observations \\[\\bar{x} = \\frac{1}{n}\\left (\\sum_{i=1}^n{x_i}\\right ) = \\frac{x_1+x_2+\\cdots +x_n}{n}\\]\nUse when describing continuous variables\nSensitive to extreme values (e.g., income)"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#median",
+    "href": "lectures/lecture03/lecture03.html#median",
+    "title": "Data Wrangling",
+    "section": "Median",
+    "text": "Median\n\n\nThe middle value in a series of observations\n\nArrange a series of observations from smallest to greatest then take the middle value\n\nNote: if there is an even number of observations, then there is no single middle value; the median is then usually defined to be the mean of the two middle values\n\n\nIn a distribution, the median is the \\(2^{nd}\\) quartile and the \\(50^{th}\\) percentile\nUse when describing continuous variables\nRobust to extreme values (e.g., income)"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#normal-distribution",
+    "href": "lectures/lecture03/lecture03.html#normal-distribution",
+    "title": "Data Wrangling",
+    "section": "Normal Distribution",
+    "text": "Normal Distribution"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#central-tendency-normal-distribution",
+    "href": "lectures/lecture03/lecture03.html#central-tendency-normal-distribution",
+    "title": "Data Wrangling",
+    "section": "Central Tendency (Normal Distribution)",
+    "text": "Central Tendency (Normal Distribution)"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#skewed-distribution",
+    "href": "lectures/lecture03/lecture03.html#skewed-distribution",
+    "title": "Data Wrangling",
+    "section": "Skewed Distribution",
+    "text": "Skewed Distribution"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#postive-skewed-distribution",
+    "href": "lectures/lecture03/lecture03.html#postive-skewed-distribution",
+    "title": "Data Wrangling",
+    "section": "Postive Skewed Distribution",
+    "text": "Postive Skewed Distribution"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#negative-skewed-distribution",
+    "href": "lectures/lecture03/lecture03.html#negative-skewed-distribution",
+    "title": "Data Wrangling",
+    "section": "Negative Skewed Distribution",
+    "text": "Negative Skewed Distribution"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#mode",
+    "href": "lectures/lecture03/lecture03.html#mode",
+    "title": "Data Wrangling",
+    "section": "Mode",
+    "text": "Mode\n\nMode: the most common value in a series of observations\n\nSome variables include multiple modes (multimodal)\n\nUse when describing discrete (e.g., categorical) variables"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#central-tendency-review",
+    "href": "lectures/lecture03/lecture03.html#central-tendency-review",
+    "title": "Data Wrangling",
+    "section": "Central Tendency Review",
+    "text": "Central Tendency Review\n\nArithmetic mean: sum of values divided by number of values\nMedian: middle value\nMode: most frequent value\nWhat is the mean, median, and mode of \\(x\\)?\n\n\\(x\\) = {1, 2, 2, 3, 4, 7, 9, 10, 11, 12, 12}"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#variance",
+    "href": "lectures/lecture03/lecture03.html#variance",
+    "title": "Data Wrangling",
+    "section": "Variance",
+    "text": "Variance\n\nVariance (\\(s^{2}\\), \\(\\sigma^{2}\\)): the extent to which a variable’s values deviate from or vary around it’s mean; the average distance of each observation from the mean \\[s^{2} = \\frac{1}{n-1} \\sum_{i=1}^n (x_i - \\bar{x})^2\\]"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#variance-1",
+    "href": "lectures/lecture03/lecture03.html#variance-1",
+    "title": "Data Wrangling",
+    "section": "Variance",
+    "text": "Variance\n\nMeasures how far observations are from their average value (spread of the data)\n\nLow variance \\(\\rightarrow\\) observations are relatively close to the mean value\nHigh variance \\(\\rightarrow\\) observations are relatively far from the mean value\n\nExpressed in square units (i.e., \\(\\text{inches}^2\\))"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#dispersion-standard-deviation",
+    "href": "lectures/lecture03/lecture03.html#dispersion-standard-deviation",
+    "title": "Data Wrangling",
+    "section": "Dispersion (Standard Deviation)",
+    "text": "Dispersion (Standard Deviation)\n\nStandard Deviation (\\(s\\), \\(\\sigma\\)): standardized measure of variance \\[s = \\sqrt{s^2} = \\sqrt{\\frac{1}{n-1} \\sum_{i=1}^n (x_i - \\bar{x})^2}\\]\nExpressed in the same units as the mean (i.e., inches)\n\nMean distance from the mean"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#standard-deviation",
+    "href": "lectures/lecture03/lecture03.html#standard-deviation",
+    "title": "Data Wrangling",
+    "section": "Standard Deviation",
+    "text": "Standard Deviation\n\nStandard Deviation (\\(s\\), \\(\\sigma\\)): standardized measure of variance \\[s = \\sqrt{s^2} = \\sqrt{\\frac{1}{n-1} \\sum_{i=1}^n (x_i - \\bar{x})^2}\\]\nExpressed in the same units as the mean (i.e., inches)\n\nMean distance from the mean"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#pipe",
+    "href": "lectures/lecture03/lecture03.html#pipe",
+    "title": "Data Wrangling",
+    "section": "pipe %>%",
+    "text": "pipe %>%\n\nleave_house(get_dressed(get_out_of_bed(wake_up(chris))))\n\n\n“Pipe” a data frame into a “verb” command\n“Chain” the results from one “verb” command into another\nThink of it as the word “then”\n\n\nWriting it out using pipes give it a more natural (and easier to read) structure\n\n\nchris %>% \n  wake_up() %>% \n  get_out_of_bed() %>% \n  get_dressed() %>% \n  leave_house()"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#pipe-1",
+    "href": "lectures/lecture03/lecture03.html#pipe-1",
+    "title": "Data Wrangling",
+    "section": "pipe %>%",
+    "text": "pipe %>%\n\nleave_house(get_dressed(get_out_of_bed(wake_up(chris))))\n\n\n“Pipe” a data frame into a “verb” command\n“Chain” the results from one “verb” command into another\nThink of it as the word “then”\n\n\nchris %>% \n  wake_up() %>% \n  get_out_of_bed() %>% \n  get_dressed() %>% \n  leave_house()"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#data-wrangling-1",
+    "href": "lectures/lecture03/lecture03.html#data-wrangling-1",
+    "title": "Data Wrangling",
+    "section": "Data Wrangling",
+    "text": "Data Wrangling"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#select",
+    "href": "lectures/lecture03/lecture03.html#select",
+    "title": "Data Wrangling",
+    "section": "select()",
+    "text": "select()"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#select-1",
+    "href": "lectures/lecture03/lecture03.html#select-1",
+    "title": "Data Wrangling",
+    "section": "select()",
+    "text": "select()"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#filter",
+    "href": "lectures/lecture03/lecture03.html#filter",
+    "title": "Data Wrangling",
+    "section": "filter()",
+    "text": "filter()"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#filter-1",
+    "href": "lectures/lecture03/lecture03.html#filter-1",
+    "title": "Data Wrangling",
+    "section": "filter()",
+    "text": "filter()"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#filter-2",
+    "href": "lectures/lecture03/lecture03.html#filter-2",
+    "title": "Data Wrangling",
+    "section": "filter()",
+    "text": "filter()"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#summarize",
+    "href": "lectures/lecture03/lecture03.html#summarize",
+    "title": "Data Wrangling",
+    "section": "summarize()",
+    "text": "summarize()\n\n\nSummary functions take many values and return one value meant to describe all those values as a group."
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#summarize-1",
+    "href": "lectures/lecture03/lecture03.html#summarize-1",
+    "title": "Data Wrangling",
+    "section": "summarize()",
+    "text": "summarize()\n\nidaho_crashes %>% \n  summarize(avg_injuries = mean(Number_Of_Injuries))\n\n# A tibble: 1 × 1\n  avg_injuries\n         <dbl>\n1        0.521"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#group_by-summarize",
+    "href": "lectures/lecture03/lecture03.html#group_by-summarize",
+    "title": "Data Wrangling",
+    "section": "group_by() & summarize()",
+    "text": "group_by() & summarize()\n\nidaho_crashes %>% \n  group_by(IntersectionRelated) %>% \n  summarize(avg_injuries = mean(Number_Of_Injuries))\n\n# A tibble: 2 × 2\n  IntersectionRelated avg_injuries\n  <chr>                      <dbl>\n1 N                          0.478\n2 Y                          0.583"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#summarize-2",
+    "href": "lectures/lecture03/lecture03.html#summarize-2",
+    "title": "Data Wrangling",
+    "section": "summarize()",
+    "text": "summarize()"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#mutate",
+    "href": "lectures/lecture03/lecture03.html#mutate",
+    "title": "Data Wrangling",
+    "section": "mutate()",
+    "text": "mutate()"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#mutate-1",
+    "href": "lectures/lecture03/lecture03.html#mutate-1",
+    "title": "Data Wrangling",
+    "section": "mutate()",
+    "text": "mutate()"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#traditional-nested-functions",
+    "href": "lectures/lecture03/lecture03.html#traditional-nested-functions",
+    "title": "Data Wrangling",
+    "section": "Traditional Nested Functions",
+    "text": "Traditional Nested Functions\n\nleave_house(get_dressed(get_out_of_bed(wake_up(chris))))"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#filter-to-select-a-subset-of-rows",
+    "href": "lectures/lecture03/lecture03.html#filter-to-select-a-subset-of-rows",
+    "title": "Data Wrangling",
+    "section": "filter() to select a subset of rows",
+    "text": "filter() to select a subset of rows\nfor crashes in Canyon county\n\nidaho_crashes %>%\n  filter(County == \"Canyon\") \n\n# A tibble: 35,492 × 12\n   OBJECTID Severity            Mile_Point  Year County Number…¹ Numbe…² Inter…³\n      <dbl> <chr>                    <dbl> <dbl> <chr>     <dbl>   <dbl> <chr>  \n 1    20294 Property Dmg Report      0.004  2005 Canyon        0       0 N      \n 2    21886 Property Dmg Report      5.25   2005 Canyon        0       0 Y      \n 3    26693 Property Dmg Report     NA      2005 Canyon        0       0 Y      \n 4    18673 Property Dmg Report      9.27   2005 Canyon        0       0 N      \n 5    17678 Property Dmg Report     NA      2005 Canyon        0       0 Y      \n 6    17287 B Injury Accident       NA      2005 Canyon        0       1 N      \n 7    26710 Property Dmg Report     NA      2005 Canyon        0       0 N      \n 8    19529 Property Dmg Report     39      2005 Canyon        0       0 N      \n 9    20899 B Injury Accident       50.0    2005 Canyon        0       1 Y      \n10    19655 B Injury Accident       23.5    2005 Canyon        0       1 N      \n# … with 35,482 more rows, 4 more variables: Accident_Date_Time <dttm>,\n#   Hour <int>, Month <ord>, Day <ord>, and abbreviated variable names\n#   ¹​Number_Of_Fatalities, ²​Number_Of_Injuries, ³​IntersectionRelated\n\n\n\ndbl = numerical chr = text data See moderndive 1.4.3 for more info"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#filter-for-many-conditions-at-once",
+    "href": "lectures/lecture03/lecture03.html#filter-for-many-conditions-at-once",
+    "title": "Data Wrangling",
+    "section": "filter() for many conditions at once",
+    "text": "filter() for many conditions at once\nfor crashes in Canyon county in 2017\n\nidaho_crashes %>%\n  filter(County == \"Canyon\", Year == 2017) \n\n# A tibble: 3,191 × 12\n   OBJECTID Severity            Mile_Point  Year County Number…¹ Numbe…² Inter…³\n      <dbl> <chr>                    <dbl> <dbl> <chr>     <dbl>   <dbl> <chr>  \n 1   295441 B Injury Accident         4.32  2017 Canyon        0       1 N      \n 2   288513 Fatal Accident           31.1   2017 Canyon        1       1 N      \n 3   293711 Property Dmg Report      31.1   2017 Canyon        0       0 N      \n 4   291456 Property Dmg Report     105.    2017 Canyon        0       0 Y      \n 5   306112 C Injury Accident        31.5   2017 Canyon        0       1 N      \n 6   299918 A Injury Accident        11.2   2017 Canyon        0       1 N      \n 7   295624 C Injury Accident        31.2   2017 Canyon        0       1 N      \n 8   304753 Property Dmg Report      59.3   2017 Canyon        0       0 Y      \n 9   293682 Property Dmg Report       3.03  2017 Canyon        0       0 Y      \n10   292901 Property Dmg Report      28.8   2017 Canyon        0       0 N      \n# … with 3,181 more rows, 4 more variables: Accident_Date_Time <dttm>,\n#   Hour <int>, Month <ord>, Day <ord>, and abbreviated variable names\n#   ¹​Number_Of_Fatalities, ²​Number_Of_Injuries, ³​IntersectionRelated"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#logical-operators-in-r",
+    "href": "lectures/lecture03/lecture03.html#logical-operators-in-r",
+    "title": "Data Wrangling",
+    "section": "Logical operators in R",
+    "text": "Logical operators in R\n\n\n\noperator\ndefinition\noperator\ndefinition\n\n\n\n\n<\n\n\n\n\n\n<=\n\n\n\n\n\n>\n\n\n\n\n\n>=\n\n\n\n\n\n==\n\n\n\n\n\n!=\n\n\n\n\n\nx & y"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#select-to-keep-variables",
+    "href": "lectures/lecture03/lecture03.html#select-to-keep-variables",
+    "title": "Data Wrangling",
+    "section": "select() to keep variables",
+    "text": "select() to keep variables\n\nidaho_crashes %>%\n  filter(County == \"Canyon\", Year == 2017) %>% \n  select(IntersectionRelated, Number_Of_Injuries)\n\n# A tibble: 3,191 × 2\n   IntersectionRelated Number_Of_Injuries\n   <chr>                            <dbl>\n 1 N                                    1\n 2 N                                    1\n 3 N                                    0\n 4 Y                                    0\n 5 N                                    1\n 6 N                                    1\n 7 N                                    1\n 8 Y                                    0\n 9 Y                                    0\n10 N                                    0\n# … with 3,181 more rows"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#select-to-exclude-variables",
+    "href": "lectures/lecture03/lecture03.html#select-to-exclude-variables",
+    "title": "Data Wrangling",
+    "section": "select() to exclude variables",
+    "text": "select() to exclude variables\n\nidaho_crashes %>% \n  select(-OBJECTID)\n\n# A tibble: 299,135 × 11\n   Severity     Mile_…¹  Year County Numbe…² Numbe…³ Inter…⁴ Accident_Date_Time \n   <chr>          <dbl> <dbl> <chr>    <dbl>   <dbl> <chr>   <dttm>             \n 1 Property Dm… 270.     2005 Oneida       0       0 N       2005-01-01 00:01:00\n 2 Property Dm…   0.004  2005 Canyon       0       0 N       2005-01-01 00:01:00\n 3 Property Dm…   5.25   2005 Canyon       0       0 Y       2005-01-01 00:03:00\n 4 Property Dm…   4.6    2005 Twin …       0       0 N       2005-01-01 00:05:00\n 5 C Injury Ac…   1.62   2005 Koote…       0       2 Y       2005-01-01 00:27:00\n 6 Property Dm…  20.5    2005 Ada          0       0 Y       2005-01-01 00:29:00\n 7 Property Dm…  NA      2005 Canyon       0       0 Y       2005-01-01 00:35:00\n 8 Property Dm…  NA      2005 Latah        0       0 N       2005-01-01 00:45:00\n 9 Property Dm…  NA      2005 Koote…       0       0 N       2005-01-01 01:00:00\n10 Property Dm…  NA      2005 Bonne…       0       0 N       2005-01-01 01:25:00\n# … with 299,125 more rows, 3 more variables: Hour <int>, Month <ord>,\n#   Day <ord>, and abbreviated variable names ¹​Mile_Point,\n#   ²​Number_Of_Fatalities, ³​Number_Of_Injuries, ⁴​IntersectionRelated"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#select-a-range-of-variables",
+    "href": "lectures/lecture03/lecture03.html#select-a-range-of-variables",
+    "title": "Data Wrangling",
+    "section": "select() a range of variables",
+    "text": "select() a range of variables\n\nidaho_crashes %>% \n  select(Severity:Mile_Point)\n\n# A tibble: 299,135 × 2\n   Severity            Mile_Point\n   <chr>                    <dbl>\n 1 Property Dmg Report    270.   \n 2 Property Dmg Report      0.004\n 3 Property Dmg Report      5.25 \n 4 Property Dmg Report      4.6  \n 5 C Injury Accident        1.62 \n 6 Property Dmg Report     20.5  \n 7 Property Dmg Report     NA    \n 8 Property Dmg Report     NA    \n 9 Property Dmg Report     NA    \n10 Property Dmg Report     NA    \n# … with 299,125 more rows"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#mutate-to-add-new-variables",
+    "href": "lectures/lecture03/lecture03.html#mutate-to-add-new-variables",
+    "title": "Data Wrangling",
+    "section": "mutate() to add new variables",
+    "text": "mutate() to add new variables"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#mutate-to-add-new-variables-1",
+    "href": "lectures/lecture03/lecture03.html#mutate-to-add-new-variables-1",
+    "title": "Data Wrangling",
+    "section": "mutate() to add new variables",
+    "text": "mutate() to add new variables\n\nidaho_crashes %>% \n  mutate(total_inj_fat = Number_Of_Injuries + Number_Of_Fatalities)\n\n# A tibble: 299,135 × 13\n   OBJECTID Severity            Mile_Point  Year County  Numbe…¹ Numbe…² Inter…³\n      <dbl> <chr>                    <dbl> <dbl> <chr>     <dbl>   <dbl> <chr>  \n 1    17633 Property Dmg Report    270.     2005 Oneida        0       0 N      \n 2    20294 Property Dmg Report      0.004  2005 Canyon        0       0 N      \n 3    21886 Property Dmg Report      5.25   2005 Canyon        0       0 Y      \n 4    22038 Property Dmg Report      4.6    2005 Twin F…       0       0 N      \n 5    18025 C Injury Accident        1.62   2005 Kooten…       0       2 Y      \n 6    19661 Property Dmg Report     20.5    2005 Ada           0       0 Y      \n 7    26693 Property Dmg Report     NA      2005 Canyon        0       0 Y      \n 8    18787 Property Dmg Report     NA      2005 Latah         0       0 N      \n 9    19633 Property Dmg Report     NA      2005 Kooten…       0       0 N      \n10    22197 Property Dmg Report     NA      2005 Bonnev…       0       0 N      \n# … with 299,125 more rows, 5 more variables: Accident_Date_Time <dttm>,\n#   Hour <int>, Month <ord>, Day <ord>, total_inj_fat <dbl>, and abbreviated\n#   variable names ¹​Number_Of_Fatalities, ²​Number_Of_Injuries,\n#   ³​IntersectionRelated"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html#save-when-you-mutate",
+    "href": "lectures/lecture03/lecture03.html#save-when-you-mutate",
+    "title": "Data Wrangling",
+    "section": "“Save” when you mutate",
+    "text": "“Save” when you mutate\n\nidaho_crashes <- idaho_crashes %>% \n  mutate(total_inj_fat = Number_Of_Injuries + Number_Of_Fatalities)\n\n\nMost often when you define a new variable with mutate you’ll also want to save the resulting data frame, often by writing over the original data frame."
   }
 ]
