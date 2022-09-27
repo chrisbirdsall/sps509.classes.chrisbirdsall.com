@@ -18,7 +18,7 @@ Clean perfect data?
 
 ## What is a dataset?
 
-> A **dataset** is a collection of values, usually either numbers (if quantitative) or strings AKA text data (if qualitative/categorical). **Values** are organised in two ways. Every value belongs to a **variable** and an **observation**. A **variable** contains all **values** that measure the same underlying attribute (like height, temperature, duration) across units. An **observation** contains all **values** measured on the same unit (like a person, or a day, or a city) across attributes.[@wickham2014]
+> A **dataset** is a collection of values, usually either numbers (if quantitative) or strings AKA text data (if qualitative/categorical). **Values** are organised in two ways. Every value belongs to a **variable** and an **observation**. A **variable** contains all **values** that measure the same underlying attribute (like height, temperature, duration) across units. An **observation** contains all **values** measured on the same unit (like a person, or a day, or a city) across attributes.
 
 ## What is "tidy" data?
 
@@ -56,7 +56,11 @@ billboard
 -   Three arguments:
     1.  names_to,
     2.  values_to,
-    3.  the column(s) we do or do not want to tidy ::: aside Additional arguments may be necessary in some cases :::
+    3.  the column(s) we do or do not want to tidy 
+    
+    ::: aside
+    Additional arguments may be necessary in some cases 
+    :::
 
 ## `names_to`
 
