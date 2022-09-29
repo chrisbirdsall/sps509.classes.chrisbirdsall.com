@@ -53,13 +53,15 @@ billboard
 ## How do we tidy data?
 
 -   We use the `pivot_longer` function from the `tidyr` package
+
 -   Three arguments:
+
     1.  names_to,
     2.  values_to,
-    3.  the column(s) we do or do not want to tidy 
-    
+    3.  the column(s) we do or do not want to tidy
+
     ::: aside
-    Additional arguments may be necessary in some cases 
+    Additional arguments may be necessary in some cases
     :::
 
 ## `names_to`
