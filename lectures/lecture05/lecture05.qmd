@@ -8,7 +8,34 @@ format:
 ---
 
 
+# Data Visualization Review
 
+## Grammar of Graphics
+
+- A grammar of graphics is a tool that enables us to concisely describe the components of a graphic
+- A statistical graphic is a `mapping` of `data` variables to `aes`thetic attributes of `geom`etric objects.
+# ggplot Review
+
+## Anatomy of a ggplot
+- `ggplot()` is the main function in ggplot2
+
+- Plots are constructed in layers
+
+- Structure of the code for plots can be summarized as
+
+```{r eval = FALSE}
+
+ggplot(data = [dataset],
+
+mapping = aes(x = [x-variable], y = [y-variable])) +
+
+geom_xxx() +
+
+other options
+
+```
+
+- For help with ggplot2, see [ggplot2.tidyverse.org](http://ggplot2.tidyverse.org/)
 
 # Application: County Demographics and Voting Data
 
