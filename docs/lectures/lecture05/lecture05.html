@@ -469,45 +469,30 @@ $ win_candidate         &lt;chr&gt; "Trump", "Trump", "Trump", "Trump", "Trump",
 </section>
 <section id="income-and-education-visualization" class="slide level2">
 <h2>Income and Education Visualization</h2>
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Code</a></li><li><a href="#tabset-1-2">Plot</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged, </span>
-<span id="cb3-2"><a href="#cb3-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, <span class="at">y =</span> median_incomeE,</span>
-<span id="cb3-3"><a href="#cb3-3"></a>                     <span class="at">color =</span> win_candidate)) <span class="sc">+</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Education and Median Income"</span>,</span>
-<span id="cb3-6"><a href="#cb3-6"></a>       <span class="at">subtitle =</span> <span class="st">"Linear relationship between education and income"</span>,</span>
-<span id="cb3-7"><a href="#cb3-7"></a>       <span class="at">x =</span> <span class="st">"Pct Adults w/ Bachelor's Degree or Higher"</span>, <span class="at">y =</span> <span class="st">"Median Income"</span>,</span>
-<span id="cb3-8"><a href="#cb3-8"></a>       <span class="at">color =</span> <span class="st">"Winning Pres. Candidate (2020)"</span>,</span>
-<span id="cb3-9"><a href="#cb3-9"></a>       <span class="at">caption =</span> <span class="st">"Source:Education and income data from U.S. Census Bureau. </span><span class="sc">\n</span><span class="st"> Voting data from the Harvard Dataverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-1-2">
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="lecture05_files/figure-revealjs/unnamed-chunk-7-1.png" style="width:70.0%"></p>
-</div>
-</div>
-</div>
-</div>
-</div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource {r'} number-lines code-with-copy"><code class="sourceCode"><span id="cb3-1"><a href="#cb3-1"></a>ggplot(data = idaho_county_merged, </span>
+<span id="cb3-2"><a href="#cb3-2"></a>       mapping = aes(x = pct_collegeE, y = median_incomeE,</span>
+<span id="cb3-3"><a href="#cb3-3"></a>                     color = win_candidate)) +</span>
+<span id="cb3-4"><a href="#cb3-4"></a>  geom_point() +</span>
+<span id="cb3-5"><a href="#cb3-5"></a>  labs(title = "Education and Median Income",</span>
+<span id="cb3-6"><a href="#cb3-6"></a>       subtitle = "Linear relationship between education and income",</span>
+<span id="cb3-7"><a href="#cb3-7"></a>       x = "Pct Adults w/ Bachelor's Degree or Higher", y = "Median Income",</span>
+<span id="cb3-8"><a href="#cb3-8"></a>       color = "Winning Pres. Candidate (2020)",</span>
+<span id="cb3-9"><a href="#cb3-9"></a>       caption = "Source:Education and income data from U.S. Census Bureau. \n Voting data from the Harvard Dataverse") +</span>
+<span id="cb3-10"><a href="#cb3-10"></a>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="coding-out-loud" class="slide level2">
 <h2>Coding Out Loud</h2>
 <p><strong>Start with the <code>idaho_county_merged</code> data frame</strong></p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb4" data-code-line-numbers="|4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="co">#| output-location: column</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co">#| code-line-numbers: "|4"</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged)</span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="lecture05_files/figure-revealjs/unnamed-chunk-8-1.png" style="width:100.0%"></p>
-</div>
+<p><img data-src="lecture05_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -515,17 +500,17 @@ $ win_candidate         &lt;chr&gt; "Trump", "Trump", "Trump", "Trump", "Trump",
 <section id="coding-out-loud-1" class="slide level2">
 <h2>Coding Out Loud</h2>
 <p>Start with the <code>idaho_county_merged</code> data frame, <strong>map college attainment to the x-axis</strong></p>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged,</span>
-<span id="cb5-2"><a href="#cb5-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:40%;">
-<div class="cell">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb5" data-code-line-numbers="|5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="co">#| output-location: column</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co">#| code-line-numbers: "|5"</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged,</span>
+<span id="cb5-5"><a href="#cb5-5"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE))</span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="lecture05_files/figure-revealjs/unnamed-chunk-9-1.png" style="width:100.0%"></p>
-</div>
+<p><img data-src="lecture05_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -533,18 +518,18 @@ $ win_candidate         &lt;chr&gt; "Trump", "Trump", "Trump", "Trump", "Trump",
 <section id="coding-out-loud-2" class="slide level2">
 <h2>Coding Out Loud</h2>
 <p>Start with the <code>idaho_county_merged</code> data frame, map college attainment to the x-axis and <strong>map median income to the y-axis</strong></p>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged,</span>
-<span id="cb6-2"><a href="#cb6-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, </span>
-<span id="cb6-3"><a href="#cb6-3"></a>                     <span class="at">y =</span> median_incomeE))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:40%;">
-<div class="cell">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb6" data-code-line-numbers="|6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="co">#| output-location: column</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="co">#| code-line-numbers: "|6"</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged,</span>
+<span id="cb6-5"><a href="#cb6-5"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, </span>
+<span id="cb6-6"><a href="#cb6-6"></a>                     <span class="at">y =</span> median_incomeE))</span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="lecture05_files/figure-revealjs/unnamed-chunk-10-1.png" style="width:100.0%"></p>
-</div>
+<p><img data-src="lecture05_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -552,19 +537,19 @@ $ win_candidate         &lt;chr&gt; "Trump", "Trump", "Trump", "Trump", "Trump",
 <section id="coding-out-loud-3" class="slide level2">
 <h2>Coding Out Loud</h2>
 <p>Start with the <code>idaho_county_merged</code> data frame, map college attainment to the x-axis and map median income to the y-axis. <strong>Represent each observation with a point</strong></p>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged,</span>
-<span id="cb7-2"><a href="#cb7-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, </span>
-<span id="cb7-3"><a href="#cb7-3"></a>                     <span class="at">y =</span> median_incomeE))<span class="sc">+</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:40%;">
-<div class="cell">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb7" data-code-line-numbers="|7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="co">#| output-location: column</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="co">#| code-line-numbers: "|7"</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged,</span>
+<span id="cb7-5"><a href="#cb7-5"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, </span>
+<span id="cb7-6"><a href="#cb7-6"></a>                     <span class="at">y =</span> median_incomeE))<span class="sc">+</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="lecture05_files/figure-revealjs/unnamed-chunk-11-1.png" style="width:100.0%"></p>
-</div>
+<p><img data-src="lecture05_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -572,20 +557,20 @@ $ win_candidate         &lt;chr&gt; "Trump", "Trump", "Trump", "Trump", "Trump",
 <section id="coding-out-loud-4" class="slide level2">
 <h2>Coding Out Loud</h2>
 <p>Start with the <code>idaho_county_merged</code> data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point <strong>and map election winner to the color of each point</strong>.</p>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged,</span>
-<span id="cb8-2"><a href="#cb8-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, </span>
-<span id="cb8-3"><a href="#cb8-3"></a>                     <span class="at">y =</span> median_incomeE,</span>
-<span id="cb8-4"><a href="#cb8-4"></a>                     <span class="at">color =</span> win_candidate))<span class="sc">+</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:40%;">
-<div class="cell">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb8" data-code-line-numbers="|8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="co">#| output-location: column</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="co">#| code-line-numbers: "|8"</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged,</span>
+<span id="cb8-5"><a href="#cb8-5"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, </span>
+<span id="cb8-6"><a href="#cb8-6"></a>                     <span class="at">y =</span> median_incomeE,</span>
+<span id="cb8-7"><a href="#cb8-7"></a>                     <span class="at">color =</span> win_candidate))<span class="sc">+</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="lecture05_files/figure-revealjs/unnamed-chunk-12-1.png" style="width:100.0%"></p>
-</div>
+<p><img data-src="lecture05_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -593,20 +578,20 @@ $ win_candidate         &lt;chr&gt; "Trump", "Trump", "Trump", "Trump", "Trump",
 <section id="coding-out-loud-5" class="slide level2">
 <h2>Coding Out Loud</h2>
 <p>Start with the <code>idaho_county_merged</code> data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point and map election winner to the color of each point. <strong>Title the plot “Education and Median Income”.</strong></p>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged, </span>
-<span id="cb9-2"><a href="#cb9-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, <span class="at">y =</span> median_incomeE,</span>
-<span id="cb9-3"><a href="#cb9-3"></a>                     <span class="at">color =</span> win_candidate)) <span class="sc">+</span></span>
-<span id="cb9-4"><a href="#cb9-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Education and Median Income"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:40%;">
-<div class="cell">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="co">#| output-location: column</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="co">#| code-line-numbers: |8</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged, </span>
+<span id="cb9-5"><a href="#cb9-5"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, <span class="at">y =</span> median_incomeE,</span>
+<span id="cb9-6"><a href="#cb9-6"></a>                     <span class="at">color =</span> win_candidate)) <span class="sc">+</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Education and Median Income"</span>)</span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="lecture05_files/figure-revealjs/unnamed-chunk-13-1.png" style="width:100.0%"></p>
-</div>
+<p><img data-src="lecture05_files/figure-revealjs/unnamed-chunk-12-1.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -614,21 +599,21 @@ $ win_candidate         &lt;chr&gt; "Trump", "Trump", "Trump", "Trump", "Trump",
 <section id="coding-out-loud-6" class="slide level2">
 <h2>Coding Out Loud</h2>
 <p>Start with the <code>idaho_county_merged</code> data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point and map election winner to the color of each point. Title the plot “Education and Median Income”. <strong>Add the subtitle, “Linear relationship between education and income”</strong></p>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged, </span>
-<span id="cb10-2"><a href="#cb10-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, <span class="at">y =</span> median_incomeE,</span>
-<span id="cb10-3"><a href="#cb10-3"></a>                     <span class="at">color =</span> win_candidate)) <span class="sc">+</span></span>
-<span id="cb10-4"><a href="#cb10-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb10-5"><a href="#cb10-5"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Education and Median Income"</span>,</span>
-<span id="cb10-6"><a href="#cb10-6"></a>       <span class="at">subtitle =</span> <span class="st">"Linear relationship between education and income"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:40%;">
-<div class="cell">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="|9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="co">#| output-location: column</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="co">#| code-line-numbers: "|9"</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged, </span>
+<span id="cb10-5"><a href="#cb10-5"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, <span class="at">y =</span> median_incomeE,</span>
+<span id="cb10-6"><a href="#cb10-6"></a>                     <span class="at">color =</span> win_candidate)) <span class="sc">+</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Education and Median Income"</span>,</span>
+<span id="cb10-9"><a href="#cb10-9"></a>       <span class="at">subtitle =</span> <span class="st">"Linear relationship between education and income"</span>)</span>
+<span id="cb10-10"><a href="#cb10-10"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="lecture05_files/figure-revealjs/unnamed-chunk-14-1.png" style="width:100.0%"></p>
-</div>
+<p><img data-src="lecture05_files/figure-revealjs/unnamed-chunk-13-1.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -636,23 +621,23 @@ $ win_candidate         &lt;chr&gt; "Trump", "Trump", "Trump", "Trump", "Trump",
 <section id="coding-out-loud-7" class="slide level2">
 <h2>Coding Out Loud</h2>
 <p>Start with the <code>idaho_county_merged</code> data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point and map election winner to the color of each point. Title the plot “Education and Median Income”. Add the subtitle, “Linear relationship between education and income”. <strong>Label the x and y axes “Pct Adults w/ Bachelor’s Degree or Higher” and “Median Income”, respectively</strong></p>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11" data-code-line-numbers="7-8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged, </span>
-<span id="cb11-2"><a href="#cb11-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, <span class="at">y =</span> median_incomeE,</span>
-<span id="cb11-3"><a href="#cb11-3"></a>                     <span class="at">color =</span> win_candidate)) <span class="sc">+</span></span>
-<span id="cb11-4"><a href="#cb11-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb11-5"><a href="#cb11-5"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Education and Median Income"</span>,</span>
-<span id="cb11-6"><a href="#cb11-6"></a>       <span class="at">subtitle =</span> <span class="st">"Linear relationship between education and income"</span>,</span>
-<span id="cb11-7"><a href="#cb11-7"></a>       <span class="at">x =</span> <span class="st">"Pct Adults w/ Bachelor's Degree or Higher"</span>, </span>
-<span id="cb11-8"><a href="#cb11-8"></a>       <span class="at">y =</span> <span class="st">"Median Income"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:40%;">
-<div class="cell">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb11" data-code-line-numbers="|10|11"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1"></a><span class="in">```{r}</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="co">#| output-location: column</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="co">#| code-line-numbers: "|10|11"</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged, </span>
+<span id="cb11-5"><a href="#cb11-5"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, <span class="at">y =</span> median_incomeE,</span>
+<span id="cb11-6"><a href="#cb11-6"></a>                     <span class="at">color =</span> win_candidate)) <span class="sc">+</span></span>
+<span id="cb11-7"><a href="#cb11-7"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Education and Median Income"</span>,</span>
+<span id="cb11-9"><a href="#cb11-9"></a>       <span class="at">subtitle =</span> <span class="st">"Linear relationship between education and income"</span>,</span>
+<span id="cb11-10"><a href="#cb11-10"></a>       <span class="at">x =</span> <span class="st">"Pct Adults w/ Bachelor's Degree or Higher"</span>, </span>
+<span id="cb11-11"><a href="#cb11-11"></a>       <span class="at">y =</span> <span class="st">"Median Income"</span>)</span>
+<span id="cb11-12"><a href="#cb11-12"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="lecture05_files/figure-revealjs/unnamed-chunk-15-1.png" style="width:100.0%"></p>
-</div>
+<p><img data-src="lecture05_files/figure-revealjs/unnamed-chunk-14-1.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -660,24 +645,24 @@ $ win_candidate         &lt;chr&gt; "Trump", "Trump", "Trump", "Trump", "Trump",
 <section id="coding-out-loud-8" class="slide level2">
 <h2>Coding Out Loud</h2>
 <p>Start with the <code>idaho_county_merged</code> data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point and map election winner to the color of each point. Title the plot “Education and Median Income”. Add the subtitle, “Linear relationship between education and income”. Label the x and y axes “Pct Adults w/ Bachelor’s Degree or Higher” and “Median Income”, respectively, <strong>label the legend “Winning Pres.&nbsp;Candidate (2020)”</strong></p>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged, </span>
-<span id="cb12-2"><a href="#cb12-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, <span class="at">y =</span> median_incomeE,</span>
-<span id="cb12-3"><a href="#cb12-3"></a>                     <span class="at">color =</span> win_candidate)) <span class="sc">+</span></span>
-<span id="cb12-4"><a href="#cb12-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb12-5"><a href="#cb12-5"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Education and Median Income"</span>,</span>
-<span id="cb12-6"><a href="#cb12-6"></a>       <span class="at">subtitle =</span> <span class="st">"Linear relationship between education and income"</span>,</span>
-<span id="cb12-7"><a href="#cb12-7"></a>       <span class="at">x =</span> <span class="st">"Pct Adults w/ Bachelor's Degree or Higher"</span>, </span>
-<span id="cb12-8"><a href="#cb12-8"></a>       <span class="at">y =</span> <span class="st">"Median Income"</span>,</span>
-<span id="cb12-9"><a href="#cb12-9"></a>       <span class="at">color =</span> <span class="st">"Winning Pres. Candidate (2020)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:40%;">
-<div class="cell">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb12" data-code-line-numbers="|12"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="co">#| output-location: column</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="co">#| code-line-numbers: "|12"</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged, </span>
+<span id="cb12-5"><a href="#cb12-5"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, <span class="at">y =</span> median_incomeE,</span>
+<span id="cb12-6"><a href="#cb12-6"></a>                     <span class="at">color =</span> win_candidate)) <span class="sc">+</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb12-8"><a href="#cb12-8"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Education and Median Income"</span>,</span>
+<span id="cb12-9"><a href="#cb12-9"></a>       <span class="at">subtitle =</span> <span class="st">"Linear relationship between education and income"</span>,</span>
+<span id="cb12-10"><a href="#cb12-10"></a>       <span class="at">x =</span> <span class="st">"Pct Adults w/ Bachelor's Degree or Higher"</span>, </span>
+<span id="cb12-11"><a href="#cb12-11"></a>       <span class="at">y =</span> <span class="st">"Median Income"</span>,</span>
+<span id="cb12-12"><a href="#cb12-12"></a>       <span class="at">color =</span> <span class="st">"Winning Pres. Candidate (2020)"</span>)</span>
+<span id="cb12-13"><a href="#cb12-13"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="lecture05_files/figure-revealjs/unnamed-chunk-16-1.png" style="width:100.0%"></p>
-</div>
+<p><img data-src="lecture05_files/figure-revealjs/unnamed-chunk-15-1.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -685,25 +670,52 @@ $ win_candidate         &lt;chr&gt; "Trump", "Trump", "Trump", "Trump", "Trump",
 <section id="coding-out-loud-9" class="slide level2">
 <h2>Coding Out Loud</h2>
 <p>Start with the <code>idaho_county_merged</code> data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point and map election winner to the color of each point. Title the plot “Education and Median Income”. Add the subtitle, “Linear relationship between education and income”. Label the x and y axes “Pct Adults w/ Bachelor’s Degree or Higher” and “Median Income”, respectively, label the legend “Winning Pres.&nbsp;Candidate (2020)”, <strong>and add a caption for the data source.</strong></p>
-<div class="columns">
-<div class="column" style="width:60%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13" data-code-line-numbers="10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged, </span>
-<span id="cb13-2"><a href="#cb13-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, <span class="at">y =</span> median_incomeE,</span>
-<span id="cb13-3"><a href="#cb13-3"></a>                     <span class="at">color =</span> win_candidate)) <span class="sc">+</span></span>
-<span id="cb13-4"><a href="#cb13-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb13-5"><a href="#cb13-5"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Education and Median Income"</span>,</span>
-<span id="cb13-6"><a href="#cb13-6"></a>       <span class="at">subtitle =</span> <span class="st">"Linear relationship between education and income"</span>,</span>
-<span id="cb13-7"><a href="#cb13-7"></a>       <span class="at">x =</span> <span class="st">"Pct Adults w/ Bachelor's Degree or Higher"</span>, </span>
-<span id="cb13-8"><a href="#cb13-8"></a>       <span class="at">y =</span> <span class="st">"Median Income"</span>,</span>
-<span id="cb13-9"><a href="#cb13-9"></a>       <span class="at">color =</span> <span class="st">"Winning Pres. Candidate (2020)"</span>,</span>
-<span id="cb13-10"><a href="#cb13-10"></a>       <span class="at">caption =</span> <span class="st">"Source:Education and income data from U.S. Census Bureau. </span><span class="sc">\n</span><span class="st"> Voting data from the Harvard Dataverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:40%;">
-<div class="cell">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb13" data-code-line-numbers="|13"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1"></a><span class="in">```{r}</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="co">#| output-location: column</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="co">#| code-line-numbers: "|13"</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged, </span>
+<span id="cb13-5"><a href="#cb13-5"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, <span class="at">y =</span> median_incomeE,</span>
+<span id="cb13-6"><a href="#cb13-6"></a>                     <span class="at">color =</span> win_candidate)) <span class="sc">+</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb13-8"><a href="#cb13-8"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Education and Median Income"</span>,</span>
+<span id="cb13-9"><a href="#cb13-9"></a>       <span class="at">subtitle =</span> <span class="st">"Linear relationship between education and income"</span>,</span>
+<span id="cb13-10"><a href="#cb13-10"></a>       <span class="at">x =</span> <span class="st">"Pct Adults w/ Bachelor's Degree or Higher"</span>, </span>
+<span id="cb13-11"><a href="#cb13-11"></a>       <span class="at">y =</span> <span class="st">"Median Income"</span>,</span>
+<span id="cb13-12"><a href="#cb13-12"></a>       <span class="at">color =</span> <span class="st">"Winning Pres. Candidate (2020)"</span>,</span>
+<span id="cb13-13"><a href="#cb13-13"></a>       <span class="at">caption =</span> <span class="st">"Source:Education and income data from U.S. Census Bureau. </span><span class="sc">\n</span><span class="st"> Voting data from the Harvard Dataverse"</span>)</span>
+<span id="cb13-14"><a href="#cb13-14"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
 <div class="cell-output-display">
-<p><img data-src="lecture05_files/figure-revealjs/unnamed-chunk-17-1.png" style="width:100.0%"></p>
+<p><img data-src="lecture05_files/figure-revealjs/unnamed-chunk-16-1.png" width="960"></p>
 </div>
+</div>
+</div>
+</section>
+<section id="coding-out-loud-10" class="slide level2">
+<h2>Coding Out Loud</h2>
+<p>Start with the <code>idaho_county_merged</code> data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point and map election winner to the color of each point. Title the plot “Education and Median Income”. Add the subtitle, “Linear relationship between education and income”. Label the x and y axes “Pct Adults w/ Bachelor’s Degree or Higher” and “Median Income”, respectively, label the legend “Winning Pres.&nbsp;Candidate (2020)”, and add a caption for the data source. <strong>Oh! AND fix the candidate name colors with one more layer of code for <code>ggplot</code></strong></p>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb14" data-code-line-numbers="|14"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1"></a><span class="in">```{r}</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="co">#| output-location: column</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="co">#| code-line-numbers: "|14"</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged, </span>
+<span id="cb14-5"><a href="#cb14-5"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, <span class="at">y =</span> median_incomeE,</span>
+<span id="cb14-6"><a href="#cb14-6"></a>                     <span class="at">color =</span> win_candidate)) <span class="sc">+</span></span>
+<span id="cb14-7"><a href="#cb14-7"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb14-8"><a href="#cb14-8"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Education and Median Income"</span>,</span>
+<span id="cb14-9"><a href="#cb14-9"></a>       <span class="at">subtitle =</span> <span class="st">"Linear relationship between education and income"</span>,</span>
+<span id="cb14-10"><a href="#cb14-10"></a>       <span class="at">x =</span> <span class="st">"Pct Adults w/ Bachelor's Degree or Higher"</span>, </span>
+<span id="cb14-11"><a href="#cb14-11"></a>       <span class="at">y =</span> <span class="st">"Median Income"</span>,</span>
+<span id="cb14-12"><a href="#cb14-12"></a>       <span class="at">color =</span> <span class="st">"Winning Pres. Candidate (2020)"</span>,</span>
+<span id="cb14-13"><a href="#cb14-13"></a>       <span class="at">caption =</span> <span class="st">"Source:Education and income data from U.S. Census Bureau. </span><span class="sc">\n</span><span class="st"> Voting data from the Harvard Dataverse"</span>) <span class="sc">+</span></span>
+<span id="cb14-14"><a href="#cb14-14"></a> <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>,<span class="st">"red"</span>)) </span>
+<span id="cb14-15"><a href="#cb14-15"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<p><img data-src="lecture05_files/figure-revealjs/unnamed-chunk-17-1.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -716,21 +728,8 @@ $ win_candidate         &lt;chr&gt; "Trump", "Trump", "Trump", "Trump", "Trump",
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged, </span>
-<span id="cb14-2"><a href="#cb14-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, <span class="at">y =</span> median_incomeE,</span>
-<span id="cb14-3"><a href="#cb14-3"></a>                     <span class="at">color =</span> win_candidate)) <span class="sc">+</span></span>
-<span id="cb14-4"><a href="#cb14-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb14-5"><a href="#cb14-5"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Education and Median Income"</span>,</span>
-<span id="cb14-6"><a href="#cb14-6"></a>       <span class="at">subtitle =</span> <span class="st">"Linear relationship between education and income"</span>,</span>
-<span id="cb14-7"><a href="#cb14-7"></a>       <span class="at">x =</span> <span class="st">"Pct Adults w/ Bachelor's Degree or Higher"</span>, </span>
-<span id="cb14-8"><a href="#cb14-8"></a>       <span class="at">y =</span> <span class="st">"Median Income"</span>,</span>
-<span id="cb14-9"><a href="#cb14-9"></a>       <span class="at">color =</span> <span class="st">"Winning Pres. Candidate (2020)"</span>,</span>
-<span id="cb14-10"><a href="#cb14-10"></a>       <span class="at">caption =</span> <span class="st">"Source:Education and income data from U.S. Census Bureau. </span><span class="sc">\n</span><span class="st"> Voting data from the Harvard Dataverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">ggplot</span>(idaho_county_merged, </span>
-<span id="cb15-2"><a href="#cb15-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, <span class="at">y =</span> median_incomeE,</span>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged, </span>
+<span id="cb15-2"><a href="#cb15-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, <span class="at">y =</span> median_incomeE,</span>
 <span id="cb15-3"><a href="#cb15-3"></a>                     <span class="at">color =</span> win_candidate)) <span class="sc">+</span></span>
 <span id="cb15-4"><a href="#cb15-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb15-5"><a href="#cb15-5"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Education and Median Income"</span>,</span>
@@ -738,7 +737,22 @@ $ win_candidate         &lt;chr&gt; "Trump", "Trump", "Trump", "Trump", "Trump",
 <span id="cb15-7"><a href="#cb15-7"></a>       <span class="at">x =</span> <span class="st">"Pct Adults w/ Bachelor's Degree or Higher"</span>, </span>
 <span id="cb15-8"><a href="#cb15-8"></a>       <span class="at">y =</span> <span class="st">"Median Income"</span>,</span>
 <span id="cb15-9"><a href="#cb15-9"></a>       <span class="at">color =</span> <span class="st">"Winning Pres. Candidate (2020)"</span>,</span>
-<span id="cb15-10"><a href="#cb15-10"></a>       <span class="at">caption =</span> <span class="st">"Source:Education and income data from U.S. Census Bureau. </span><span class="sc">\n</span><span class="st"> Voting data from the Harvard Dataverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-10"><a href="#cb15-10"></a>       <span class="at">caption =</span> <span class="st">"Source:Education and income data from U.S. Census Bureau. </span><span class="sc">\n</span><span class="st"> Voting data from the Harvard Dataverse"</span>) <span class="sc">+</span></span>
+<span id="cb15-11"><a href="#cb15-11"></a> <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>,<span class="st">"red"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">ggplot</span>(idaho_county_merged, </span>
+<span id="cb16-2"><a href="#cb16-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, <span class="at">y =</span> median_incomeE,</span>
+<span id="cb16-3"><a href="#cb16-3"></a>                     <span class="at">color =</span> win_candidate)) <span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Education and Median Income"</span>,</span>
+<span id="cb16-6"><a href="#cb16-6"></a>       <span class="at">subtitle =</span> <span class="st">"Linear relationship between education and income"</span>,</span>
+<span id="cb16-7"><a href="#cb16-7"></a>       <span class="at">x =</span> <span class="st">"Pct Adults w/ Bachelor's Degree or Higher"</span>, </span>
+<span id="cb16-8"><a href="#cb16-8"></a>       <span class="at">y =</span> <span class="st">"Median Income"</span>,</span>
+<span id="cb16-9"><a href="#cb16-9"></a>       <span class="at">color =</span> <span class="st">"Winning Pres. Candidate (2020)"</span>,</span>
+<span id="cb16-10"><a href="#cb16-10"></a>       <span class="at">caption =</span> <span class="st">"Source:Education and income data from U.S. Census Bureau. </span><span class="sc">\n</span><span class="st"> Voting data from the Harvard Dataverse"</span>) <span class="sc">+</span></span>
+<span id="cb16-11"><a href="#cb16-11"></a> <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>,<span class="st">"red"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -762,15 +776,15 @@ $ win_candidate         &lt;chr&gt; "Trump", "Trump", "Trump", "Trump", "Trump",
 <h2>Color</h2>
 <div class="column" style="width:60%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged, </span>
-<span id="cb16-2"><a href="#cb16-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, <span class="at">y =</span> median_incomeE,</span>
-<span id="cb16-3"><a href="#cb16-3"></a>                     <span class="at">color =</span> win_candidate)) <span class="sc">+</span></span>
-<span id="cb16-4"><a href="#cb16-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb16-5"><a href="#cb16-5"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Education and Median Income"</span>,</span>
-<span id="cb16-6"><a href="#cb16-6"></a>       <span class="at">subtitle =</span> <span class="st">"Linear relationship between education and income"</span>,</span>
-<span id="cb16-7"><a href="#cb16-7"></a>       <span class="at">x =</span> <span class="st">"Pct Adults w/ Bachelor's Degree or Higher"</span>, </span>
-<span id="cb16-8"><a href="#cb16-8"></a>       <span class="at">y =</span> <span class="st">"Median Income"</span>,</span>
-<span id="cb16-9"><a href="#cb16-9"></a>       <span class="at">color =</span> <span class="st">"Winning Pres. Candidate (2020)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged, </span>
+<span id="cb17-2"><a href="#cb17-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, <span class="at">y =</span> median_incomeE,</span>
+<span id="cb17-3"><a href="#cb17-3"></a>                     <span class="at">color =</span> win_candidate)) <span class="sc">+</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb17-5"><a href="#cb17-5"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Education and Median Income"</span>,</span>
+<span id="cb17-6"><a href="#cb17-6"></a>       <span class="at">subtitle =</span> <span class="st">"Linear relationship between education and income"</span>,</span>
+<span id="cb17-7"><a href="#cb17-7"></a>       <span class="at">x =</span> <span class="st">"Pct Adults w/ Bachelor's Degree or Higher"</span>, </span>
+<span id="cb17-8"><a href="#cb17-8"></a>       <span class="at">y =</span> <span class="st">"Median Income"</span>,</span>
+<span id="cb17-9"><a href="#cb17-9"></a>       <span class="at">color =</span> <span class="st">"Winning Pres. Candidate (2020)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="column" style="width:40%;">
@@ -785,15 +799,15 @@ $ win_candidate         &lt;chr&gt; "Trump", "Trump", "Trump", "Trump", "Trump",
 <h2>Shape</h2>
 <div class="column" style="width:60%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged, </span>
-<span id="cb17-2"><a href="#cb17-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, <span class="at">y =</span> median_incomeE,</span>
-<span id="cb17-3"><a href="#cb17-3"></a>                     <span class="at">shape =</span> win_candidate)) <span class="sc">+</span></span>
-<span id="cb17-4"><a href="#cb17-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb17-5"><a href="#cb17-5"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Education and Median Income"</span>,</span>
-<span id="cb17-6"><a href="#cb17-6"></a>       <span class="at">subtitle =</span> <span class="st">"Linear relationship between education and income"</span>,</span>
-<span id="cb17-7"><a href="#cb17-7"></a>       <span class="at">x =</span> <span class="st">"Pct Adults w/ Bachelor's Degree or Higher"</span>, </span>
-<span id="cb17-8"><a href="#cb17-8"></a>       <span class="at">y =</span> <span class="st">"Median Income"</span>,</span>
-<span id="cb17-9"><a href="#cb17-9"></a>       <span class="at">shape =</span> <span class="st">"Winning Pres. Candidate (2020)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged, </span>
+<span id="cb18-2"><a href="#cb18-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, <span class="at">y =</span> median_incomeE,</span>
+<span id="cb18-3"><a href="#cb18-3"></a>                     <span class="at">shape =</span> win_candidate)) <span class="sc">+</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Education and Median Income"</span>,</span>
+<span id="cb18-6"><a href="#cb18-6"></a>       <span class="at">subtitle =</span> <span class="st">"Linear relationship between education and income"</span>,</span>
+<span id="cb18-7"><a href="#cb18-7"></a>       <span class="at">x =</span> <span class="st">"Pct Adults w/ Bachelor's Degree or Higher"</span>, </span>
+<span id="cb18-8"><a href="#cb18-8"></a>       <span class="at">y =</span> <span class="st">"Median Income"</span>,</span>
+<span id="cb18-9"><a href="#cb18-9"></a>       <span class="at">shape =</span> <span class="st">"Winning Pres. Candidate (2020)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="column" style="width:40%;">
@@ -808,17 +822,17 @@ $ win_candidate         &lt;chr&gt; "Trump", "Trump", "Trump", "Trump", "Trump",
 <h2>Alpha</h2>
 <div class="column" style="width:60%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged, </span>
-<span id="cb18-2"><a href="#cb18-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, <span class="at">y =</span> median_incomeE,</span>
-<span id="cb18-3"><a href="#cb18-3"></a>                     <span class="at">color =</span> win_candidate,</span>
-<span id="cb18-4"><a href="#cb18-4"></a>                     <span class="at">size =</span> total_populationM,</span>
-<span id="cb18-5"><a href="#cb18-5"></a>                     <span class="at">alpha =</span> pct_democrat_votes)) <span class="sc">+</span></span>
-<span id="cb18-6"><a href="#cb18-6"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb18-7"><a href="#cb18-7"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Education and Median Income"</span>,</span>
-<span id="cb18-8"><a href="#cb18-8"></a>       <span class="at">subtitle =</span> <span class="st">"Linear relationship between education and income"</span>,</span>
-<span id="cb18-9"><a href="#cb18-9"></a>       <span class="at">x =</span> <span class="st">"Pct Adults w/ Bachelor's Degree or Higher"</span>, </span>
-<span id="cb18-10"><a href="#cb18-10"></a>       <span class="at">y =</span> <span class="st">"Median Income"</span>,</span>
-<span id="cb18-11"><a href="#cb18-11"></a>       <span class="at">color =</span> <span class="st">"Winning Pres. Candidate (2020)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged, </span>
+<span id="cb19-2"><a href="#cb19-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, <span class="at">y =</span> median_incomeE,</span>
+<span id="cb19-3"><a href="#cb19-3"></a>                     <span class="at">color =</span> win_candidate,</span>
+<span id="cb19-4"><a href="#cb19-4"></a>                     <span class="at">size =</span> total_populationE,</span>
+<span id="cb19-5"><a href="#cb19-5"></a>                     <span class="at">alpha =</span> pct_democrat_votes)) <span class="sc">+</span></span>
+<span id="cb19-6"><a href="#cb19-6"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb19-7"><a href="#cb19-7"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Education and Median Income"</span>,</span>
+<span id="cb19-8"><a href="#cb19-8"></a>       <span class="at">subtitle =</span> <span class="st">"Linear relationship between education and income"</span>,</span>
+<span id="cb19-9"><a href="#cb19-9"></a>       <span class="at">x =</span> <span class="st">"Pct Adults w/ Bachelor's Degree or Higher"</span>, </span>
+<span id="cb19-10"><a href="#cb19-10"></a>       <span class="at">y =</span> <span class="st">"Median Income"</span>,</span>
+<span id="cb19-11"><a href="#cb19-11"></a>       <span class="at">color =</span> <span class="st">"Winning Pres. Candidate (2020)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="column" style="width:40%;">
@@ -833,16 +847,16 @@ $ win_candidate         &lt;chr&gt; "Trump", "Trump", "Trump", "Trump", "Trump",
 <h2>Size</h2>
 <div class="column" style="width:60%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged, </span>
-<span id="cb19-2"><a href="#cb19-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, <span class="at">y =</span> median_incomeE,</span>
-<span id="cb19-3"><a href="#cb19-3"></a>                     <span class="at">color =</span> win_candidate,</span>
-<span id="cb19-4"><a href="#cb19-4"></a>                     <span class="at">size =</span> total_populationM)) <span class="sc">+</span></span>
-<span id="cb19-5"><a href="#cb19-5"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb19-6"><a href="#cb19-6"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Education and Median Income"</span>,</span>
-<span id="cb19-7"><a href="#cb19-7"></a>       <span class="at">subtitle =</span> <span class="st">"Linear relationship between education and income"</span>,</span>
-<span id="cb19-8"><a href="#cb19-8"></a>       <span class="at">x =</span> <span class="st">"Pct Adults w/ Bachelor's Degree or Higher"</span>, </span>
-<span id="cb19-9"><a href="#cb19-9"></a>       <span class="at">y =</span> <span class="st">"Median Income"</span>,</span>
-<span id="cb19-10"><a href="#cb19-10"></a>       <span class="at">color =</span> <span class="st">"Winning Pres. Candidate (2020)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> idaho_county_merged, </span>
+<span id="cb20-2"><a href="#cb20-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pct_collegeE, <span class="at">y =</span> median_incomeE,</span>
+<span id="cb20-3"><a href="#cb20-3"></a>                     <span class="at">color =</span> win_candidate,</span>
+<span id="cb20-4"><a href="#cb20-4"></a>                     <span class="at">size =</span> total_populationM)) <span class="sc">+</span></span>
+<span id="cb20-5"><a href="#cb20-5"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb20-6"><a href="#cb20-6"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Education and Median Income"</span>,</span>
+<span id="cb20-7"><a href="#cb20-7"></a>       <span class="at">subtitle =</span> <span class="st">"Linear relationship between education and income"</span>,</span>
+<span id="cb20-8"><a href="#cb20-8"></a>       <span class="at">x =</span> <span class="st">"Pct Adults w/ Bachelor's Degree or Higher"</span>, </span>
+<span id="cb20-9"><a href="#cb20-9"></a>       <span class="at">y =</span> <span class="st">"Median Income"</span>,</span>
+<span id="cb20-10"><a href="#cb20-10"></a>       <span class="at">color =</span> <span class="st">"Winning Pres. Candidate (2020)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="column" style="width:40%;">
@@ -871,8 +885,6 @@ $ win_candidate         &lt;chr&gt; "Trump", "Trump", "Trump", "Trump", "Trump",
   |                                                                            
   |==                                                                    |   3%
   |                                                                            
-  |==                                                                    |   4%
-  |                                                                            
   |===                                                                   |   4%
   |                                                                            
   |===                                                                   |   5%
@@ -885,8 +897,6 @@ $ win_candidate         &lt;chr&gt; "Trump", "Trump", "Trump", "Trump", "Trump",
   |                                                                            
   |=====                                                                 |   7%
   |                                                                            
-  |=====                                                                 |   8%
-  |                                                                            
   |======                                                                |   8%
   |                                                                            
   |======                                                                |   9%
@@ -895,143 +905,23 @@ $ win_candidate         &lt;chr&gt; "Trump", "Trump", "Trump", "Trump", "Trump",
   |                                                                            
   |=======                                                               |  10%
   |                                                                            
-  |=======                                                               |  11%
-  |                                                                            
   |========                                                              |  11%
   |                                                                            
-  |========                                                              |  12%
+  |==========                                                            |  15%
   |                                                                            
-  |=========                                                             |  12%
-  |                                                                            
-  |=========                                                             |  13%
-  |                                                                            
-  |==========                                                            |  14%
-  |                                                                            
-  |==============                                                        |  20%
-  |                                                                            
-  |==============                                                        |  21%
+  |============                                                          |  17%
   |                                                                            
   |===============                                                       |  21%
   |                                                                            
   |===============                                                       |  22%
   |                                                                            
-  |================                                                      |  22%
-  |                                                                            
-  |================                                                      |  23%
-  |                                                                            
-  |================                                                      |  24%
-  |                                                                            
-  |=================                                                     |  25%
-  |                                                                            
-  |==================                                                    |  25%
-  |                                                                            
-  |==================                                                    |  26%
-  |                                                                            
-  |===================                                                   |  27%
-  |                                                                            
-  |===================                                                   |  28%
-  |                                                                            
-  |====================                                                  |  28%
-  |                                                                            
-  |====================                                                  |  29%
-  |                                                                            
-  |=====================                                                 |  29%
-  |                                                                            
-  |=====================                                                 |  30%
-  |                                                                            
-  |=========================                                             |  36%
-  |                                                                            
-  |==========================                                            |  37%
-  |                                                                            
-  |==========================                                            |  38%
+  |========================                                              |  34%
   |                                                                            
   |===========================                                           |  38%
   |                                                                            
-  |===========================                                           |  39%
-  |                                                                            
-  |============================                                          |  40%
-  |                                                                            
-  |============================                                          |  41%
-  |                                                                            
-  |=============================                                         |  41%
-  |                                                                            
-  |=============================                                         |  42%
-  |                                                                            
-  |==============================                                        |  42%
-  |                                                                            
-  |==============================                                        |  43%
-  |                                                                            
-  |===============================                                       |  44%
-  |                                                                            
-  |===============================                                       |  45%
-  |                                                                            
-  |================================                                      |  45%
-  |                                                                            
-  |================================                                      |  46%
-  |                                                                            
-  |=================================                                     |  46%
-  |                                                                            
-  |=================================                                     |  47%
-  |                                                                            
-  |=================================                                     |  48%
-  |                                                                            
-  |==================================                                    |  48%
-  |                                                                            
-  |==================================                                    |  49%
-  |                                                                            
-  |===================================                                   |  49%
-  |                                                                            
-  |===================================                                   |  50%
-  |                                                                            
-  |===================================                                   |  51%
-  |                                                                            
   |====================================                                  |  51%
   |                                                                            
-  |====================================                                  |  52%
-  |                                                                            
-  |=====================================                                 |  53%
-  |                                                                            
-  |=====================================                                 |  54%
-  |                                                                            
-  |======================================                                |  54%
-  |                                                                            
-  |======================================                                |  55%
-  |                                                                            
-  |=======================================                               |  55%
-  |                                                                            
   |=======================================                               |  56%
-  |                                                                            
-  |========================================                              |  56%
-  |                                                                            
-  |========================================                              |  57%
-  |                                                                            
-  |========================================                              |  58%
-  |                                                                            
-  |=========================================                             |  58%
-  |                                                                            
-  |=========================================                             |  59%
-  |                                                                            
-  |==========================================                            |  59%
-  |                                                                            
-  |==========================================                            |  60%
-  |                                                                            
-  |===========================================                           |  61%
-  |                                                                            
-  |============================================                          |  62%
-  |                                                                            
-  |============================================                          |  63%
-  |                                                                            
-  |=============================================                         |  64%
-  |                                                                            
-  |=============================================                         |  65%
-  |                                                                            
-  |==============================================                        |  65%
-  |                                                                            
-  |==============================================                        |  66%
-  |                                                                            
-  |===============================================                       |  67%
-  |                                                                            
-  |================================================                      |  68%
   |                                                                            
   |================================================                      |  69%
   |                                                                            
@@ -1039,85 +929,11 @@ $ win_candidate         &lt;chr&gt; "Trump", "Trump", "Trump", "Trump", "Trump",
   |                                                                            
   |=================================================                     |  70%
   |                                                                            
-  |=================================================                     |  71%
-  |                                                                            
-  |==================================================                    |  71%
-  |                                                                            
   |==================================================                    |  72%
-  |                                                                            
-  |===================================================                   |  72%
-  |                                                                            
-  |===================================================                   |  73%
-  |                                                                            
-  |====================================================                  |  74%
-  |                                                                            
-  |====================================================                  |  75%
-  |                                                                            
-  |=====================================================                 |  75%
-  |                                                                            
-  |=====================================================                 |  76%
-  |                                                                            
-  |======================================================                |  77%
-  |                                                                            
-  |======================================================                |  78%
-  |                                                                            
-  |=======================================================               |  78%
-  |                                                                            
-  |=======================================================               |  79%
-  |                                                                            
-  |========================================================              |  80%
-  |                                                                            
-  |=========================================================             |  81%
-  |                                                                            
-  |=========================================================             |  82%
-  |                                                                            
-  |==========================================================            |  83%
   |                                                                            
   |===========================================================           |  84%
   |                                                                            
-  |===========================================================           |  85%
-  |                                                                            
-  |============================================================          |  85%
-  |                                                                            
-  |============================================================          |  86%
-  |                                                                            
-  |=============================================================         |  87%
-  |                                                                            
-  |=============================================================         |  88%
-  |                                                                            
-  |==============================================================        |  88%
-  |                                                                            
-  |==============================================================        |  89%
-  |                                                                            
-  |===============================================================       |  89%
-  |                                                                            
-  |===============================================================       |  90%
-  |                                                                            
-  |================================================================      |  92%
-  |                                                                            
-  |=================================================================     |  92%
-  |                                                                            
-  |=================================================================     |  93%
-  |                                                                            
-  |=================================================================     |  94%
-  |                                                                            
-  |==================================================================    |  94%
-  |                                                                            
-  |==================================================================    |  95%
-  |                                                                            
-  |===================================================================   |  95%
-  |                                                                            
-  |===================================================================   |  96%
-  |                                                                            
   |====================================================================  |  97%
-  |                                                                            
-  |====================================================================  |  98%
-  |                                                                            
-  |===================================================================== |  98%
-  |                                                                            
-  |===================================================================== |  99%
-  |                                                                            
-  |======================================================================|  99%
   |                                                                            
   |======================================================================| 100%</code></pre>
 </div>
@@ -1308,9 +1124,9 @@ $ win_candidate         &lt;chr&gt; "Trump", "Trump", "Trump", "Trump", "Trump",
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1050,
+        width: 1600,
 
-        height: 700,
+        height: 900,
 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,

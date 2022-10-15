@@ -5,7 +5,6 @@ format:
   revealjs:
     theme: [simple]
 editor: visual
-bibliography: references.bib
 ---
 
 ## What is tidy data?

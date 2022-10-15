@@ -5,6 +5,8 @@ format:
   revealjs:
     theme: [simple]
     code-overflow: wrap
+    height: 900
+    width: 1600
 ---
 
 
@@ -107,11 +109,7 @@ glimpse(idaho_county_merged)
 
 ## Income and Education Visualization
 
-::: {.panel-tabset}
-
-## Code
-
-```{r ed_inc, echo=TRUE, fig.show='hide'}
+```{r'}
 ggplot(data = idaho_county_merged, 
        mapping = aes(x = pct_collegeE, y = median_incomeE,
                      color = win_candidate)) +
@@ -120,15 +118,9 @@ ggplot(data = idaho_county_merged,
        subtitle = "Linear relationship between education and income",
        x = "Pct Adults w/ Bachelor's Degree or Higher", y = "Median Income",
        color = "Winning Pres. Candidate (2020)",
-       caption = "Source:Education and income data from U.S. Census Bureau. \n Voting data from the Harvard Dataverse")
+       caption = "Source:Education and income data from U.S. Census Bureau. \n Voting data from the Harvard Dataverse") +
+  
 ```
-
-## Plot
-
-```{r ref.label = "ed_inc", echo = FALSE, warning = FALSE, out.width = "70%", fig.width = 8}
-```
-
-:::
 
 
 ## Coding Out Loud 
@@ -136,24 +128,13 @@ ggplot(data = idaho_county_merged,
 
 **Start with the `idaho_county_merged` data frame**
 
-:::: {.columns}
 
-::: {.column width="50%"}
-
-```{r idaho-0, fig.show = "hide", warning = FALSE, echo = TRUE}
+```{r}
+#| echo: fenced
+#| output-location: column
+#| code-line-numbers: "|4"
 ggplot(data = idaho_county_merged)
 ```
-
-:::
-
-::: {.column width="50%"}
-
-```{r ref.label = "idaho-0", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
-```
-
-:::
-
-::::
 
 
 ## Coding Out Loud 
@@ -161,53 +142,32 @@ ggplot(data = idaho_county_merged)
 
 Start with the `idaho_county_merged` data frame, **map college attainment to the x-axis**
 
-:::: {.columns}
-
-::: {.column width="60%"}
-
-```{r idaho-1, fig.show = "hide", warning = FALSE, echo = TRUE}
-#| code-line-numbers: 2
+```{r}
+#| echo: fenced
+#| output-location: column
+#| code-line-numbers: "|5"
 ggplot(data = idaho_county_merged,
        mapping = aes(x = pct_collegeE))
 ```
 
-:::
 
-::: {.column width="40%"}
-
-```{r ref.label = "idaho-1", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
-```
-
-:::
-
-::::
 
 ## Coding Out Loud 
 
 
 Start with the `idaho_county_merged` data frame, map college attainment to the x-axis and **map median income to the y-axis**
 
-:::: {.columns}
 
-::: {.column width="60%"}
-
-```{r idaho-2, fig.show = "hide", warning = FALSE, echo = TRUE}
-#| code-line-numbers: 3
+```{r}
+#| echo: fenced
+#| output-location: column
+#| code-line-numbers: "|6"
 ggplot(data = idaho_county_merged,
        mapping = aes(x = pct_collegeE, 
                      y = median_incomeE))
 ```
 
-:::
 
-::: {.column width="40%"}
-
-```{r ref.label = "idaho-2", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
-```
-
-:::
-
-::::
 
 
 ## Coding Out Loud 
@@ -215,40 +175,28 @@ ggplot(data = idaho_county_merged,
 
 Start with the `idaho_county_merged` data frame, map college attainment to the x-axis and map median income to the y-axis. **Represent each observation with a point**
 
-:::: {.columns}
 
-::: {.column width="60%"}
-
-```{r idaho-3, fig.show = "hide", warning = FALSE, echo = TRUE}
-#| code-line-numbers: 4
+```{r}
+#| echo: fenced
+#| output-location: column
+#| code-line-numbers: "|7"
 ggplot(data = idaho_county_merged,
        mapping = aes(x = pct_collegeE, 
                      y = median_incomeE))+
   geom_point()
 ```
 
-:::
 
-::: {.column width="40%"}
-
-```{r ref.label = "idaho-3", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
-```
-
-:::
-
-::::
 
 ## Coding Out Loud 
 
 
 Start with the `idaho_county_merged` data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point **and map election winner to the color of each point**. 
 
-:::: {.columns}
-
-::: {.column width="60%"}
-
-```{r idaho-4, fig.show = "hide", warning = FALSE, echo = TRUE}
-#| code-line-numbers: 4
+```{r}
+#| echo: fenced
+#| output-location: column
+#| code-line-numbers: "|8"
 ggplot(data = idaho_county_merged,
        mapping = aes(x = pct_collegeE, 
                      y = median_incomeE,
@@ -256,28 +204,16 @@ ggplot(data = idaho_county_merged,
   geom_point()
 ```
 
-:::
-
-::: {.column width="40%"}
-
-```{r ref.label = "idaho-4", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
-```
-
-:::
-
-::::
 
 ## Coding Out Loud 
 
 
 Start with the `idaho_county_merged` data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point and map election winner to the color of each point. **Title the plot "Education and Median Income".** 
 
-:::: {.columns}
-
-::: {.column width="60%"}
-
-```{r idaho-5, fig.show = "hide", warning = FALSE, echo = TRUE}
-#| code-line-numbers: 5
+```{r}
+#| echo: fenced
+#| output-location: column
+#| code-line-numbers: |8
 ggplot(data = idaho_county_merged, 
        mapping = aes(x = pct_collegeE, y = median_incomeE,
                      color = win_candidate)) +
@@ -285,28 +221,16 @@ ggplot(data = idaho_county_merged,
   labs(title = "Education and Median Income")
 ```
 
-:::
-
-::: {.column width="40%"}
-
-```{r ref.label = "idaho-5", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
-```
-
-:::
-
-::::
 
 ## Coding Out Loud 
 
 
 Start with the `idaho_county_merged` data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point and map election winner to the color of each point. Title the plot "Education and Median Income". **Add the subtitle, "Linear relationship between education and income"**
 
-:::: {.columns}
-
-::: {.column width="60%"}
-
-```{r idaho-6, fig.show = "hide", warning = FALSE, echo = TRUE}
-#| code-line-numbers: 6
+```{r}
+#| echo: fenced
+#| output-location: column
+#| code-line-numbers: "|9"
 ggplot(data = idaho_county_merged, 
        mapping = aes(x = pct_collegeE, y = median_incomeE,
                      color = win_candidate)) +
@@ -315,28 +239,16 @@ ggplot(data = idaho_county_merged,
        subtitle = "Linear relationship between education and income")
 ```
 
-:::
-
-::: {.column width="40%"}
-
-```{r ref.label = "idaho-6", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
-```
-
-:::
-
-::::
 
 ## Coding Out Loud 
 
 
 Start with the `idaho_county_merged` data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point and map election winner to the color of each point. Title the plot "Education and Median Income". Add the subtitle, "Linear relationship between education and income". **Label the x and y axes "Pct Adults w/ Bachelor's Degree or Higher" and "Median Income", respectively**
 
-:::: {.columns}
-
-::: {.column width="60%"}
-
-```{r idaho-7, fig.show = "hide", warning = FALSE, echo = TRUE}
-#| code-line-numbers: 7-8
+```{r}
+#| echo: fenced
+#| output-location: column
+#| code-line-numbers: "|10|11"
 ggplot(data = idaho_county_merged, 
        mapping = aes(x = pct_collegeE, y = median_incomeE,
                      color = win_candidate)) +
@@ -347,27 +259,15 @@ ggplot(data = idaho_county_merged,
        y = "Median Income")
 ```
 
-:::
-
-::: {.column width="40%"}
-
-```{r ref.label = "idaho-7", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
-```
-
-:::
-
-::::
-
 ## Coding Out Loud 
 
 Start with the `idaho_county_merged` data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point and map election winner to the color of each point. Title the plot "Education and Median Income". Add the subtitle, "Linear relationship between education and income". Label the x and y axes "Pct Adults w/ Bachelor's Degree or Higher" and "Median Income", respectively, **label the legend "Winning Pres. Candidate (2020)"**
 
-:::: {.columns}
 
-::: {.column width="60%"}
-
-```{r idaho-8, fig.show = "hide", warning = FALSE, echo = TRUE}
-#| code-line-numbers: 9
+```{r}
+#| echo: fenced
+#| output-location: column
+#| code-line-numbers: "|12"
 ggplot(data = idaho_county_merged, 
        mapping = aes(x = pct_collegeE, y = median_incomeE,
                      color = win_candidate)) +
@@ -379,28 +279,15 @@ ggplot(data = idaho_county_merged,
        color = "Winning Pres. Candidate (2020)")
 ```
 
-:::
-
-::: {.column width="40%"}
-
-```{r ref.label = "idaho-8", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
-```
-
-:::
-
-::::
-
 
 ## Coding Out Loud 
 
 Start with the `idaho_county_merged` data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point and map election winner to the color of each point. Title the plot "Education and Median Income". Add the subtitle, "Linear relationship between education and income". Label the x and y axes "Pct Adults w/ Bachelor's Degree or Higher" and "Median Income", respectively, label the legend "Winning Pres. Candidate (2020)", **and add a caption for the data source.**
 
-:::: {.columns}
-
-::: {.column width="60%"}
-
-```{r idaho-9, fig.show = "hide", warning = FALSE, echo = TRUE}
-#| code-line-numbers: 10
+```{r}
+#| echo: fenced
+#| output-location: column
+#| code-line-numbers: "|13"
 ggplot(data = idaho_county_merged, 
        mapping = aes(x = pct_collegeE, y = median_incomeE,
                      color = win_candidate)) +
@@ -413,16 +300,26 @@ ggplot(data = idaho_county_merged,
        caption = "Source:Education and income data from U.S. Census Bureau. \n Voting data from the Harvard Dataverse")
 ```
 
-:::
+## Coding Out Loud 
 
-::: {.column width="40%"}
+Start with the `idaho_county_merged` data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point and map election winner to the color of each point. Title the plot "Education and Median Income". Add the subtitle, "Linear relationship between education and income". Label the x and y axes "Pct Adults w/ Bachelor's Degree or Higher" and "Median Income", respectively, label the legend "Winning Pres. Candidate (2020)", and add a caption for the data source. **Oh! AND fix the candidate name colors with one more layer of code for `ggplot`**
 
-```{r ref.label = "idaho-9", echo = FALSE, warning = FALSE, out.width = "100%", fig.width = 8}
+```{r}
+#| echo: fenced
+#| output-location: column
+#| code-line-numbers: "|14"
+ggplot(data = idaho_county_merged, 
+       mapping = aes(x = pct_collegeE, y = median_incomeE,
+                     color = win_candidate)) +
+  geom_point() +
+  labs(title = "Education and Median Income",
+       subtitle = "Linear relationship between education and income",
+       x = "Pct Adults w/ Bachelor's Degree or Higher", 
+       y = "Median Income",
+       color = "Winning Pres. Candidate (2020)",
+       caption = "Source:Education and income data from U.S. Census Bureau. \n Voting data from the Harvard Dataverse") +
+ scale_color_manual(values = c("blue","red")) 
 ```
-
-:::
-
-::::
 
 
 ## Argument names
@@ -442,7 +339,8 @@ ggplot(data = idaho_county_merged,
        x = "Pct Adults w/ Bachelor's Degree or Higher", 
        y = "Median Income",
        color = "Winning Pres. Candidate (2020)",
-       caption = "Source:Education and income data from U.S. Census Bureau. \n Voting data from the Harvard Dataverse")
+       caption = "Source:Education and income data from U.S. Census Bureau. \n Voting data from the Harvard Dataverse") +
+ scale_color_manual(values = c("blue","red")) 
 ```
 :::
 
@@ -458,7 +356,8 @@ ggplot(idaho_county_merged,
        x = "Pct Adults w/ Bachelor's Degree or Higher", 
        y = "Median Income",
        color = "Winning Pres. Candidate (2020)",
-       caption = "Source:Education and income data from U.S. Census Bureau. \n Voting data from the Harvard Dataverse")
+       caption = "Source:Education and income data from U.S. Census Bureau. \n Voting data from the Harvard Dataverse") +
+ scale_color_manual(values = c("blue","red")) 
 ```
 :::
 
@@ -538,7 +437,7 @@ ggplot(data = idaho_county_merged,
 ggplot(data = idaho_county_merged, 
        mapping = aes(x = pct_collegeE, y = median_incomeE,
                      color = win_candidate,
-                     size = total_populationM,
+                     size = total_populationE,
                      alpha = pct_democrat_votes)) +
   geom_point() +
   labs(title = "Education and Median Income",

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.132">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>SPS 502 | Data Science - SPS 502 Final Project</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">SPS 502 | Data Science</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://sps502f22.slack.com"><i class="bi bi-slack" role="img" aria-label="Slack">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://rstudio.cloud"><i class="bi bi-cloud-fill" role="img" aria-label="RStudio.cloud">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<div class="grid title-block">
+    <div class="course-details-title-block g-col-12 g-col-sm-8 order-2 order-sm-1 text-center text-sm-start">
+        <h1 class="course-title">
+            SPS 502 Final Project
+        </h1>
+        <div class="course-subtitle">
+            <p></p>
+        </div>
+        <div class="course-meta">
+            <p></p>
+        </div>
+    </div>
+    <div class="g-col-12 g-col-sm-4 order-1 order-sm-2">
+      <div class="grid" style="--bs-columns: 5;">
+        <div class="g-col-1 g-col-sm-0"></div>
+        <div class="g-col-3 g-col-sm-5"><img src="" class="img-fluid"></div>
+        <div class="g-col-1 g-col-sm-0"></div>
+      </div>
+    </div>
+</div>
+
+<p>For your final project, you will take a dataset from the wild, explore it, wrangle and clean it, tell a story with it, and make inferences about it using regression analysis and other statistical tools.</p>
+<section id="data" class="level1">
+<h1>Data</h1>
+<p>I want this project to be as useful for you and your career as possible. Accordingly, you have a lot of freedom in what data you can use for this project. Choose a dataset from this list:</p>
+<section id="your-own-data" class="level2">
+<h2 class="anchored" data-anchor-id="your-own-data">Your own data</h2>
+<p>Use a dataset from your place of employment, previous data you have worked with, or data you have collected yourself.</p>
+</section>
+<section id="data-from-the-internet" class="level2">
+<h2 class="anchored" data-anchor-id="data-from-the-internet">Data from the internet</h2>
+<p>Go to <a href="https://toolbox.google.com/datasetsearch">Google Dataset Search</a> (or anywhere else online), find an interesting dataset and ask questions about it. Here are some different high-quality datasets:</p>
+<section id="nonprofit-management" class="level3">
+<h3 class="anchored" data-anchor-id="nonprofit-management">Nonprofit management</h3>
+<ul>
+<li><a href="https://www.kaggle.com/crawford/us-charities-and-nonprofits">U.S. Charities and Non-profits</a>: All of the charities and nonprofits registered with the IRS<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+<li><a href="https://data.world/causebot/grant-2010-to-2016">Nonprofit Grants 2010 to 2016</a>: Nonprofit grants made in the US as listed in Schedule I of the IRS 990 tax form between 2010 to 2016<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></li>
+</ul>
+</section>
+<section id="federal-state-and-local-government-management" class="level3">
+<h3 class="anchored" data-anchor-id="federal-state-and-local-government-management">Federal, state, and local government management</h3>
+<ul>
+<li><a href="https://transparent.idaho.gov/">Transparent Idaho</a>: Financial and personnel data for Idaho state government</li>
+<li><a href="https://www.kaggle.com/kwullum/deadly-traffic-accidents-in-the-uk-2015">Deadly traffic accidents in the UK (2015)</a>: List of all traffic-related deaths in the UK in 2015<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></li>
+<li><a href="https://www.kaggle.com/fema/firefighter-fatalities">Firefighter Fatalities in the United States</a>: Name, rank, and cause of death for all firefighters killed since 2000<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></li>
+<li><a href="https://www.kaggle.com/fema/federal-disasters">Federal Emergencies and Disasters, 1953–Present</a>: Every federal emergency or disaster declared by the President of the United States since 1953<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></li>
+<li><a href="https://www.kaggle.com/START-UMD/gtd">Global Terrorism Database (1970–2016)</a>: 170,000 terrorist attacks worldwide, 1970-2016<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></li>
+<li><a href="https://data.world/cityofaustin/i26j-ai4z">City of Austin 311 Unified Data</a>: All 311 calls to the City of Austin since 2014<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></li>
+</ul>
+</section>
+<section id="higher-education" class="level3">
+<h3 class="anchored" data-anchor-id="higher-education">Higher education</h3>
+<ul>
+<li><p><a href="https://nces.ed.gov/ipeds/">Integreated Postsecondary Education Data System (IPEDS)</a>: IPEDS gathers information from every college, university, and technical and vocational institution that participates in the federal student financial aid programs. The Higher Education Act of 1965, as amended, requires that institutions that participate in federal student aid programs report data on enrollments, program completions, graduation rates, faculty and staff, finances, institutional prices, and student financial aid.</p></li>
+<li><p><a href="https://nlsf.princeton.edu">National Longitudinal Survey of Freshmen (NLSF)</a>: The National Longitudinal Survey of Freshmen (NLSF) followed a cohort of first-time freshman at selective colleges and universities through their college careers. Equal numbers of whites, blacks, Hispanics, and Asians were sampled at each of the 28 participating schools. Among other uses, the data has been collected with the testing of several competing theories of minority under performance in college in mind.</p></li>
+</ul>
+</section>
+<section id="polisci" class="level3">
+<h3 class="anchored" data-anchor-id="polisci">Polisci</h3>
+<ul>
+<li><p><a href="http://www.cpds-data.org">Comparative Political Dataset</a>: The “Comparative Political Data Set” (CPDS) is a collection of political and institutional country-level data provided by Prof.&nbsp;Dr.&nbsp;Klaus Armingeon and collaborators at the University of Berne. It consists of annual data for 36 democratic countries for the period of 1960 to 2017 or since their transition to democracy.</p></li>
+<li><p><a href="http://ippsr.msu.edu/public-policy/correlates-state-policy">Correlates of State Policy</a>: The Correlates of State Policy Project aims to compile, disseminate, and encourage the use of data relevant to U.S. state policy research, tracking policy differences across and change over time in the 50 states.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/fivethirtyeight/versions/0.5.0">fivethirtyeight</a>: Datasets and code published by the data journalism website ‘FiveThirtyEight’ available at <a href="https://github.com/fivethirtyeight/data" class="uri">https://github.com/fivethirtyeight/data</a>.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="final-report" class="level1">
+<h1>Final report</h1>
+<p>You will turn in a report where you define your research questions, explore and describe your data, build models and make inferences, discuss the implications of those findings, and make recommendations.</p>
+<section id="requirements" class="level2">
+<h2 class="anchored" data-anchor-id="requirements">Requirements</h2>
+<p>In your final paper, you need to include at least one of <strong>each</strong> of the following elements (i.e.&nbsp;at least one plot, but more is fine; at least one regression model, but more is fine):</p>
+<ul>
+<li>A plot of a single variable (like a histogram; see ModernDive 2)</li>
+<li>A plot of multiple variables (like a scatterplot; see ModernDive 2)</li>
+<li>2-3 hypotheses that you will test</li>
+<li>A multiple regression model (see ModernDive 5, 6, and 10)</li>
+</ul>
+</section>
+<section id="outline" class="level2">
+<h2 class="anchored" data-anchor-id="outline">Outline</h2>
+<p>Here is a suggested outline for your final report:</p>
+<ol type="1">
+<li><strong>Executive summary</strong>: one-page summary of your questions, methods, findings, and recommendations</li>
+<li><strong>Introduction and description of research questions</strong>: describe the motivation for this study, outline and define what questions you are exploring and why</li>
+<li><strong>Data and methods</strong>: explain how the data was collected, provide basic summary statistics (tables and figures) of the main variables you’re interested in, and describe what statistical tools you will use to answer your questions (i.e.&nbsp;regression, bootstrapped comparisons of means, etc.)</li>
+<li><strong>Results</strong>: answer each of your questions using statistical tools and interpret the results of the different statistical tests you use</li>
+<li><strong>Limitations of the study</strong>: provide caveats for your analysis and explain how confident you are in your results</li>
+<li><strong>Recommendations and conclusion</strong>: discuss the implications of these findings and make recommendations based on the results</li>
+<li><strong>Appendices</strong>: if you want to include tables of summary statistics or tables showing alternative models, you can include them in an appendix instead of in the body of the report itself.</li>
+</ol>
+</section>
+</section>
+<section id="instructions" class="level1">
+<h1>Instructions</h1>
+<p>Here’s what you’ll need to do:</p>
+<ol type="1">
+<li>Choose a dataset.</li>
+<li>Look at the different columns it has available and think of 2-3 questions you want to answer with it.<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></li>
+<li>Identify your main outcome (y) variable (or multiple if you want). Identify which variables explain variation in the outcome (x, or explanatory variables).</li>
+<li>Explore the data, either inside R Markdown chunks in the final report itself, or in a separate R Markdown file called <code>exploratory.Rmd</code> (or whatever you want to call it)—that way you’re not running all your intermediate plots and models and tests in the final document.</li>
+<li>Answer your questions with the data and interpret the results.</li>
+<li>Put the text of your final report and interpretation and analysis, etc. in the R Markdown file for the final report. <strong>Note:</strong> You don’t have to type the actual text inside RStudio (which doesn’t have an automatic spell checker). You can use a Google Doc or a Word file or something similar, write the text of your report there, and then copy/paste the text into your final R Markdown file.</li>
+<li>Knit the report as a Word file or PDF.</li>
+<li>Submit the following items on Canvas:
+<ul>
+<li>Knitted Word file or PDF with no code included</li>
+<li>Knitted Word file or PDF <em>with</em> code included</li>
+</ul></li>
+</ol>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Source: IRS. This is actually split into six separate files. You can combine them all into one massive national database with <code>bind_rows()</code>, or filter the data to include specific states (or a single state). It all depends on the story you’re telling.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Source: IRS<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Source: <a href="https://data.gov.uk/dataset/road-accidents-safety-data/resource/ceb00cff-443d-4d43-b17a-ee13437e9564">data.gov.uk</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Source: FEMA<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Source: FEMA<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Source: National Consortium for the Study of Terrorism and Responses to Terrorism (START), University of Maryland<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Source: City of Austin<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>If you want, you can combine multiple datasets too<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
