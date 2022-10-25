@@ -18,7 +18,7 @@ You'll need to install, load, and configure the `tidycensus` package. BUT it's n
 
 Run the following code to install and load the necessary packages:
 
-```{r}
+```{r results='hide'}
 install.packages("tidycensus")
 library(tidycensus)
 library(tidyverse)
