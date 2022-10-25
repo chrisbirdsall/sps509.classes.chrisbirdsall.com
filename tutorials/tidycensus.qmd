@@ -4,8 +4,6 @@ sidebar: false
 toc: true
 page-layout: full
 format: html
-editor_options: 
-  chunk_output_type: inline
 ---
 
 This is adapted from the "Basic usage of tidycensus" page, which can be found [here](https://walker-data.com/tidycensus/articles/basic-usage.html). 
@@ -18,11 +16,13 @@ You'll need to install, load, and configure the `tidycensus` package. BUT it's n
 
 Run the following code to install and load the necessary packages:
 
-```{r results='hide'}
+```{r message=FALSE, warning=FALSE, results=FALSE}
 install.packages("tidycensus")
 library(tidycensus)
 library(tidyverse)
 ```
+
+
 
 ## Step 2: Load and configure
 
@@ -39,7 +39,7 @@ census_api_key("YOUR API KEY GOES HERE", install = TRUE)
 ## Step 3: Find variables
 Next you'll want to get the variables you'd like to use in your project. There are a TON of variables you can get through `tidycensus`. So the best way to start is to use the `load_variables()` function to get a searchable table of all the variables you can use. In this case, we'll call up the 2020 American Community Survey and store the results in an object called `tidycensusvariables`. We can then browse and search with the `View()` function (see video for demonstration of this part). 
 
-```{r results='hide'}
+```{r message=FALSE, warning=FALSE, results=FALSE}
 tidycensusvariables2020 <- load_variables(year = 2020, dataset = "acs5/profile") 
 
 #Run View(tidycensusvariables) in your console
@@ -48,7 +48,7 @@ tidycensusvariables2020 <- load_variables(year = 2020, dataset = "acs5/profile")
 
 To make searching easier, we're going to use the `separate()` function from `tidyr`. 
 
-```{r results='hide'}
+```{r message=FALSE, warning=FALSE, results=FALSE}
 tidycensusvariables2020_sep <- tidycensusvariables2020 %>% 
   separate(label, into=c("measure", "topic", "group", "variable", "variable2" ), sep="!!")
 ```
@@ -59,7 +59,7 @@ This code is telling R to take the `label` variable in `tidycensusvariables2020`
 
 Now that I've searched through the dataframe and found the variables I want to use, I'll use `get_acs()` to pull the actual data into a new dataframe. 
 
-```{r results='hide'}
+```{r message=FALSE, warning=FALSE, results=FALSE}
 	id_acs <- get_acs(
   geography = "county",
   state = "Idaho",
@@ -77,7 +77,7 @@ Now that I've searched through the dataframe and found the variables I want to u
 Since `tidycensus` pulls both the estimated value and the margin of error for each variable, we'll just keep the estimated value using the code below. Dealing with the margin of error variables is beyond the scope of the course, but you can read more about it here: https://walker-data.com/tidycensus/articles/margins-of-error.html. The codeblock below also removes the "E" at the end of each variable name. 
 
 
-```{r results='hide'}
+```{r message=FALSE, warning=FALSE, results=FALSE}
 id_acs <- id_acs %>% 
   select(ends_with("E")) %>% 
   rename_with(~str_remove(., 'E'))
