@@ -1146,5 +1146,103 @@
     "title": "SPS 502 | Data Science",
     "section": "Outline",
     "text": "Outline\nHere is a suggested outline for your final report:\n\nExecutive summary: one-page summary of your questions, methods, findings, and recommendations\nIntroduction and description of research questions: describe the motivation for this study, outline and define what questions you are exploring and why\nData and methods: explain how the data was collected, provide basic summary statistics (tables and figures) of the main variables you’re interested in, and describe what statistical tools you will use to answer your questions (i.e. regression, bootstrapped comparisons of means, etc.)\nResults: answer each of your questions using statistical tools and interpret the results of the different statistical tests you use\nLimitations of the study: provide caveats for your analysis and explain how confident you are in your results\nRecommendations and conclusion: discuss the implications of these findings and make recommendations based on the results\nAppendices: if you want to include tables of summary statistics or tables showing alternative models, you can include them in an appendix instead of in the body of the report itself."
+  },
+  {
+    "objectID": "labs/lab04-key.html#load-packages",
+    "href": "labs/lab04-key.html#load-packages",
+    "title": "SPS 502 | Data Science",
+    "section": "Load packages",
+    "text": "Load packages\n\nlibrary(tidyverse)\nlibrary(googlesheets4)"
+  },
+  {
+    "objectID": "labs/lab04-key.html#import-data",
+    "href": "labs/lab04-key.html#import-data",
+    "title": "SPS 502 | Data Science",
+    "section": "Import Data",
+    "text": "Import Data\nWe’re going to import our data from a google sheet:\n\ngapminder_wide <- read_sheet(\"https://docs.google.com/spreadsheets/d/1E8u2GL0aCmWiU2AnpNirfUPxWSJBN50Tyrf5ilapwSw/edit?usp=sharing\")\n\n\nAuthorize tidyverse to use your google account\nType 1 for yes: \n Copy the authorization code:\n\nPaste it into the console:"
+  },
+  {
+    "objectID": "labs/lab04-key.html#exercise-1",
+    "href": "labs/lab04-key.html#exercise-1",
+    "title": "SPS 502 | Data Science",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nHow many observations and how many variables are in the dataset? What does each row represent? Is the dataset tidy? Enter the code you need to get this information and answer the questions.\n\nglimpse(gapminder_wide)"
+  },
+  {
+    "objectID": "labs/lab04-key.html#exercise-2",
+    "href": "labs/lab04-key.html#exercise-2",
+    "title": "SPS 502 | Data Science",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nSpoiler: It ain’t tidy! Tidying data can be really tricky in some cases so we’re going to go through this together.\nLet’s look at the data again, but this time we’re going to use the tbl_vars() function from the dyplyr package to just give us a list of all the variables in the dataset.\n\ngapminder_wide %>% \n  tbl_vars()\n\nSo, we see from the output above that each variable has a year at the end of its name (e.g., pop_1952). If we’re interested in analyzing these data, we know we don’t want to have multiple columns for each variable (e.g., a life expectancy column for each year). We want ONE life expectancy variable (column) with values recorded for each year for each country in the dataset. So, let’s use the pivot_longer() function from the dplyr package to make our data tidy:\n\ngapminder_tidy <- gapminder_wide %>% \n  pivot_longer(names_to = c(\".value\", \"year\"),\n               names_sep = \"_\",\n               names_transform = list(year = as.integer),\n              cols = c(-continent, -country))\n\nThis code looks a little bit different than the pivot_longer code we went over in the lecture. For more information about all of these arguments visit the the pivot longer webpage for the tidyrpackage.\n\ngapminder_tidy %>% \n  tbl_vars()"
+  },
+  {
+    "objectID": "labs/lab04-key.html#exercise-3",
+    "href": "labs/lab04-key.html#exercise-3",
+    "title": "SPS 502 | Data Science",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nFirst, let’s get a sense of our new tidy dataset using the glimpse command:\n\nglimpse(gapminder_tidy)\n\nAnswer the following:\n\nHow many observations are there? 1,704\nHow many variables? 6\nWhat is the unit of analysis (what does each row represent)? How does this differ from the unit of analysis in the untidy(wide) data you started with?\n\nCountry-year. The unit of analysis in the untidy dataset was country.\nNext, let’s calculate some basic descriptive statistics to get a sense of our variables."
+  },
+  {
+    "objectID": "labs/lab04-key.html#exercise-4",
+    "href": "labs/lab04-key.html#exercise-4",
+    "title": "SPS 502 | Data Science",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nWhat is the average population in the tidy dataset?\n\ngapminder_tidy %>% \nsummarize(avg_pop = mean(pop, na.rm=TRUE))"
+  },
+  {
+    "objectID": "labs/lab04-key.html#exercise-5",
+    "href": "labs/lab04-key.html#exercise-5",
+    "title": "SPS 502 | Data Science",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nAverage population for so many countries over many years isn’t super useful to us. How can we come up with a more meaningful average population statistic? Let’s break the data down a bit to find something more interesting. Write and run code to calculate the average population for each year in the dataset.\n\ngapminder_tidy %>% \n  group_by(year) %>% \nsummarize(avg_pop_year = mean(pop, na.rm=TRUE))\n\nOkay, slightly more useful. A lot more people in 2007 than in 1952!"
+  },
+  {
+    "objectID": "labs/lab04-key.html#exercise-6",
+    "href": "labs/lab04-key.html#exercise-6",
+    "title": "SPS 502 | Data Science",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nLet’s create a visualization of population over time. One thing we could try is visualizing population over time for each continent. Think about which kind of graph would be best for communicating this then write and run the code (HINT: You’re going to need to add group = continent to your aes() arguments to make the graph legible:\n\ngapminder_tidy %>% \n  group_by(year, continent) %>% \n  summarize(avg_pop = mean(pop)) %>% \nggplot(aes(x=year, y=avg_pop, color=continent)) +\n  geom_line()"
+  },
+  {
+    "objectID": "tutorials/tidycensus.html",
+    "href": "tutorials/tidycensus.html",
+    "title": "SPS 502 | Data Science",
+    "section": "",
+    "text": "This is adapted from the “Basic usage of tidycensus” page, which can be found here."
+  },
+  {
+    "objectID": "tutorials/tidycensus.html#step-1-install",
+    "href": "tutorials/tidycensus.html#step-1-install",
+    "title": "SPS 502 | Data Science",
+    "section": "Step 1: Install",
+    "text": "Step 1: Install\nRun the following code to install and load the necessary packages:\n\ninstall.packages(\"tidycensus\")\n\nInstalling tidycensus [1.2.3] ...\n    OK [linked cache]\n\nlibrary(tidycensus)\nlibrary(tidyverse)\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──\n✔ ggplot2 3.3.6      ✔ purrr   0.3.4 \n✔ tibble  3.1.8      ✔ dplyr   1.0.10\n✔ tidyr   1.2.1      ✔ stringr 1.4.1 \n✔ readr   2.1.2      ✔ forcats 0.5.2 \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()"
+  },
+  {
+    "objectID": "tutorials/tidycensus.html#step-2-load-and-configure",
+    "href": "tutorials/tidycensus.html#step-2-load-and-configure",
+    "title": "SPS 502 | Data Science",
+    "section": "Step 2: Load and configure",
+    "text": "Step 2: Load and configure\n\nNext, you’ll need to get an API key from the U.S. Census Bureau. Follow this link, enter your information and you should get an email with your API key shortly.\nNext, add your api key and run the following code:\n\n\ncensus_api_key(\"YOUR API KEY GOES HERE\", install = TRUE)"
+  },
+  {
+    "objectID": "tutorials/tidycensus.html#step-3-find-variables",
+    "href": "tutorials/tidycensus.html#step-3-find-variables",
+    "title": "SPS 502 | Data Science",
+    "section": "Step 3: Find variables",
+    "text": "Step 3: Find variables\nNext you’ll want to get the variables you’d like to use in your project. There are a TON of variables you can get through tidycensus. So the best way to start is to use the load_variables() function to get a searchable table of all the variables you can use. In this case, we’ll call up the 2020 American Community Survey and store the results in an object called tidycensusvariables. We can then browse and search with the View() function (see video for demonstration of this part).\n\ntidycensusvariables2020 <- load_variables(year = 2020, dataset = \"acs5/profile\") \n\n#Run View(tidycensusvariables) in your console\n\nTo make searching easier, we’re going to use the separate() function from tidyr.\n\ntidycensusvariables2020_sep <- tidycensusvariables2020 %>% \n  separate(label, into=c(\"measure\", \"topic\", \"group\", \"variable\", \"variable2\" ), sep=\"!!\")\n\nWarning: Expected 5 pieces. Additional pieces discarded in 100 rows [17, 18, 25,\n26, 165, 166, 167, 168, 169, 170, 171, 172, 181, 182, 183, 184, 325, 326, 333,\n334, ...].\n\n\nWarning: Expected 5 pieces. Missing pieces filled with `NA` in 1064 rows [1, 2,\n3, 4, 7, 8, 11, 12, 19, 20, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, ...].\n\n\nThis code is telling R to take the label variable in tidycensusvariables2020 and separate it into columns based on the seperator “!!”. This is going to make it a lot easier to search using “filter” in View(). Plese see the video for more details about searching for variables."
+  },
+  {
+    "objectID": "tutorials/tidycensus.html#median-income",
+    "href": "tutorials/tidycensus.html#median-income",
+    "title": "SPS 502 | Data Science",
+    "section": "Median Income",
+    "text": "Median Income\nTo make a map visualization of median_income in Idaho, you’ll use ggplot() and the fill aesthetic with geom_sf():\n\nggplot(data = id_acs, aes(fill = median_income)) + \n  geom_sf() + \n  scale_fill_distiller(direction = 1) + \n  labs(title = \"  Median Income by County\",\n       caption = \"Data source: 2020 5-year ACS, US Census Bureau\",\n       fill = \"ACS estimate\") + \n  theme_void()\n\n\n\n\nYou can replicate similar maps with any of the variables we pulled into id_acs."
+  },
+  {
+    "objectID": "tutorials/tidycensus.html#step-4-download-data",
+    "href": "tutorials/tidycensus.html#step-4-download-data",
+    "title": "SPS 502 | Data Science",
+    "section": "Step 4: Download Data",
+    "text": "Step 4: Download Data\nNow that I’ve searched through the dataframe and found the variables I want to use, I’ll use get_acs() to pull the actual data into a new dataframe.\n\n    id_acs <- get_acs(\n  geography = \"county\",\n  state = \"Idaho\",\n  variables = c(edu_attainment_pct = \"DP02_0068P\",\n                median_income = \"DP03_0062\",\n                snap_pct = \"DP03_0074P\",\n                unaffordable_rent_pct = \"DP04_0142P\",\n                median_age = \"DP05_0018\"),\n  output = \"wide\",\n  geometry = TRUE,\n  year = 2020\n)\n\nGetting data from the 2016-2020 5-year ACS\n\n\nDownloading feature geometry from the Census website.  To cache shapefiles for use in future sessions, set `options(tigris_use_cache = TRUE)`.\n\n\nUsing the ACS Data Profile\n\n\nSince tidycensus pulls both the estimated value and the margin of error for each variable, we’ll just keep the estimated value using the code below. Dealing with the margin of error variables is beyond the scope of the course, but you can read more about it here: https://walker-data.com/tidycensus/articles/margins-of-error.html. The codeblock below also removes the “E” at the end of each variable name.\n\nid_acs <- id_acs %>% \n  select(ends_with(\"E\")) %>% \n  rename_with(~str_remove(., 'E'))\n\nSo. With that, you’ve got a nice, tidy dataframe with demographic data ready to analyze."
   }
 ]
