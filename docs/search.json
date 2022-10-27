@@ -1244,5 +1244,75 @@
     "title": "SPS 502 | Data Science",
     "section": "Step 4: Download Data",
     "text": "Step 4: Download Data\nNow that I’ve searched through the dataframe and found the variables I want to use, I’ll use get_acs() to pull the actual data into a new dataframe.\n\n    id_acs <- get_acs(\n  geography = \"county\",\n  state = \"Idaho\",\n  variables = c(edu_attainment_pct = \"DP02_0068P\",\n                median_income = \"DP03_0062\",\n                snap_pct = \"DP03_0074P\",\n                unaffordable_rent_pct = \"DP04_0142P\",\n                median_age = \"DP05_0018\"),\n  output = \"wide\",\n  geometry = TRUE,\n  year = 2020\n)\n\nSince tidycensus pulls both the estimated value and the margin of error for each variable, we’ll just keep the estimated value using the code below. Dealing with the margin of error variables is beyond the scope of the course, but you can read more about it here: https://walker-data.com/tidycensus/articles/margins-of-error.html. The codeblock below also removes the “E” at the end of each variable name.\n\nid_acs <- id_acs %>% \n  select(ends_with(\"E\")) %>% \n  rename_with(~str_remove(., 'E'))\n\nSo. With that, you’ve got a nice, tidy dataframe with demographic data ready to analyze."
+  },
+  {
+    "objectID": "lectures/lecture08/lecture08.html#defining-the-population",
+    "href": "lectures/lecture08/lecture08.html#defining-the-population",
+    "title": "Sampling",
+    "section": "Defining the Population",
+    "text": "Defining the Population\nPopulation\n\n\nA collection of things (examples?)\n\n\nPopulation paramater\n\n\nSomething we want to know about the population (examples?)"
+  },
+  {
+    "objectID": "lectures/lecture08/lecture08.html#counting-the-population",
+    "href": "lectures/lecture08/lecture08.html#counting-the-population",
+    "title": "Sampling",
+    "section": "Counting the Population",
+    "text": "Counting the Population\nCensus\n\n\nCount every single thing in the whole population\n\n\nSample\n\n\nSelect parts of the population and count those"
+  },
+  {
+    "objectID": "lectures/lecture08/lecture08.html#measure-the-sample",
+    "href": "lectures/lecture08/lecture08.html#measure-the-sample",
+    "title": "Sampling",
+    "section": "Measure the Sample",
+    "text": "Measure the Sample\nSample statistic or point\n\n\nThe population parameter, but for the sample\n\nUses the hat sign\n\n\n\\(p\\) \\(\\hat{p}\\)"
+  },
+  {
+    "objectID": "lectures/lecture08/lecture08.html#is-the-sample-good",
+    "href": "lectures/lecture08/lecture08.html#is-the-sample-good",
+    "title": "Sampling",
+    "section": "Is the Sample Good?",
+    "text": "Is the Sample Good?\nRepresentativeness\n\n\nDoes the sample look like the population?\n\n\nBias and randomness\n\n\nDoes every part of the population have the same chance of being sampled?\n\n\nGeneralizability\n\n\nIs \\(\\hat{p}\\) a good guess of \\(p\\)?"
+  },
+  {
+    "objectID": "lectures/lecture08/lecture08.html#sampling-is-a-powerful-tool",
+    "href": "lectures/lecture08/lecture08.html#sampling-is-a-powerful-tool",
+    "title": "Sampling",
+    "section": "Sampling is a powerful tool",
+    "text": "Sampling is a powerful tool\n\nSampling gets us accurate estimates of population parameter, even if the sample is small.\nWhy?"
+  },
+  {
+    "objectID": "lectures/lecture08/lecture08.html#lab-7",
+    "href": "lectures/lecture08/lecture08.html#lab-7",
+    "title": "Sampling",
+    "section": "Lab 7",
+    "text": "Lab 7"
+  },
+  {
+    "objectID": "lectures/lecture08/lecture08.html#mms-sampling",
+    "href": "lectures/lecture08/lecture08.html#mms-sampling",
+    "title": "Sampling",
+    "section": "M&Ms Sampling",
+    "text": "M&Ms Sampling\n\nDefine the population\n\nWhat thing are we counting?\nWhat parameter are we estimating?\n\nCount the population\n\nCensus or sample?\n\nMeasure the sample\n\nWhat is our \\(\\hat{p}?\\)\n\nIs the sample good?\n\nIs the sample representative?\nIs the sample biased?\nIs \\(\\hat{p}\\) a good guess?"
+  },
+  {
+    "objectID": "lectures/lecture08/lecture08.html#the-true-p",
+    "href": "lectures/lecture08/lecture08.html#the-true-p",
+    "title": "Sampling",
+    "section": "The True \\(p\\)",
+    "text": "The True \\(p\\)\n\n“Our color blends were selected by conducting consumer preference tests, which indicate the assortment of colors that pleased the greatest number of people and created the most attractive overall effect.”\n\n\n“Each large production batch is blended to those ratios and mixed thoroughly. However, since the individual packages are filled by weight on high-speed equipment, and not by count, it is possible to have an unusual color distribution”"
+  },
+  {
+    "objectID": "lectures/lecture08/lecture08.html#improving-hatp",
+    "href": "lectures/lecture08/lecture08.html#improving-hatp",
+    "title": "Sampling",
+    "section": "Improving \\(\\hat{p}\\)",
+    "text": "Improving \\(\\hat{p}\\)\nWhat can we do to get a bettter estimate of the whole population of M&Ms?\n\nMore samples?\nBigger samples?\nBigger sample size = better sampling"
+  },
+  {
+    "objectID": "lectures/lecture08/lecture08.html#central-limit-theorem",
+    "href": "lectures/lecture08/lecture08.html#central-limit-theorem",
+    "title": "Sampling",
+    "section": "Central Limit Theorem",
+    "text": "Central Limit Theorem\n\n\nTrue population proportion p is shown by vertical red line"
   }
 ]
