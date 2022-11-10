@@ -1,0 +1,34 @@
+---
+title: "SPS 502 - Homework 4: Inference for regression"
+subtitle: "Due by 11:59 p.m., Friday September 16"
+toc: true
+editor: source
+execute: 
+  enabled: true
+---
+
+In this lab, you will develop preliminary hypotheses and use your data to run preliminary regressions. Completing this lab will get you much closer to completing your projects.
+
+# Getting Started
+
+## Export data from your data proposal
+
+1.  Go back to your data proposal homework and add the following code block to **the end** of the RMarkdown file:
+
+```{r export, eval=FALSE, include=TRUE}
+write_csv(mydata, "mydata.csv")
+```
+
+2.  Replace "mydata" with the name of your final dataframe in the homework.
+3.  Run the codeblock. If you get an error: first, check that you typed the name correctly; second, make sure you see the dataframe in your environment pane. If it's not there, go ahead and knit the document.
+4.  Click the checkmark next to "mydata.csv" then export it exactly as you've done for html files and PDFs in our other labs.
+
+## Import data into your Final Project
+
+1.  Find and open the new "Final Project" assignment in RStudio Cloud.
+2.  Click on the "data" folder in the files pane
+3.  Click "Upload" and upload mydata.csv
+4.  Navigate out of the data folder
+5.  Open "Lastname_Firstname - HW04 - Final Project Lab.rmd"
+6. Continue with the lab
+

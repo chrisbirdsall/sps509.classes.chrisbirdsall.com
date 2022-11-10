@@ -107,4 +107,56 @@ ggplot(data = id_acs, aes(fill = median_income)) +
 
 You can replicate similar maps with any of the variables we pulled into `id_acs`. 
 
+## Multiple Years
+
+You can pull multiple years using the `map()` function then binding the dataframes
+
+```{r}
+years <- lst(2009, 2010, 2015, 2016, 2017, 2018, 2019, 2021)
+
+multi_year_id_acs <- map(
+  years,
+  ~ get_acs(
+  geography = "county",
+  state = "Idaho",
+   variables = c(median_monthly_mortgage = "DP04_0095",
+                median_gross_rent = "DP04_0121",
+                renter_occupied = "DP04_0042",
+                home_owner_occupied = "DP04_0041",
+                median_household_income = "DP03_0061"),
+    year = .x,
+    survey = "acs1",
+    geometry = TRUE,
+  output = "wide"
+    )
+  ) %>% 
+  map2(years, ~ mutate(.x, id = .y))
+
+id_2009_2021 <- reduce(multi_year_id_acs, rbind)
+
+```
+
+```{r}
+years <- lst(2005, 2006, 2007, 2008)
+
+multi_year_id_acs <- map(
+  years,
+  ~ get_acs(
+  geography = "county",
+  state = "Idaho",
+   variables = c(median_monthly_mortgage = "DP04_0095",
+                median_gross_rent = "DP04_0121",
+                renter_occupied = "DP04_0042",
+                home_owner_occupied = "DP04_0041",
+                median_household_income = "DP03_0061"),
+    year = .x,
+    survey = "acs1",
+  output = "wide"
+    )
+  ) %>% 
+  map2(years, ~ mutate(.x, id = .y))
+
+id_2005_2008 <- reduce(multi_year_id_acs, rbind)
+
+```
 
