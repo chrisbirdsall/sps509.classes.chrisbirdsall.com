@@ -1,6 +1,6 @@
 ---
 title: "SPS 502 - Homework 4: Inference for regression"
-subtitle: "Due by 11:59 p.m., Friday September 16"
+subtitle: "Due by 11:59 p.m., Thursday November 17"
 toc: true
 editor: source
 execute: 
