@@ -1342,5 +1342,117 @@
     "title": "SPS 502 | Data Science",
     "section": "Import data into your Final Project",
     "text": "Import data into your Final Project\n\nFind and open the new “Final Project” assignment in RStudio Cloud.\nClick on the “data” folder in the files pane\nClick “Upload” and upload mydata.csv\nNavigate out of the data folder\nOpen “Lastname_Firstname - HW04 - Final Project Lab.rmd”\nContinue with the lab"
+  },
+  {
+    "objectID": "Untitled.html#introduction",
+    "href": "Untitled.html#introduction",
+    "title": "Data Visualization II",
+    "section": "Introduction",
+    "text": "Introduction\nDescribe the motivation for this study, outline and define what questions you are exploring and why.\n\nFirst point\nSecond point\nAnother point"
+  },
+  {
+    "objectID": "Untitled.html#data-and-methods",
+    "href": "Untitled.html#data-and-methods",
+    "title": "Data Visualization II",
+    "section": "Data and Methods",
+    "text": "Data and Methods\nDescribe your data sources"
+  },
+  {
+    "objectID": "Untitled.html#descriptive-statistics-table",
+    "href": "Untitled.html#descriptive-statistics-table",
+    "title": "Data Visualization II",
+    "section": "Descriptive Statistics Table",
+    "text": "Descriptive Statistics Table\n\nSome cool summary table\n\n\n\n\n\n\n\n\nz\navg_x\navg_y\nnumber\n\n\n\n\nA\n0.01345\n49.79\n260\n\n\nB\n-0.06768\n49.96\n255\n\n\nC\n0.008889\n50.6\n259\n\n\nD\n-0.02045\n50\n226"
+  },
+  {
+    "objectID": "Untitled.html#descriptive-visualization",
+    "href": "Untitled.html#descriptive-visualization",
+    "title": "Data Visualization II",
+    "section": "Descriptive Visualization",
+    "text": "Descriptive Visualization"
+  },
+  {
+    "objectID": "Untitled.html#results-table",
+    "href": "Untitled.html#results-table",
+    "title": "Data Visualization II",
+    "section": "Results Table",
+    "text": "Results Table\n\nResults from a model\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd_error\nstatistic\np_value\nlower_ci\nupper_ci\n\n\n\n\nintercept\n50.09\n0.154\n324.6\n0\n49.79\n50.39\n\n\nx\n-0.109\n0.148\n-0.735\n0.463\n-0.4\n0.182"
+  },
+  {
+    "objectID": "Untitled.html#results-visualization",
+    "href": "Untitled.html#results-visualization",
+    "title": "Data Visualization II",
+    "section": "Results Visualization",
+    "text": "Results Visualization\nShow us your results with a visualization(s). Describe whether they provided support for your hypothesis(es)."
+  },
+  {
+    "objectID": "lectures/lecture10/lecture_10.html#hypothesis-testing-1",
+    "href": "lectures/lecture10/lecture_10.html#hypothesis-testing-1",
+    "title": "LAST CLASS!!!",
+    "section": "Hypothesis testing",
+    "text": "Hypothesis testing\n\nhypothesis testing"
+  },
+  {
+    "objectID": "lectures/lecture10/lecture_10.html#specifying-hypotheses",
+    "href": "lectures/lecture10/lecture_10.html#specifying-hypotheses",
+    "title": "LAST CLASS!!!",
+    "section": "Specifying Hypotheses",
+    "text": "Specifying Hypotheses\n\\(H_0\\): The null hypothesis (statement of no difference or no effect)\n\\(H_A\\): The research hypothesis (statement of different or effect)"
+  },
+  {
+    "objectID": "lectures/lecture10/lecture_10.html#example-hypotheses",
+    "href": "lectures/lecture10/lecture_10.html#example-hypotheses",
+    "title": "LAST CLASS!!!",
+    "section": "Example Hypotheses",
+    "text": "Example Hypotheses\n\\(H_0\\): There is no difference in average latté consumption between democrats and republicans\n\\(H_A\\): Democrats consume more lattés than republicans, on average"
+  },
+  {
+    "objectID": "lectures/lecture10/lecture_10.html#statistical-significance",
+    "href": "lectures/lecture10/lecture_10.html#statistical-significance",
+    "title": "LAST CLASS!!!",
+    "section": "Statistical Significance",
+    "text": "Statistical Significance\n\nStatistical significance = enough evidence to safely reject the null hypothesis\n\nCourt of law analogy: not enough evidence to prove guilt\n\nP-Values: standard measure for determining statistical significance\n\nThe probability of observing an effect at least that large when no effect exists\nIn other words, probability that effect was observed due to chance alone (we want this to be as small as possible)"
+  },
+  {
+    "objectID": "lectures/lecture10/lecture_10.html#decision-errors-in-hypothesis-testing",
+    "href": "lectures/lecture10/lecture_10.html#decision-errors-in-hypothesis-testing",
+    "title": "LAST CLASS!!!",
+    "section": "Decision Errors in Hypothesis Testing",
+    "text": "Decision Errors in Hypothesis Testing\n\nStatistical inference involves uncertainty, so hypothesis tests are never 100% accurate\n\nType I error (“false positive”): reject \\(H_0\\) when \\(H_0\\) is actually true\n\nDetect a difference (or effect) that is not present\nTo reduce type I error, we increase our standard of evidence (i.e., from 95% to 99%)\n\nType II error (“false negative”): fail to reject \\(H_0\\) when \\(H_A\\) is actually true\n\nFail to detect a difference (or effect) that is present\nTo reduce type II error, we reduce our standard of evidence (i.e., from 95% to 90%)\n\nIn a court of law\n\nNull hypothesis: Defendant is innocent\nAlternative hypothesis: Defendant is guilty\n\n\n\nWhich is worse: Type 1 or Type 2 error?"
+  },
+  {
+    "objectID": "lectures/lecture10/lecture_10.html#type-i-vs.-type-ii-error",
+    "href": "lectures/lecture10/lecture_10.html#type-i-vs.-type-ii-error",
+    "title": "LAST CLASS!!!",
+    "section": "Type I vs. Type II Error",
+    "text": "Type I vs. Type II Error\n\nerror type"
+  },
+  {
+    "objectID": "lectures/lecture10/lecture_10.html#the-real-world",
+    "href": "lectures/lecture10/lecture_10.html#the-real-world",
+    "title": "LAST CLASS!!!",
+    "section": "The Real World",
+    "text": "The Real World\n\nsorting regression"
+  },
+  {
+    "objectID": "lectures/lecture10/lecture_10.html#regression-review",
+    "href": "lectures/lecture10/lecture_10.html#regression-review",
+    "title": "LAST CLASS!!!",
+    "section": "Regression Review",
+    "text": "Regression Review\nEstimating the effects of age and sex on teaching evaluations"
+  },
+  {
+    "objectID": "lectures/lecture10/lecture_10.html#results-tables-in-public-policy-administration-journals",
+    "href": "lectures/lecture10/lecture_10.html#results-tables-in-public-policy-administration-journals",
+    "title": "LAST CLASS!!!",
+    "section": "Results tables in public policy / administration journals",
+    "text": "Results tables in public policy / administration journals\n\njournal example"
+  },
+  {
+    "objectID": "lectures/lecture10/lecture_10.html#datascience-pipeline",
+    "href": "lectures/lecture10/lecture_10.html#datascience-pipeline",
+    "title": "LAST CLASS!!!",
+    "section": "Datascience Pipeline",
+    "text": "Datascience Pipeline\n\n\ndatascience pipeline"
   }
 ]
