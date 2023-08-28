@@ -1,0 +1,92 @@
+---
+title: "Data Visualization II"
+subtitle: "SPS 502"
+format: 
+  revealjs:
+    theme: [simple]
+    code-overflow: wrap
+    height: 900
+    width: 1600
+---
+
+
+```{r load-libraries-data, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(moderndive)  # For regression and correlation
+library(infer)  # For making inferences
+library(pander)  
+library(knitr)
+library(kableExtra)
+
+# For making nice markdown tables with pandoc.table
+# anything else
+
+# Load data
+# your_raw_data <- read_csv("data/whatever.csv)
+
+# Clean and wrangle data
+# your_clean_data <- your_raw_data %>%
+#   filter() %>% mutate() %>% etc.
+
+# Delete this, obviously
+# rnorm() chooses 1000 random numbers from a normal distribution
+# sample() chooses a random letter from the list of four letters I gave it, 1000 times
+fake_data <- tibble(x = rnorm(1000),
+                    y = rnorm(1000, mean = 50, sd = 5),
+                    z = sample(c("A", "B", "C", "D"), 1000, replace = TRUE))
+```
+
+## Introduction
+
+Describe the motivation for this study, outline and define what questions you are exploring and why. 
+
+-   First point
+-   Second point
+-   Another point
+
+## Data and Methods
+
+Describe your data sources
+
+## Descriptive Statistics Table 
+
+```{r fake-table, results="asis"}
+summary_of_fake_data <- fake_data %>% 
+  group_by(z) %>% 
+  summarize(avg_x = mean(x), 
+            avg_y = mean(y),
+            number = n())
+
+summary_of_fake_data %>% 
+  pandoc.table(caption = "Some cool summary table")
+```
+
+## Descriptive Visualization
+
+```{r fake-figure1, fig.width=3, fig.height=2, fig.align='center'}
+ggplot(fake_data, aes(x = x)) +
+  geom_histogram(binwidth = 0.5)
+```
+
+# Results
+
+## Results Table 
+
+```{r fake-model1, results="asis"}
+model1 <- lm(y ~ x, data = fake_data)
+
+model1 %>% 
+  get_regression_table() %>% 
+  pandoc.table(caption = "Results from a model")
+```
+
+## Results Visualization
+
+Show us your results with a visualization(s). Describe whether they provided support for your hypothesis(es). 
+
+```{r reg-plot 1}
+ggplot(fake_data, aes(x = x, y = y)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm")
+```
+
