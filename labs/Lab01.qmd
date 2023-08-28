@@ -185,11 +185,11 @@ datasaurus_dozen %>%
 
 # Wraping up
 
-You're done with the data analysis exercises, now it's time to Knit!
+You're done with the data analysis exercises, now it's time to render!
 
-## Knitting an HTML file
+## Rendering an HTML file
 
-Click the Knit button at the top left side of the screen to "knit" the file, or in other words, produce an output document. An `.html` file will be generated.
+Click the "Render" button at the top left side of the screen to render the file, or in other words, produce an output document. An `.html` file will be generated.
 
 Note: If you see the popup below you can just hit cancel:
 
@@ -205,7 +205,7 @@ Almost done, but I'd like you to do two more things:
 
 -   **Resize your figures:**
 
-Click on the gear icon in on top of the R Markdown document, and select "Output Options..." in the dropdown menu. In the pop up dialogue box go to the Figures tab and change the height and width of the figures, and hit OK when done. Then, knit your document and see how you like the new sizes. Change and knit again and again until you're happy with the figure sizes. Note that these values get saved in the YAML.
+Click on the gear icon in on top of the R Markdown document, and select "Output Options..." in the dropdown menu. In the pop up dialogue box go to the Figures tab and change the height and width of the figures, and hit OK when done. Then, render your document and see how you like the new sizes. Change and render again and again until you're happy with the figure sizes. Note that these values get saved in the YAML.
 
 ![](img/fig-resize-global.png)
 
@@ -216,7 +216,7 @@ You can also use different figure sizes for different figures. To do so click on
 
 -   **Change the look of your report:**
 
-Once again click on the gear icon in on top of the R Markdown document, and select "Output Options..." in the dropdown menu. In the General tab of the pop up dialogue box try out different Syntax highlighting and theme options. Hit OK and knit your document to see how it looks. Play around with these until you're happy with the look.
+Once again click on the gear icon in on top of the R Markdown document, and select "Output Options..." in the dropdown menu. In the General tab of the pop up dialogue box try out different Syntax highlighting and theme options. Hit OK and render your document to see how it looks. Play around with these until you're happy with the look.
 
 ![](img/theme-highlight.png)
 
