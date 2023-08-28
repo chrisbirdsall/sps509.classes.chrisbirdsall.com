@@ -20,12 +20,6 @@ The main goal of this lab is to continue your introduction to R and RStudio by d
 R is the name of the programming language itself and RStudio is a convenient interface.
 :::
 
-An additional goal is to introduce you to git and GitHub, which is the collaboration and version control system that we will use moving forward. Github is extremely helpful for tracking down problems with your code and for managing collaboration, which we'll do in some labs later in the semester.
-
-::: column-margin
-git is a version control system (like "Track Changes" features from Microsoft Word) and GitHub is the home for your Git-based projects on the internet.
-:::
-
 As the labs progress, you are encouraged to explore beyond what the labs dictate; a willingness to experiment will make you a much better programmer. Before we get to that stage, however, you need to build some basic fluency in R. Today we begin with the fundamental building blocks of R and RStudio: the interface, reading in data, and basic commands.
 
 # Getting started
