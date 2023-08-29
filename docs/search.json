@@ -1454,5 +1454,19 @@
     "title": "LAST CLASS!!!",
     "section": "Datascience Pipeline",
     "text": "Datascience Pipeline\n\n\ndatascience pipeline"
+  },
+  {
+    "objectID": "labs/Lab01.html#rendering-an-html-file",
+    "href": "labs/Lab01.html#rendering-an-html-file",
+    "title": "\n            Lab 01 - R & RStudio & Dinosaurs! Oh my!\n        ",
+    "section": "Rendering an HTML file",
+    "text": "Rendering an HTML file\nClick the “Render” button at the top left side of the screen to render the file, or in other words, produce an output document. An .html file will be generated.\nNote: If you see the popup below you can just hit cancel:\n\nThen click on the html file in the “Files” pane to open it in your web browser:"
+  },
+  {
+    "objectID": "labs/Lab01.html#kniting-an-html-file",
+    "href": "labs/Lab01.html#kniting-an-html-file",
+    "title": "\n            Lab 01 - R & RStudio & Dinosaurs! Oh my!\n        ",
+    "section": "kniting an HTML file",
+    "text": "kniting an HTML file\nClick the “knit” button at the top left side of the screen to knit the file, or in other words, produce an output document. An .html file will be generated.\nNote: If you see the popup below you can just hit cancel:\n\nThen click on the html file in the “Files” pane to open it in your web browser:"
   }
 ]
