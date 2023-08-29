@@ -163,8 +163,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#the-datasaurus-dozen" id="toc-the-datasaurus-dozen" class="nav-link" data-scroll-target="#the-datasaurus-dozen">The datasauRus Dozen</a>
   <ul class="collapse">
   <li><a href="#loading-packages" id="toc-loading-packages" class="nav-link" data-scroll-target="#loading-packages">Loading Packages</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#data-visualization-and-summary" id="toc-data-visualization-and-summary" class="nav-link" data-scroll-target="#data-visualization-and-summary">Data Visualization and Summary</a></li>
+  </ul></li>
+  <li><a href="#excercises" id="toc-excercises" class="nav-link" data-scroll-target="#excercises">Excercises</a>
+  <ul class="collapse">
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a>
+  <ul class="collapse">
+  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a></li>
+  </ul></li>
+  <li><a href="#data-visualization-and-summary" id="toc-data-visualization-and-summary" class="nav-link" data-scroll-target="#data-visualization-and-summary">Data Visualization and Summary</a>
+  <ul class="collapse">
+  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
+  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
+  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a></li>
+  <li><a href="#exercise-5" id="toc-exercise-5" class="nav-link" data-scroll-target="#exercise-5">Exercise 5</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#wraping-up" id="toc-wraping-up" class="nav-link" data-scroll-target="#wraping-up">Wraping up</a>
   <ul class="collapse">
@@ -212,7 +224,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Each lab will start with a “Getting started” section but details will be a bit more sparse than this. You can always refer back to this lab for a detailed list of the steps involved for getting started with an assignment.</p>
 <section id="open-the-starter-project-in-rstudio-cloud" class="level2">
 <h2 class="anchored" data-anchor-id="open-the-starter-project-in-rstudio-cloud">Open the starter project in RStudio Cloud</h2>
-<p>Visit <a href="https://rstudio.cloud/">RStudio.cloud</a> and login using the credentials you setup in our first class. Once you load up RStudio Cloud in your web browser you should see something like this:</p>
+<p>Visit <a href="https://posit.cloud/">Posit.cloud</a> and login using the credentials you setup in our first class. Once you load up RStudio Cloud in your web browser you should see something like this:</p>
 <p><img src="img/rstudio-cloud.png" class="img-fluid"></p>
 <p>In the left side bar you’ll see a header, “Space”, under which you’ll see “Your Workspace” and “SPS 502-F23”. Click SPS 502-F23 to view the list of projects associated with our class.</p>
 <p>There you’ll see the Lab 01 starter project, called “Lab 01 - Hello R!”.</p>
@@ -226,7 +238,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The panel on the left is where the action happens. It’s called the <em>console</em>. Every time you launch RStudio, it will have the same text at the top of the console telling you the version of R that you’re running.</p>
 <p>The panel in the upper right contains your <em>workspace</em>. This shows the variables and objects you define during your R session, and a history of the commands that you enter.</p>
 <p>Any plots that you generate will show up in the panel in the lower right corner. This is also where you can browse your files, access help files, and upload and download files.</p>
-<p>In the files pane you’ll see the [project file](https://support.rstudio.com/hc/en-us/articles/200526207-Using-RStudio-Projects, an RMarkdown file named Lab01_Lastname_Firstname.Rmd. Click the checkbox next to the file then click “rename”, as shown below.</p>
+<p>In the files pane you’ll see the [project file](https://support.rstudio.com/hc/en-us/articles/200526207-Using-RStudio-Projects), an RMarkdown file named Lab01_Lastname_Firstname.Rmd. Click the checkbox next to the file then click “rename”, as shown below.</p>
 <p><img src="img/rename-rmarkdown.png" class="img-fluid"></p>
 <p>Replace “Lastname” and “Firstname” with your last name and first name and click okay.</p>
 </section>
@@ -248,7 +260,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Okay, let’s get to the fun part!</p>
 </section>
 </section>
-<section id="the-datasaurus-dozen" class="level1 page-columns page-full">
+<section id="the-datasaurus-dozen" class="level1">
 <h1>The datasauRus Dozen</h1>
 <section id="loading-packages" class="level2">
 <h2 class="anchored" data-anchor-id="loading-packages">Loading Packages</h2>
@@ -259,27 +271,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(datasauRus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
+</section>
+<section id="excercises" class="level1 page-columns page-full">
+<h1>Excercises</h1>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
 <p>The data frame we will be working with today is called <code>datasaurus_dozen</code> and it’s in the <code>datasauRus</code> package. Actually, this single data frame contains 13 datasets, designed to show us why data visualization is important and how summary statistics alone can be misleading. The different datasets are marked by the <code>dataset</code> variable.</p>
+<section id="exercise-1" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1">Exercise 1</h3>
 <p>To find out more about the dataset, type the following in your Console: <code>?datasaurus_dozen</code>. A question mark before the name of an object will always bring up its help file. This command must be run in the Console.</p>
-<ol type="1">
-<li>Based on the help file, how many rows and how many columns does the <code>datasaurus_dozen</code> file have? What are the variables included in the data frame? Add your responses to your lab report.</li>
-</ol>
-<p>Let’s take a closer look at these datasets by making a <em>frequency table</em> of the <code>dataset</code> variable. Add the following code block to your R Markdown document and run it (copy the code then paste it under your answer in exercise 1):</p>
+<p>Based on the help file, how many rows and how many columns does the <code>datasaurus_dozen</code> file have? What are the variables included in the data frame? Add your responses to your lab report.</p>
+<p>Let’s take a closer look at these datasets by making a <em>frequency table</em> of the <code>dataset</code> variable. Add the following code block to your R Markdown document and run it (copy the code then paste it into a code block under your answer in exercise 1):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>datasaurus_dozen <span class="sc">%&gt;%</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(dataset) <span class="sc">%&gt;%</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="dv">13</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>To add a codeblock click the green “C+” button (as shown below) and click <code>r</code>:</p>
+<p><img src="img/codeblock.png" class="img-fluid"></p>
 <p>You should see a “tibble” pop up listing the names of the datasets in one column and the number of observations (n) in the next column.</p>
+</section>
 </section>
 <section id="data-visualization-and-summary" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="data-visualization-and-summary">Data Visualization and Summary</h2>
 <p>Okay, we’re about to do a lot of stuff that won’t make a ton of sense yet. We’ll go through a brief explanation in this lab, but more details and context for these commands will come in the next couple of weeks. For now, buckle up!</p>
-<ol start="2" type="1">
-<li>Plot <code>y</code> vs.&nbsp;<code>x</code> for the <code>dino</code> dataset. Then, calculate the correlation coefficient between <code>x</code> and <code>y</code> for this dataset. (Er… excuse me?)</li>
-</ol>
+<section id="exercise-2" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="exercise-2">Exercise 2</h3>
+<p>Plot <code>y</code> vs.&nbsp;<code>x</code> for the <code>dino</code> dataset. Then, calculate the correlation coefficient between <code>x</code> and <code>y</code> for this dataset. (Er… excuse me?)</p>
 <p>Don’t worry. All the code you need to accomplish this is already in your lab for you. You’ll just need to include the code and some other information in your R Markdown file.</p>
 <p>Start with the <code>datasaurus_dozen</code> and pipe it into the <code>filter</code> function to filter for observations where <code>dataset == "dino"</code>. Store the resulting filtered data frame as a new data frame called <code>dino_data</code>.</p>
 <div class="cell">
@@ -306,11 +324,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dino_data <span class="sc">%&gt;%</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">r =</span> <span class="fu">cor</span>(x, y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ol start="3" type="1">
-<li><p>Plot <code>y</code> vs.&nbsp;<code>x</code> for the <code>star</code> dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between <code>x</code> and <code>y</code> for this dataset. How does this value compare to the <code>r</code> of <code>dino</code>?</p></li>
-<li><p>Plot <code>y</code> vs.&nbsp;<code>x</code> for the <code>circle</code> dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between <code>x</code> and <code>y</code> for this dataset. How does this value compare to the <code>r</code> of <code>dino</code>?</p></li>
-<li><p>Finally, let’s plot all datasets at once. In order to do this we will make use of facetting.</p></li>
-</ol>
+</section>
+<section id="exercise-3" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-3">Exercise 3</h3>
+<p>Plot <code>y</code> vs.&nbsp;<code>x</code> for the <code>star</code> dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between <code>x</code> and <code>y</code> for this dataset. How does this value compare to the <code>r</code> of <code>dino</code>?</p>
+</section>
+<section id="exercise-4" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-4">Exercise 4</h3>
+<p>Plot <code>y</code> vs.&nbsp;<code>x</code> for the <code>circle</code> dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between <code>x</code> and <code>y</code> for this dataset. How does this value compare to the <code>r</code> of <code>dino</code>?</p>
+</section>
+<section id="exercise-5" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="exercise-5">Exercise 5</h3>
+<p>Finally, let’s plot all datasets at once. In order to do this we will make use of facetting.</p>
 <div class="cell" data-fig.fullwidth="true">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datasaurus_dozen, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> dataset))<span class="sc">+</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
@@ -327,6 +352,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">r =</span> <span class="fu">cor</span>(x, y)) <span class="sc">%&gt;%</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="dv">13</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
 </section>
 </section>
 <section id="wraping-up" class="level1">

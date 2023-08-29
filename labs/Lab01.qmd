@@ -28,7 +28,7 @@ Each lab will start with a "Getting started" section but details will be a bit m
 
 ## Open the starter project in RStudio Cloud
 
-Visit [RStudio.cloud](https://rstudio.cloud/) and login using the credentials you setup in our first class. Once you load up RStudio Cloud in your web browser you should see something like this:
+Visit [Posit.cloud](https://posit.cloud/) and login using the credentials you setup in our first class. Once you load up RStudio Cloud in your web browser you should see something like this:
 
 ![](img/rstudio-cloud.png)
 
@@ -50,7 +50,7 @@ The panel in the upper right contains your *workspace*. This shows the variables
 
 Any plots that you generate will show up in the panel in the lower right corner. This is also where you can browse your files, access help files, and upload and download files.
 
-In the files pane you'll see the \[project file\](https://support.rstudio.com/hc/en-us/articles/200526207-Using-RStudio-Projects, an RMarkdown file named Lab01_Lastname_Firstname.Rmd. Click the checkbox next to the file then click "rename", as shown below.
+In the files pane you'll see the \[project file\](https://support.rstudio.com/hc/en-us/articles/200526207-Using-RStudio-Projects), an RMarkdown file named Lab01_Lastname_Firstname.Rmd. Click the checkbox next to the file then click "rename", as shown below.
 
 ![](img/rename-rmarkdown.png)
 
@@ -90,15 +90,19 @@ library(datasauRus)
 
 ```
 
+# Excercises
+
 ## Data
 
 The data frame we will be working with today is called `datasaurus_dozen` and it's in the `datasauRus` package. Actually, this single data frame contains 13 datasets, designed to show us why data visualization is important and how summary statistics alone can be misleading. The different datasets are marked by the `dataset` variable.
 
+### Exercise 1
+
 To find out more about the dataset, type the following in your Console: `?datasaurus_dozen`. A question mark before the name of an object will always bring up its help file. This command must be run in the Console.
 
-1.  Based on the help file, how many rows and how many columns does the `datasaurus_dozen` file have? What are the variables included in the data frame? Add your responses to your lab report.
+Based on the help file, how many rows and how many columns does the `datasaurus_dozen` file have? What are the variables included in the data frame? Add your responses to your lab report.
 
-Let's take a closer look at these datasets by making a *frequency table* of the `dataset` variable. Add the following code block to your R Markdown document and run it (copy the code then paste it under your answer in exercise 1):
+Let's take a closer look at these datasets by making a *frequency table* of the `dataset` variable. Add the following code block to your R Markdown document and run it (copy the code then paste it into a code block under your answer in exercise 1):
 
 ```{r}
 datasaurus_dozen %>%
@@ -106,13 +110,19 @@ count(dataset) %>%
 print(13)
 ```
 
+To add a codeblock click the green "C+" button (as shown below) and click `r`:
+
+![](img/codeblock.png)
+
 You should see a "tibble" pop up listing the names of the datasets in one column and the number of observations (n) in the next column.
 
 ## Data Visualization and Summary
 
 Okay, we're about to do a lot of stuff that won't make a ton of sense yet. We'll go through a brief explanation in this lab, but more details and context for these commands will come in the next couple of weeks. For now, buckle up!
 
-2.  Plot `y` vs. `x` for the `dino` dataset. Then, calculate the correlation coefficient between `x` and `y` for this dataset. (Er... excuse me?)
+### Exercise 2
+
+Plot `y` vs. `x` for the `dino` dataset. Then, calculate the correlation coefficient between `x` and `y` for this dataset. (Er... excuse me?)
 
 Don't worry. All the code you need to accomplish this is already in your lab for you. You'll just need to include the code and some other information in your R Markdown file.
 
@@ -157,11 +167,17 @@ dino_data %>%
   summarize(r = cor(x, y))
 ```
 
-3.  Plot `y` vs. `x` for the `star` dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between `x` and `y` for this dataset. How does this value compare to the `r` of `dino`?
+### Exercise 3
 
-4.  Plot `y` vs. `x` for the `circle` dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between `x` and `y` for this dataset. How does this value compare to the `r` of `dino`?
+Plot `y` vs. `x` for the `star` dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between `x` and `y` for this dataset. How does this value compare to the `r` of `dino`?
 
-5.  Finally, let's plot all datasets at once. In order to do this we will make use of facetting.
+### Exercise 4
+
+Plot `y` vs. `x` for the `circle` dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between `x` and `y` for this dataset. How does this value compare to the `r` of `dino`?
+
+### Exercise 5
+
+Finally, let's plot all datasets at once. In order to do this we will make use of facetting.
 
 ```{r all-viz, eval=FALSE, fig.fullwidth=TRUE}
 ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset))+
@@ -212,7 +228,6 @@ Click on the gear icon in on top of the R Markdown document, and select "Output 
 You can also use different figure sizes for different figures. To do so click on the gear icon within the chunk where you want to make a change. Changing the figure sizes added new options to these chunks: `fig.width` and `fig.height`. You can change them by defining different values directly in your R Markdown document as well.
 
 ![](img/fig-resize-local.png)
-
 
 -   **Change the look of your report:**
 
