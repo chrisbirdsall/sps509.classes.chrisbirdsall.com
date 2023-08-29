@@ -225,7 +225,7 @@ Click on the gear icon in on top of the R Markdown document, and select "Output 
 
 ![](img/fig-resize-global.png)
 
-You can also use different figure sizes for different figures. To do so click on the gear icon within the chunk where you want to make a change. Changing the figure sizes added new options to these chunks: `fig.width` and `fig.height`. You can change them by defining different values directly in your R Markdown document as well.
+You can also use different figure sizes for different figures. To do so click on the gear icon within the chunk where you want to make a change. Changing the figure sizes added new options to these chunks: `fig.width` and `fig.height` (click the checkbox next to "Use custom figure size" first. You can change them by defining different values directly in your R Markdown document as well.
 
 ![](img/fig-resize-local.png)
 
