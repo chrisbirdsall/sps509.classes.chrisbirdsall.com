@@ -1467,6 +1467,6 @@
     "href": "labs/Lab01.html#kniting-an-html-file",
     "title": "\n            Lab 01 - R & RStudio & Dinosaurs! Oh my!\n        ",
     "section": "kniting an HTML file",
-    "text": "kniting an HTML file\nClick the “knit” button at the top left side of the screen to knit the file, or in other words, produce an output document. An .html file will be generated.\nNote: If you see the popup below you can just hit cancel:\n\nThen click on the html file in the “Files” pane to open it in your web browser:"
+    "text": "kniting an HTML file\nClick the “knit” button at the top left side of the screen to knit the file, or in other words, produce an output document. An .html file will be generated.\nNote: If you see the popup below you can hit try again (which should work) or just hit cancel and file will still be there for you to open in the files pane:\n\nThen click on the html file in the “Files” pane to open it in your web browser:"
   }
 ]
