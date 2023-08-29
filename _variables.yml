@@ -14,14 +14,14 @@ instructor:
 
 course:
   number: "SPS 502"
-  semester: "Fall 2022"
-  days: "Thursdays"
+  semester: "Fall 2023"
+  days: "Tuesdays"
   time: "6:00-8:45 p.m."
-  location: "Bronco Gymnasium 218"
-  dates: "August 25–December 15, 2022"
+  location: "ERB 1100"
+  dates: "August 22–December 12, 2023"
   github: "https://github.com/SPS-502"
   url: "https://sps-502.github.io/website/"
-  copyright_year: "2022"
+  copyright_year: "2023"
   slack: "https://sps502f22.slack.com"
 
 university:
