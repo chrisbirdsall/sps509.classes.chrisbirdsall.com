@@ -1,0 +1,158 @@
+---
+title: "Introduction to $R$ and Social Science"
+subtitle: "SPS 502"
+format: 
+  revealjs:
+    theme: [simple]
+editor: visual
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Social Research
+::: incremental
+- What is social research? 
+    - Attempt by social scientists to develop and sharpen our understanding of human society and social relationships
+- Why do we engage in social research?  
+:::
+
+## Normative vs. Empirical Research
+::: incremental
+- **Normative research** seeks to answer questions about how the world *should* or *ought* to be
+    - Philosophical, based on values, subjective
+    - Example: what is the best management style?
+- **Empirical research** seeks to answer questions about how the world *is*
+    - Factual, based on observation (data), (more) objective
+    - Example: what management style optimizes employee retention?
+:::
+
+
+## Basic vs. Applied Research
+::: incremental
+- **Basic research** seeks to develop new knowledge about the nature of phenomena
+    - Innate curiosity
+    - Example: why are people violent?
+- **Applied research** seeks to answer specific questions about real-world problems and their solutions
+    - Problem solving
+    - Example: how do we reduce violence in schools?
+:::
+
+## Descriptive vs. Explanatory Research
+::: incremental
+- **Descriptive research** seeks to characterize the nature of a problem of phenomena.
+    - Example: how pervasive is school violence?
+- **Explanatory research** seeks to explain the causes of a problem or phenomena and/or the effectiveness of particular solutions
+    - Example(s):
+        - What causes school violence?
+        - Do metal detectors reduce the likelihood of school violence?
+:::
+
+## Research Process
+![](images/researchprocess.png)
+
+
+## Research Question
+![](images/researchquestion.png)
+::: incremental
+## Research Question
+- The question you plan to answer in a given study
+- Can be challenging---should be narrow enough to answer in a given study, but broad enough to matter
+    - Too broad: How can we reduce recidivism in the US? 
+    - Too narrow: What was the recidivism rate in the US in 2014?
+    - Just right: Do work release programs reduce recidivism? 
+:::
+
+## Review Previous Research
+![](images/researchreview.png)
+
+## Review Previous Research 
+::: incremental
+- Place your research within the context of existing scholarship---what do we know and what do we need to know about the relationship between work release programs and recidivism?
+    - Have other scholars addressed the question?
+        - If so, what did they find and what are you adding to their findings?
+    - Do theories/findings exist in other areas of research (i.e., private sector business management) that might speak to your question?
+        - If so, what are those theories/findings and how might they relate to your question?
+:::
+
+## Develop Theory 
+![](images/researchtheory.png)
+
+## Develop Theory
+- Set of interrelated propositions that seek to explain and, in some cases, predict an observed phenomenon
+    - Participation in work release program $\Rightarrow$ job skills $\Rightarrow$ more likely to secure job after release $\Rightarrow$ reduced likelihood of recidivism 
+
+## Develop Theory
+::: incremental
+- Good theories are:
+    1. Accurate---consistent with reality
+    2. Generalizable---applicable to a wide variety of cases
+    3. Productive---generate testable(falsifiable) hypotheses
+::: 
+
+## Develop Theory
+::: incremental
+- Where does theory come from?
+    1. Logic (deduction)
+    2. Observation (induction)
+:::
+    
+## Construct Hypotheses
+![](images/researchhypoth.png)
+
+## Construct Hypotheses
+::: incremental
+- Specific statement about the expected relationship between the dependent (outcome) and independent (explanatory) variables in a theory
+    - Dependent variables are affected by ("depend on") other variables; sometimes called outcome variables
+    - Independent variables affect/explain/cause changes in dependent variables; sometimes called explanatory or treatment variables
+    - Dependent variables (*y*) vary as a function of independent variables (*x*): *y=f(x)* or *y~x*
+        - *Recidivism = f(Work Release Participation)* or *Recidivism~Work Release Participation*
+::: 
+
+## Construct Hypotheses
+::: incremental
+- Good hypotheses...
+    - Match the theory
+    - Specify the expected direction of the relationship between the independent and dependent variables (positive or negative)
+    - Are falsifiable---clear enough to be wrong!
+- Example: if my theory is correct, then...
+    - *H: Prisoners participating in work release programs will be less likely to return to prison than those who do not participate.*
+:::
+
+## Design Study and Collect Data
+![](images/researchdesign.png)
+
+## Design Study and Collect Data
+![](images/researchanalyze.png)
+
+## Tips for Surviving as you Learn R
+- Take your time
+- Make mistakes 
+- Take notes 
+- Google your problems (or ask ChatGPT with caution)
+
+## Where to Find Journal Articles: Public Administration
+- Journal of Public Administration Research and Theory (JPART)
+- Public Administration Review (PAR)
+- American Review of Public Administration (ARPA)
+- International Public Management Journal (IPMJ)
+
+## Where to Find Journal Articles: Public Policy
+- Policy Studies Journal (PSJ)
+- Journal of Policy Analysis and Management (JPAM) (please bombard BSU with ILL requests)
+- Review of Policy Research 
+    
+## Where to Find Journal Articles: Political Science
+- American Journal of Political Science (AJPS)
+- American Political Science Review (APSR)
+- The Journal of Politics (JOP)
+
+## How to Find an Article 
+- BSU Library Web Site
+    - https://library.boisestate.edu
+- Google Scholar
+    - http://scholar.google.com
+    
+## Lab 1
+- Open lab instructions on Canvas
