@@ -128,16 +128,16 @@
   {
     "objectID": "labs/Lab02.html#packages",
     "href": "labs/Lab02.html#packages",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 02 - Visualization\n        ",
     "section": "Packages",
     "text": "Packages\nWe’ll use the tidyverse package for this analysis. Run the following code to load this package.\n\nlibrary(tidyverse)"
   },
   {
     "objectID": "labs/Lab02.html#data",
     "href": "labs/Lab02.html#data",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 02 - Visualization\n        ",
     "section": "Data",
-    "text": "Data\nThe dataset for this assignment can be found as a csv file in the data folder in the files pane. You can read it in using the following:\n\nplastic_waste <- read_csv(\"data/plastic-waste.csv\")\n\nThe variable descriptions are as follows:\n\ncode: 3 Letter country code\nentity: Country name\ncontinent: Continent name\nyear: Year\ngdp_per_cap: GDP per capita constant 2011 international $, rate\nplastic_waste_per_cap: Amount of plastic waste per capita in kg/day\nmismanaged_plastic_waste_per_cap: Amount of mismanaged plastic waste per capita in kg/day\nmismanaged_plastic_waste: Tonnes of mismanaged plastic waste\ncoastal_pop: Number of individuals living on/near coast\ntotal_pop: Total population according to Gapminder"
+    "text": "Data\nThe dataset for this assignment can be found as a csv file in the data folder in the files pane. Load it using the following code:\n\nplastic_waste &lt;- read_csv(\"data/plastic-waste.csv\")\n\nThe variable descriptions are as follows:\n\ncode: 3 Letter country code\nentity: Country name\ncontinent: Continent name\nyear: Year\ngdp_per_cap: GDP per capita constant 2011 international $, rate\nplastic_waste_per_cap: Amount of plastic waste per capita in kg/day\nmismanaged_plastic_waste_per_cap: Amount of mismanaged plastic waste per capita in kg/day\nmismanaged_plastic_waste: Tonnes of mismanaged plastic waste\ncoastal_pop: Number of individuals living on/near coast\ntotal_pop: Total population according to Gapminder"
   },
   {
     "objectID": "labs/Lab02.html#submission",
@@ -149,49 +149,49 @@
   {
     "objectID": "labs/Lab02.html#exercise-1",
     "href": "labs/Lab02.html#exercise-1",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 02 - Visualization\n        ",
     "section": "Exercise 1",
     "text": "Exercise 1\nPlot, using histograms, the distribution of plastic waste per capita faceted by continent. What can you say about how the continents compare to each other in terms of their plastic waste per capita? Write and run the code required to create the faected histogram plot in your RMarkdown file.\n\n\nNOTE: Moving forward, the plots and the output of the code are not displayed in the lab instructions, but, as previously stated, you can and should copy the code to your R Markdown file and view the results yourself.\n\nDesnsity plots\nAnother way of visualizing numerical data is using density plots.\n\nggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) +\n  geom_density()\n\nAnd compare distributions across continents by coloring density curves by continent.\n\nggplot(data = plastic_waste, \n       mapping = aes(x = plastic_waste_per_cap, \n                     color = continent)) +\n  geom_density()\n\nThe resulting plot may be a little difficult to read, so let’s also fill the curves in with colors as well.\n\nggplot(data = plastic_waste, \n       mapping = aes(x = plastic_waste_per_cap, \n                     color = continent, \n                     fill = continent)) +\n  geom_density()\n\nThe overlapping colors make it difficult to tell what’s happening with the distributions in continents plotted first, and hence covered by continents plotted over them. We can change the transparency level of the fill color to help with this. The alpha argument takes values between 0 and 1 (e.g., 0.5): 0 is completely transparent and 1 is completely opaque. There is no way to tell what value will work best, so you just need to try a few.\n\nggplot(data = plastic_waste, \n       mapping = aes(x = plastic_waste_per_cap, \n                     color = continent, \n                     fill = continent)) +\n  geom_density(alpha = 0.7)\n\nThis still doesn’t look great…"
   },
   {
     "objectID": "labs/Lab02.html#exercise-2",
     "href": "labs/Lab02.html#exercise-2",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 02 - Visualization\n        ",
     "section": "Exercise 2",
     "text": "Exercise 2\nRecreate the density plots above using a different (lower) alpha level that works better for displaying the density curves for all continents."
   },
   {
     "objectID": "labs/Lab02.html#exercise-3",
     "href": "labs/Lab02.html#exercise-3",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 02 - Visualization\n        ",
     "section": "Exercise 3",
     "text": "Exercise 3\nWhy do we define the color and fill of the curves by mapping aesthetics of the plot, but define the alpha level as a characteristic of the plotting geom?\n\n\nHint: you may need to go back and read about the alpha argument in ModernDive to answer this question.\nAnd yet another way to visualize this relationship is using side-by-side box plots.\n\nggplot(data = plastic_waste, \n       mapping = aes(x = continent, \n                     y = plastic_waste_per_cap)) +\n  geom_boxplot()"
   },
   {
     "objectID": "labs/Lab02.html#exercise-4",
     "href": "labs/Lab02.html#exercise-4",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 02 - Visualization\n        ",
     "section": "Exercise 4",
     "text": "Exercise 4\nConvert your side-by-side box plots from the previous task to violin plots. What do the violin plots reveal that box plots do not? What features are apparent in the box plots but not in the violin plots?"
   },
   {
     "objectID": "labs/Lab02.html#exercise-5",
     "href": "labs/Lab02.html#exercise-5",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 02 - Visualization\n        ",
     "section": "Exercise 5",
     "text": "Exercise 5\nVisualize the relationship between plastic waste per capita and mismanaged plastic waste per capita using a scatterplot. Describe the relationship.\n\n\nRemember: We use geom_point() to make scatterplots."
   },
   {
     "objectID": "labs/Lab02.html#exercise-6",
     "href": "labs/Lab02.html#exercise-6",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 02 - Visualization\n        ",
     "section": "Exercise 6",
     "text": "Exercise 6\nColor the points in the scatterplot by continent. Does there seem to be any clear distinctions between continents with respect to how plastic waste per capita and mismanaged plastic waste per capita are associated?"
   },
   {
     "objectID": "labs/Lab02.html#exercise-7",
     "href": "labs/Lab02.html#exercise-7",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 02 - Visualization\n        ",
     "section": "Exercise 7",
     "text": "Exercise 7\nVisualize the relationship between plastic waste per capita and total population as well as plastic waste per capita and coastal population. You will need to make two separate plots. Do either of these pairs of variables appear to be more strongly linearly associated?"
   },
@@ -436,23 +436,23 @@
   {
     "objectID": "lectures/lecture03/lecture03.html#mean",
     "href": "lectures/lecture03/lecture03.html#mean",
-    "title": "Data Wrangling",
+    "title": "\n            Data Wrangling\n        ",
     "section": "Mean",
     "text": "Mean\n\n\nArithmetic Mean (\\(\\bar{x}\\) or \\(\\mu\\)): the sum of a series of observations divided by the number of observations \\[\\bar{x} = \\frac{1}{n}\\left (\\sum_{i=1}^n{x_i}\\right ) = \\frac{x_1+x_2+\\cdots +x_n}{n}\\]\nUse when describing continuous variables\nSensitive to extreme values (e.g., income)"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#median",
     "href": "lectures/lecture03/lecture03.html#median",
-    "title": "Data Wrangling",
+    "title": "\n            Data Wrangling\n        ",
     "section": "Median",
     "text": "Median\n\n\nThe middle value in a series of observations\n\nArrange a series of observations from smallest to greatest then take the middle value\n\nNote: if there is an even number of observations, then there is no single middle value; the median is then usually defined to be the mean of the two middle values\n\n\nIn a distribution, the median is the \\(2^{nd}\\) quartile and the \\(50^{th}\\) percentile\nUse when describing continuous variables\nRobust to extreme values (e.g., income)"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#normal-distribution",
     "href": "lectures/lecture03/lecture03.html#normal-distribution",
-    "title": "Data Wrangling",
+    "title": "\n            Data Wrangling\n        ",
     "section": "Normal Distribution",
-    "text": "Normal Distribution"
+    "text": "Normal Distribution\n\nset.seed(1)\nd &lt;- data.frame(Height = round(rnorm(mean = 65, sd = 2, n = 1000), 1))\nggplot(d, aes(Height)) +\n  stat_density(geom = \"line\", size = 2) +\n  theme(axis.text = element_text(size = 16), axis.title = element_text(size = 18,face = \"bold\")) +\n  geom_vline(xintercept = mean(d$Height), linetype = 1, size = 1, color = \"red\") +\n  geom_vline(xintercept = median(d$Height), linetype = 1, size = 1, color = \"blue\") +\n  annotate(\"text\", y = 0, label = \"Mean\", size = 8, color = \"red\", x = mean(d$Height), vjust = 0.5, hjust = 0) +\n  annotate(\"text\", y = 0, label = \"Median\", size = 8, color = \"blue\", x = median(d$Height), vjust = 0.5, hjust = 1) +\n  ylab(\"Density\") + xlab(\"Height (Inches)\")\n\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead."
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#central-tendency-normal-distribution",
@@ -471,42 +471,42 @@
   {
     "objectID": "lectures/lecture03/lecture03.html#postive-skewed-distribution",
     "href": "lectures/lecture03/lecture03.html#postive-skewed-distribution",
-    "title": "Data Wrangling",
+    "title": "\n            Data Wrangling\n        ",
     "section": "Postive Skewed Distribution",
-    "text": "Postive Skewed Distribution"
+    "text": "Postive Skewed Distribution\n\nset.seed(1)\nd &lt;- data.frame(Height = round(rsnorm(mean = 65, sd = 2, xi = 3, n = 1000), 1))\nggplot(d, aes(Height)) +\n  stat_density(geom = \"line\", size = 2) +\n  theme(axis.text = element_text(size = 16), axis.title = element_text(size = 18,face = \"bold\")) +\n  geom_vline(xintercept = mean(d$Height), linetype = 1, size = 1, color = \"red\") +\n  geom_vline(xintercept = median(d$Height), linetype = 1, size = 1, color = \"blue\") +\n  annotate(\"text\", y = 0, label = \"Mean\", size = 8, color = \"red\", x = mean(d$Height), vjust = 0.5, hjust = 0) +\n  annotate(\"text\", y = 0, label = \"Median\", size = 8, color = \"blue\", x = median(d$Height), vjust = 0.5, hjust = 1) +\n  ylab(\"Density\") + xlab(\"Height (Inches)\")"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#negative-skewed-distribution",
     "href": "lectures/lecture03/lecture03.html#negative-skewed-distribution",
-    "title": "Data Wrangling",
+    "title": "\n            Data Wrangling\n        ",
     "section": "Negative Skewed Distribution",
-    "text": "Negative Skewed Distribution"
+    "text": "Negative Skewed Distribution\n\nset.seed(1)\nd &lt;- data.frame(Height = round(rsnorm(mean = 65, sd = 2, xi = -3, n = 1000), 1))\nggplot(d, aes(Height)) +\n  stat_density(geom = \"line\", size = 2) +\n  theme(axis.text = element_text(size = 16), axis.title = element_text(size = 18,face = \"bold\")) +\n  geom_vline(xintercept = mean(d$Height), linetype = 1, size = 1, color = \"red\") +\n  geom_vline(xintercept = median(d$Height), linetype = 1, size = 1, color = \"blue\") +\n  annotate(\"text\", y = 0, label = \"Mean\", size = 8, color = \"red\", x = mean(d$Height), vjust = 0.5, hjust = 1.2) +\n  annotate(\"text\", y = 0, label = \"Median\", size = 8, color = \"blue\", x = median(d$Height), vjust = 0.5, hjust = -0.2) +\n  ylab(\"Density\") + xlab(\"Height (Inches)\")"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#mode",
     "href": "lectures/lecture03/lecture03.html#mode",
-    "title": "Data Wrangling",
+    "title": "\n            Data Wrangling\n        ",
     "section": "Mode",
     "text": "Mode\n\nMode: the most common value in a series of observations\n\nSome variables include multiple modes (multimodal)\n\nUse when describing discrete (e.g., categorical) variables"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#central-tendency-review",
     "href": "lectures/lecture03/lecture03.html#central-tendency-review",
-    "title": "Data Wrangling",
+    "title": "\n            Data Wrangling\n        ",
     "section": "Central Tendency Review",
     "text": "Central Tendency Review\n\nArithmetic mean: sum of values divided by number of values\nMedian: middle value\nMode: most frequent value\nWhat is the mean, median, and mode of \\(x\\)?\n\n\\(x\\) = {1, 2, 2, 3, 4, 7, 9, 10, 11, 12, 12}"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#variance",
     "href": "lectures/lecture03/lecture03.html#variance",
-    "title": "Data Wrangling",
+    "title": "\n            Data Wrangling\n        ",
     "section": "Variance",
     "text": "Variance\n\nVariance (\\(s^{2}\\), \\(\\sigma^{2}\\)): the extent to which a variable’s values deviate from or vary around it’s mean; the average distance of each observation from the mean \\[s^{2} = \\frac{1}{n-1} \\sum_{i=1}^n (x_i - \\bar{x})^2\\]"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#variance-1",
     "href": "lectures/lecture03/lecture03.html#variance-1",
-    "title": "Data Wrangling",
+    "title": "\n            Data Wrangling\n        ",
     "section": "Variance",
     "text": "Variance\n\nMeasures how far observations are from their average value (spread of the data)\n\nLow variance \\(\\rightarrow\\) observations are relatively close to the mean value\nHigh variance \\(\\rightarrow\\) observations are relatively far from the mean value\n\nExpressed in square units (i.e., \\(\\text{inches}^2\\))"
   },
@@ -520,16 +520,16 @@
   {
     "objectID": "lectures/lecture03/lecture03.html#standard-deviation",
     "href": "lectures/lecture03/lecture03.html#standard-deviation",
-    "title": "Data Wrangling",
+    "title": "\n            Data Wrangling\n        ",
     "section": "Standard Deviation",
     "text": "Standard Deviation\n\nStandard Deviation (\\(s\\), \\(\\sigma\\)): standardized measure of variance \\[s = \\sqrt{s^2} = \\sqrt{\\frac{1}{n-1} \\sum_{i=1}^n (x_i - \\bar{x})^2}\\]\nExpressed in the same units as the mean (i.e., inches)\n\nMean distance from the mean"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#pipe",
     "href": "lectures/lecture03/lecture03.html#pipe",
-    "title": "Data Wrangling",
+    "title": "\n            Data Wrangling\n        ",
     "section": "pipe %>%",
-    "text": "pipe %>%\n\nleave_house(get_dressed(get_out_of_bed(wake_up(chris))))\n\n\n“Pipe” a data frame into a “verb” command\n“Chain” the results from one “verb” command into another\nThink of it as the word “then”\n\n\nWriting it out using pipes give it a more natural (and easier to read) structure\n\n\nchris %>% \n  wake_up() %>% \n  get_out_of_bed() %>% \n  get_dressed() %>% \n  leave_house()"
+    "text": "pipe %&gt;%\n\nleave_house(get_dressed(get_out_of_bed(wake_up(chris))))\n\n\n“Pipe” a data frame into a “verb” command\n“Chain” the results from one “verb” command into another\nThink of it as the word “then”\n\n\nWriting it out using pipes give it a more natural (and easier to read) structure\n\n\nchris %&gt;% \n  wake_up() %&gt;% \n  get_out_of_bed() %&gt;% \n  get_dressed() %&gt;% \n  leave_house()"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#pipe-1",
@@ -541,7 +541,7 @@
   {
     "objectID": "lectures/lecture03/lecture03.html#data-wrangling-1",
     "href": "lectures/lecture03/lecture03.html#data-wrangling-1",
-    "title": "Data Wrangling",
+    "title": "\n            Data Wrangling\n        ",
     "section": "Data Wrangling",
     "text": "Data Wrangling"
   },
@@ -562,7 +562,7 @@
   {
     "objectID": "lectures/lecture03/lecture03.html#filter",
     "href": "lectures/lecture03/lecture03.html#filter",
-    "title": "Data Wrangling",
+    "title": "\n            Data Wrangling\n        ",
     "section": "filter()",
     "text": "filter()"
   },
@@ -583,23 +583,23 @@
   {
     "objectID": "lectures/lecture03/lecture03.html#summarize",
     "href": "lectures/lecture03/lecture03.html#summarize",
-    "title": "Data Wrangling",
+    "title": "\n            Data Wrangling\n        ",
     "section": "summarize()",
     "text": "summarize()\n\n\nSummary functions take many values and return one value meant to describe all those values as a group."
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#summarize-1",
     "href": "lectures/lecture03/lecture03.html#summarize-1",
-    "title": "Data Wrangling",
+    "title": "\n            Data Wrangling\n        ",
     "section": "summarize()",
-    "text": "summarize()\n\nidaho_crashes %>% \n  summarize(avg_injuries = mean(Number_Of_Injuries))\n\n# A tibble: 1 × 1\n  avg_injuries\n         <dbl>\n1        0.521"
+    "text": "summarize()\n\nidaho_crashes %&gt;% \n  summarize(avg_injuries = mean(Number_Of_Injuries))\n\n# A tibble: 1 × 1\n  avg_injuries\n         &lt;dbl&gt;\n1        0.521"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#group_by-summarize",
     "href": "lectures/lecture03/lecture03.html#group_by-summarize",
-    "title": "Data Wrangling",
+    "title": "\n            Data Wrangling\n        ",
     "section": "group_by() & summarize()",
-    "text": "group_by() & summarize()\n\nidaho_crashes %>% \n  group_by(IntersectionRelated) %>% \n  summarize(avg_injuries = mean(Number_Of_Injuries))\n\n# A tibble: 2 × 2\n  IntersectionRelated avg_injuries\n  <chr>                      <dbl>\n1 N                          0.478\n2 Y                          0.583"
+    "text": "group_by() & summarize()\n\nidaho_crashes %&gt;% \n  group_by(IntersectionRelated) %&gt;% \n  summarize(avg_injuries = mean(Number_Of_Injuries))\n\n# A tibble: 2 × 2\n  IntersectionRelated avg_injuries\n  &lt;chr&gt;                      &lt;dbl&gt;\n1 N                          0.478\n2 Y                          0.583"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#summarize-2",
@@ -625,23 +625,23 @@
   {
     "objectID": "lectures/lecture03/lecture03.html#traditional-nested-functions",
     "href": "lectures/lecture03/lecture03.html#traditional-nested-functions",
-    "title": "Data Wrangling",
+    "title": "\n            Data Wrangling\n        ",
     "section": "Traditional Nested Functions",
     "text": "Traditional Nested Functions\n\nleave_house(get_dressed(get_out_of_bed(wake_up(chris))))"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#filter-to-select-a-subset-of-rows",
     "href": "lectures/lecture03/lecture03.html#filter-to-select-a-subset-of-rows",
-    "title": "Data Wrangling",
+    "title": "\n            Data Wrangling\n        ",
     "section": "filter() to select a subset of rows",
-    "text": "filter() to select a subset of rows\nfor crashes in Canyon county\n\nidaho_crashes %>%\n  filter(County == \"Canyon\") \n\n# A tibble: 35,492 × 12\n   OBJECTID Severity            Mile_Point  Year County Number…¹ Numbe…² Inter…³\n      <dbl> <chr>                    <dbl> <dbl> <chr>     <dbl>   <dbl> <chr>  \n 1    20294 Property Dmg Report      0.004  2005 Canyon        0       0 N      \n 2    21886 Property Dmg Report      5.25   2005 Canyon        0       0 Y      \n 3    26693 Property Dmg Report     NA      2005 Canyon        0       0 Y      \n 4    18673 Property Dmg Report      9.27   2005 Canyon        0       0 N      \n 5    17678 Property Dmg Report     NA      2005 Canyon        0       0 Y      \n 6    17287 B Injury Accident       NA      2005 Canyon        0       1 N      \n 7    26710 Property Dmg Report     NA      2005 Canyon        0       0 N      \n 8    19529 Property Dmg Report     39      2005 Canyon        0       0 N      \n 9    20899 B Injury Accident       50.0    2005 Canyon        0       1 Y      \n10    19655 B Injury Accident       23.5    2005 Canyon        0       1 N      \n# … with 35,482 more rows, 4 more variables: Accident_Date_Time <dttm>,\n#   Hour <int>, Month <ord>, Day <ord>, and abbreviated variable names\n#   ¹​Number_Of_Fatalities, ²​Number_Of_Injuries, ³​IntersectionRelated\n\n\n\ndbl = numerical chr = text data See moderndive 1.4.3 for more info"
+    "text": "filter() to select a subset of rows\nfor crashes in Canyon county\n\nidaho_crashes %&gt;%\n  filter(County == \"Canyon\") \n\n# A tibble: 35,492 × 12\n   OBJECTID Severity            Mile_Point  Year County Number_Of_Fatalities\n      &lt;dbl&gt; &lt;chr&gt;                    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;                 &lt;dbl&gt;\n 1    20294 Property Dmg Report      0.004  2005 Canyon                    0\n 2    21886 Property Dmg Report      5.25   2005 Canyon                    0\n 3    26693 Property Dmg Report     NA      2005 Canyon                    0\n 4    18673 Property Dmg Report      9.27   2005 Canyon                    0\n 5    17678 Property Dmg Report     NA      2005 Canyon                    0\n 6    17287 B Injury Accident       NA      2005 Canyon                    0\n 7    26710 Property Dmg Report     NA      2005 Canyon                    0\n 8    19529 Property Dmg Report     39      2005 Canyon                    0\n 9    20899 B Injury Accident       50.0    2005 Canyon                    0\n10    19655 B Injury Accident       23.5    2005 Canyon                    0\n# ℹ 35,482 more rows\n# ℹ 6 more variables: Number_Of_Injuries &lt;dbl&gt;, IntersectionRelated &lt;chr&gt;,\n#   Accident_Date_Time &lt;dttm&gt;, Hour &lt;int&gt;, Month &lt;ord&gt;, Day &lt;ord&gt;\n\n\n\ndbl = numerical chr = text data See moderndive 1.4.3 for more info"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#filter-for-many-conditions-at-once",
     "href": "lectures/lecture03/lecture03.html#filter-for-many-conditions-at-once",
-    "title": "Data Wrangling",
+    "title": "\n            Data Wrangling\n        ",
     "section": "filter() for many conditions at once",
-    "text": "filter() for many conditions at once\nfor crashes in Canyon county in 2017\n\nidaho_crashes %>%\n  filter(County == \"Canyon\", Year == 2017) \n\n# A tibble: 3,191 × 12\n   OBJECTID Severity            Mile_Point  Year County Number…¹ Numbe…² Inter…³\n      <dbl> <chr>                    <dbl> <dbl> <chr>     <dbl>   <dbl> <chr>  \n 1   295441 B Injury Accident         4.32  2017 Canyon        0       1 N      \n 2   288513 Fatal Accident           31.1   2017 Canyon        1       1 N      \n 3   293711 Property Dmg Report      31.1   2017 Canyon        0       0 N      \n 4   291456 Property Dmg Report     105.    2017 Canyon        0       0 Y      \n 5   306112 C Injury Accident        31.5   2017 Canyon        0       1 N      \n 6   299918 A Injury Accident        11.2   2017 Canyon        0       1 N      \n 7   295624 C Injury Accident        31.2   2017 Canyon        0       1 N      \n 8   304753 Property Dmg Report      59.3   2017 Canyon        0       0 Y      \n 9   293682 Property Dmg Report       3.03  2017 Canyon        0       0 Y      \n10   292901 Property Dmg Report      28.8   2017 Canyon        0       0 N      \n# … with 3,181 more rows, 4 more variables: Accident_Date_Time <dttm>,\n#   Hour <int>, Month <ord>, Day <ord>, and abbreviated variable names\n#   ¹​Number_Of_Fatalities, ²​Number_Of_Injuries, ³​IntersectionRelated"
+    "text": "filter() for many conditions at once\nfor crashes in Canyon county in 2017\n\nidaho_crashes %&gt;%\n  filter(County == \"Canyon\", Year == 2017) \n\n# A tibble: 3,191 × 12\n   OBJECTID Severity            Mile_Point  Year County Number_Of_Fatalities\n      &lt;dbl&gt; &lt;chr&gt;                    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;                 &lt;dbl&gt;\n 1   295441 B Injury Accident         4.32  2017 Canyon                    0\n 2   288513 Fatal Accident           31.1   2017 Canyon                    1\n 3   293711 Property Dmg Report      31.1   2017 Canyon                    0\n 4   291456 Property Dmg Report     105.    2017 Canyon                    0\n 5   306112 C Injury Accident        31.5   2017 Canyon                    0\n 6   299918 A Injury Accident        11.2   2017 Canyon                    0\n 7   295624 C Injury Accident        31.2   2017 Canyon                    0\n 8   304753 Property Dmg Report      59.3   2017 Canyon                    0\n 9   293682 Property Dmg Report       3.03  2017 Canyon                    0\n10   292901 Property Dmg Report      28.8   2017 Canyon                    0\n# ℹ 3,181 more rows\n# ℹ 6 more variables: Number_Of_Injuries &lt;dbl&gt;, IntersectionRelated &lt;chr&gt;,\n#   Accident_Date_Time &lt;dttm&gt;, Hour &lt;int&gt;, Month &lt;ord&gt;, Day &lt;ord&gt;"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#logical-operators-in-r",
@@ -653,149 +653,149 @@
   {
     "objectID": "lectures/lecture03/lecture03.html#select-to-keep-variables",
     "href": "lectures/lecture03/lecture03.html#select-to-keep-variables",
-    "title": "Data Wrangling",
+    "title": "\n            Data Wrangling\n        ",
     "section": "select() to keep variables",
-    "text": "select() to keep variables\n\nidaho_crashes %>%\n  filter(County == \"Canyon\", Year == 2017) %>% \n  select(IntersectionRelated, Number_Of_Injuries)\n\n# A tibble: 3,191 × 2\n   IntersectionRelated Number_Of_Injuries\n   <chr>                            <dbl>\n 1 N                                    1\n 2 N                                    1\n 3 N                                    0\n 4 Y                                    0\n 5 N                                    1\n 6 N                                    1\n 7 N                                    1\n 8 Y                                    0\n 9 Y                                    0\n10 N                                    0\n# … with 3,181 more rows"
+    "text": "select() to keep variables\n\nidaho_crashes %&gt;%\n  filter(County == \"Canyon\", Year == 2017) %&gt;% \n  select(IntersectionRelated, Number_Of_Injuries)\n\n# A tibble: 3,191 × 2\n   IntersectionRelated Number_Of_Injuries\n   &lt;chr&gt;                            &lt;dbl&gt;\n 1 N                                    1\n 2 N                                    1\n 3 N                                    0\n 4 Y                                    0\n 5 N                                    1\n 6 N                                    1\n 7 N                                    1\n 8 Y                                    0\n 9 Y                                    0\n10 N                                    0\n# ℹ 3,181 more rows"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#select-to-exclude-variables",
     "href": "lectures/lecture03/lecture03.html#select-to-exclude-variables",
-    "title": "Data Wrangling",
+    "title": "\n            Data Wrangling\n        ",
     "section": "select() to exclude variables",
-    "text": "select() to exclude variables\n\nidaho_crashes %>% \n  select(-OBJECTID)\n\n# A tibble: 299,135 × 11\n   Severity     Mile_…¹  Year County Numbe…² Numbe…³ Inter…⁴ Accident_Date_Time \n   <chr>          <dbl> <dbl> <chr>    <dbl>   <dbl> <chr>   <dttm>             \n 1 Property Dm… 270.     2005 Oneida       0       0 N       2005-01-01 00:01:00\n 2 Property Dm…   0.004  2005 Canyon       0       0 N       2005-01-01 00:01:00\n 3 Property Dm…   5.25   2005 Canyon       0       0 Y       2005-01-01 00:03:00\n 4 Property Dm…   4.6    2005 Twin …       0       0 N       2005-01-01 00:05:00\n 5 C Injury Ac…   1.62   2005 Koote…       0       2 Y       2005-01-01 00:27:00\n 6 Property Dm…  20.5    2005 Ada          0       0 Y       2005-01-01 00:29:00\n 7 Property Dm…  NA      2005 Canyon       0       0 Y       2005-01-01 00:35:00\n 8 Property Dm…  NA      2005 Latah        0       0 N       2005-01-01 00:45:00\n 9 Property Dm…  NA      2005 Koote…       0       0 N       2005-01-01 01:00:00\n10 Property Dm…  NA      2005 Bonne…       0       0 N       2005-01-01 01:25:00\n# … with 299,125 more rows, 3 more variables: Hour <int>, Month <ord>,\n#   Day <ord>, and abbreviated variable names ¹​Mile_Point,\n#   ²​Number_Of_Fatalities, ³​Number_Of_Injuries, ⁴​IntersectionRelated"
+    "text": "select() to exclude variables\n\nidaho_crashes %&gt;% \n  select(-OBJECTID)\n\n# A tibble: 299,135 × 11\n   Severity      Mile_Point  Year County Number_Of_Fatalities Number_Of_Injuries\n   &lt;chr&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;                 &lt;dbl&gt;              &lt;dbl&gt;\n 1 Property Dmg…    270.     2005 Oneida                    0                  0\n 2 Property Dmg…      0.004  2005 Canyon                    0                  0\n 3 Property Dmg…      5.25   2005 Canyon                    0                  0\n 4 Property Dmg…      4.6    2005 Twin …                    0                  0\n 5 C Injury Acc…      1.62   2005 Koote…                    0                  2\n 6 Property Dmg…     20.5    2005 Ada                       0                  0\n 7 Property Dmg…     NA      2005 Canyon                    0                  0\n 8 Property Dmg…     NA      2005 Latah                     0                  0\n 9 Property Dmg…     NA      2005 Koote…                    0                  0\n10 Property Dmg…     NA      2005 Bonne…                    0                  0\n# ℹ 299,125 more rows\n# ℹ 5 more variables: IntersectionRelated &lt;chr&gt;, Accident_Date_Time &lt;dttm&gt;,\n#   Hour &lt;int&gt;, Month &lt;ord&gt;, Day &lt;ord&gt;"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#select-a-range-of-variables",
     "href": "lectures/lecture03/lecture03.html#select-a-range-of-variables",
-    "title": "Data Wrangling",
+    "title": "\n            Data Wrangling\n        ",
     "section": "select() a range of variables",
-    "text": "select() a range of variables\n\nidaho_crashes %>% \n  select(Severity:Mile_Point)\n\n# A tibble: 299,135 × 2\n   Severity            Mile_Point\n   <chr>                    <dbl>\n 1 Property Dmg Report    270.   \n 2 Property Dmg Report      0.004\n 3 Property Dmg Report      5.25 \n 4 Property Dmg Report      4.6  \n 5 C Injury Accident        1.62 \n 6 Property Dmg Report     20.5  \n 7 Property Dmg Report     NA    \n 8 Property Dmg Report     NA    \n 9 Property Dmg Report     NA    \n10 Property Dmg Report     NA    \n# … with 299,125 more rows"
+    "text": "select() a range of variables\n\nidaho_crashes %&gt;% \n  select(Severity:Mile_Point)\n\n# A tibble: 299,135 × 2\n   Severity            Mile_Point\n   &lt;chr&gt;                    &lt;dbl&gt;\n 1 Property Dmg Report    270.   \n 2 Property Dmg Report      0.004\n 3 Property Dmg Report      5.25 \n 4 Property Dmg Report      4.6  \n 5 C Injury Accident        1.62 \n 6 Property Dmg Report     20.5  \n 7 Property Dmg Report     NA    \n 8 Property Dmg Report     NA    \n 9 Property Dmg Report     NA    \n10 Property Dmg Report     NA    \n# ℹ 299,125 more rows"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#mutate-to-add-new-variables",
     "href": "lectures/lecture03/lecture03.html#mutate-to-add-new-variables",
-    "title": "Data Wrangling",
+    "title": "\n            Data Wrangling\n        ",
     "section": "mutate() to add new variables",
     "text": "mutate() to add new variables"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#mutate-to-add-new-variables-1",
     "href": "lectures/lecture03/lecture03.html#mutate-to-add-new-variables-1",
-    "title": "Data Wrangling",
+    "title": "\n            Data Wrangling\n        ",
     "section": "mutate() to add new variables",
-    "text": "mutate() to add new variables\n\nidaho_crashes %>% \n  mutate(total_inj_fat = Number_Of_Injuries + Number_Of_Fatalities)\n\n# A tibble: 299,135 × 13\n   OBJECTID Severity            Mile_Point  Year County  Numbe…¹ Numbe…² Inter…³\n      <dbl> <chr>                    <dbl> <dbl> <chr>     <dbl>   <dbl> <chr>  \n 1    17633 Property Dmg Report    270.     2005 Oneida        0       0 N      \n 2    20294 Property Dmg Report      0.004  2005 Canyon        0       0 N      \n 3    21886 Property Dmg Report      5.25   2005 Canyon        0       0 Y      \n 4    22038 Property Dmg Report      4.6    2005 Twin F…       0       0 N      \n 5    18025 C Injury Accident        1.62   2005 Kooten…       0       2 Y      \n 6    19661 Property Dmg Report     20.5    2005 Ada           0       0 Y      \n 7    26693 Property Dmg Report     NA      2005 Canyon        0       0 Y      \n 8    18787 Property Dmg Report     NA      2005 Latah         0       0 N      \n 9    19633 Property Dmg Report     NA      2005 Kooten…       0       0 N      \n10    22197 Property Dmg Report     NA      2005 Bonnev…       0       0 N      \n# … with 299,125 more rows, 5 more variables: Accident_Date_Time <dttm>,\n#   Hour <int>, Month <ord>, Day <ord>, total_inj_fat <dbl>, and abbreviated\n#   variable names ¹​Number_Of_Fatalities, ²​Number_Of_Injuries,\n#   ³​IntersectionRelated"
+    "text": "mutate() to add new variables\n\nidaho_crashes %&gt;% \n  mutate(total_inj_fat = Number_Of_Injuries + Number_Of_Fatalities)\n\n# A tibble: 299,135 × 13\n   OBJECTID Severity            Mile_Point  Year County     Number_Of_Fatalities\n      &lt;dbl&gt; &lt;chr&gt;                    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;                     &lt;dbl&gt;\n 1    17633 Property Dmg Report    270.     2005 Oneida                        0\n 2    20294 Property Dmg Report      0.004  2005 Canyon                        0\n 3    21886 Property Dmg Report      5.25   2005 Canyon                        0\n 4    22038 Property Dmg Report      4.6    2005 Twin Falls                    0\n 5    18025 C Injury Accident        1.62   2005 Kootenai                      0\n 6    19661 Property Dmg Report     20.5    2005 Ada                           0\n 7    26693 Property Dmg Report     NA      2005 Canyon                        0\n 8    18787 Property Dmg Report     NA      2005 Latah                         0\n 9    19633 Property Dmg Report     NA      2005 Kootenai                      0\n10    22197 Property Dmg Report     NA      2005 Bonneville                    0\n# ℹ 299,125 more rows\n# ℹ 7 more variables: Number_Of_Injuries &lt;dbl&gt;, IntersectionRelated &lt;chr&gt;,\n#   Accident_Date_Time &lt;dttm&gt;, Hour &lt;int&gt;, Month &lt;ord&gt;, Day &lt;ord&gt;,\n#   total_inj_fat &lt;dbl&gt;"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#save-when-you-mutate",
     "href": "lectures/lecture03/lecture03.html#save-when-you-mutate",
-    "title": "Data Wrangling",
+    "title": "\n            Data Wrangling\n        ",
     "section": "“Save” when you mutate",
-    "text": "“Save” when you mutate\n\nidaho_crashes <- idaho_crashes %>% \n  mutate(total_inj_fat = Number_Of_Injuries + Number_Of_Fatalities)\n\n\nMost often when you define a new variable with mutate you’ll also want to save the resulting data frame, often by writing over the original data frame."
+    "text": "“Save” when you mutate\n\nidaho_crashes &lt;- idaho_crashes %&gt;% \n  mutate(total_inj_fat = Number_Of_Injuries + Number_Of_Fatalities)\n\n\nMost often when you define a new variable with mutate you’ll also want to save the resulting data frame, often by writing over the original data frame."
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#what-is-tidy-data",
     "href": "lectures/lecture04/lecture04.html#what-is-tidy-data",
-    "title": "Tidy Data",
+    "title": "\n            Tidy Data\n        ",
     "section": "What is tidy data?",
     "text": "What is tidy data?\nClean perfect data?"
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#what-is-tidy-data-1",
     "href": "lectures/lecture04/lecture04.html#what-is-tidy-data-1",
-    "title": "Tidy Data",
+    "title": "\n            Tidy Data\n        ",
     "section": "What is “tidy” data?",
     "text": "What is “tidy” data?\n\n“Tidy” data is a standard way of mapping the meaning of a dataset to its structure. A dataset is messy or tidy depending on how rows, columns and tables are matched up with observations, variables and types."
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#what-is-a-dataset",
     "href": "lectures/lecture04/lecture04.html#what-is-a-dataset",
-    "title": "Tidy Data",
+    "title": "\n            Tidy Data\n        ",
     "section": "What is a dataset?",
     "text": "What is a dataset?\n\nA dataset is a collection of values, usually either numbers (if quantitative) or strings AKA text data (if qualitative/categorical). Values are organised in two ways. Every value belongs to a variable and an observation. A variable contains all values that measure the same underlying attribute (like height, temperature, duration) across units. An observation contains all values measured on the same unit (like a person, or a day, or a city) across attributes."
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#what-is-tidy-data-2",
     "href": "lectures/lecture04/lecture04.html#what-is-tidy-data-2",
-    "title": "Tidy Data",
+    "title": "\n            Tidy Data\n        ",
     "section": "What is “tidy” data?",
     "text": "What is “tidy” data?\n\n\n\nEach variable forms a column\nEach observation forms a row\nEach type of observational unit forms a table"
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#untidy-column-headers-are-values",
     "href": "lectures/lecture04/lecture04.html#untidy-column-headers-are-values",
-    "title": "Tidy Data",
+    "title": "\n            Tidy Data\n        ",
     "section": "Untidy: Column headers are values",
     "text": "Untidy: Column headers are values"
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#tidy",
     "href": "lectures/lecture04/lecture04.html#tidy",
-    "title": "Tidy Data",
+    "title": "\n            Tidy Data\n        ",
     "section": "Tidy",
     "text": "Tidy"
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#case-study-billboard-ranking-data",
     "href": "lectures/lecture04/lecture04.html#case-study-billboard-ranking-data",
-    "title": "Tidy Data",
+    "title": "\n            Tidy Data\n        ",
     "section": "Case study: Billboard ranking data",
-    "text": "Case study: Billboard ranking data\n\n\n# A tibble: 317 × 79\n   artist track date.ent…¹   wk1   wk2   wk3   wk4   wk5   wk6   wk7   wk8   wk9\n   <chr>  <chr> <date>     <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl> <dbl>\n 1 2 Pac  Baby… 2000-02-26    87    82    72    77    87    94    99    NA    NA\n 2 2Ge+h… The … 2000-09-02    91    87    92    NA    NA    NA    NA    NA    NA\n 3 3 Doo… Kryp… 2000-04-08    81    70    68    67    66    57    54    53    51\n 4 3 Doo… Loser 2000-10-21    76    76    72    69    67    65    55    59    62\n 5 504 B… Wobb… 2000-04-15    57    34    25    17    17    31    36    49    53\n 6 98^0   Give… 2000-08-19    51    39    34    26    26    19     2     2     3\n 7 A*Tee… Danc… 2000-07-08    97    97    96    95   100    NA    NA    NA    NA\n 8 Aaliy… I Do… 2000-01-29    84    62    51    41    38    35    35    38    38\n 9 Aaliy… Try … 2000-03-18    59    53    38    28    21    18    16    14    12\n10 Adams… Open… 2000-08-26    76    76    74    69    68    67    61    58    57\n# … with 307 more rows, 67 more variables: wk10 <dbl>, wk11 <dbl>, wk12 <dbl>,\n#   wk13 <dbl>, wk14 <dbl>, wk15 <dbl>, wk16 <dbl>, wk17 <dbl>, wk18 <dbl>,\n#   wk19 <dbl>, wk20 <dbl>, wk21 <dbl>, wk22 <dbl>, wk23 <dbl>, wk24 <dbl>,\n#   wk25 <dbl>, wk26 <dbl>, wk27 <dbl>, wk28 <dbl>, wk29 <dbl>, wk30 <dbl>,\n#   wk31 <dbl>, wk32 <dbl>, wk33 <dbl>, wk34 <dbl>, wk35 <dbl>, wk36 <dbl>,\n#   wk37 <dbl>, wk38 <dbl>, wk39 <dbl>, wk40 <dbl>, wk41 <dbl>, wk42 <dbl>,\n#   wk43 <dbl>, wk44 <dbl>, wk45 <dbl>, wk46 <dbl>, wk47 <dbl>, wk48 <dbl>, …"
+    "text": "Case study: Billboard ranking data\n\n\n# A tibble: 317 × 79\n   artist track date.ent…¹   wk1   wk2   wk3   wk4   wk5   wk6   wk7   wk8   wk9\n   &lt;chr&gt;  &lt;chr&gt; &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1 2 Pac  Baby… 2000-02-26    87    82    72    77    87    94    99    NA    NA\n 2 2Ge+h… The … 2000-09-02    91    87    92    NA    NA    NA    NA    NA    NA\n 3 3 Doo… Kryp… 2000-04-08    81    70    68    67    66    57    54    53    51\n 4 3 Doo… Loser 2000-10-21    76    76    72    69    67    65    55    59    62\n 5 504 B… Wobb… 2000-04-15    57    34    25    17    17    31    36    49    53\n 6 98^0   Give… 2000-08-19    51    39    34    26    26    19     2     2     3\n 7 A*Tee… Danc… 2000-07-08    97    97    96    95   100    NA    NA    NA    NA\n 8 Aaliy… I Do… 2000-01-29    84    62    51    41    38    35    35    38    38\n 9 Aaliy… Try … 2000-03-18    59    53    38    28    21    18    16    14    12\n10 Adams… Open… 2000-08-26    76    76    74    69    68    67    61    58    57\n# … with 307 more rows, 67 more variables: wk10 &lt;dbl&gt;, wk11 &lt;dbl&gt;, wk12 &lt;dbl&gt;,\n#   wk13 &lt;dbl&gt;, wk14 &lt;dbl&gt;, wk15 &lt;dbl&gt;, wk16 &lt;dbl&gt;, wk17 &lt;dbl&gt;, wk18 &lt;dbl&gt;,\n#   wk19 &lt;dbl&gt;, wk20 &lt;dbl&gt;, wk21 &lt;dbl&gt;, wk22 &lt;dbl&gt;, wk23 &lt;dbl&gt;, wk24 &lt;dbl&gt;,\n#   wk25 &lt;dbl&gt;, wk26 &lt;dbl&gt;, wk27 &lt;dbl&gt;, wk28 &lt;dbl&gt;, wk29 &lt;dbl&gt;, wk30 &lt;dbl&gt;,\n#   wk31 &lt;dbl&gt;, wk32 &lt;dbl&gt;, wk33 &lt;dbl&gt;, wk34 &lt;dbl&gt;, wk35 &lt;dbl&gt;, wk36 &lt;dbl&gt;,\n#   wk37 &lt;dbl&gt;, wk38 &lt;dbl&gt;, wk39 &lt;dbl&gt;, wk40 &lt;dbl&gt;, wk41 &lt;dbl&gt;, wk42 &lt;dbl&gt;,\n#   wk43 &lt;dbl&gt;, wk44 &lt;dbl&gt;, wk45 &lt;dbl&gt;, wk46 &lt;dbl&gt;, wk47 &lt;dbl&gt;, wk48 &lt;dbl&gt;, …"
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#how-do-we-tidy-data",
     "href": "lectures/lecture04/lecture04.html#how-do-we-tidy-data",
-    "title": "Tidy Data",
+    "title": "\n            Tidy Data\n        ",
     "section": "How do we tidy data?",
     "text": "How do we tidy data?\n\nWe use the pivot_longer function from the tidyr package\nThree arguments:\n\nnames_to,\nvalues_to,\nthe column(s) we do or do not want to tidy\n\n\n\n\nAdditional arguments may be necessary in some cases"
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#names_to",
     "href": "lectures/lecture04/lecture04.html#names_to",
-    "title": "Tidy Data",
+    "title": "\n            Tidy Data\n        ",
     "section": "names_to",
     "text": "names_to\n\nthe name of the column/variable in the new “tidy” frame containing the column names of the original data frame we want to tidy"
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#names_to-1",
     "href": "lectures/lecture04/lecture04.html#names_to-1",
-    "title": "Tidy Data",
+    "title": "\n            Tidy Data\n        ",
     "section": "names_to",
     "text": "names_to"
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#values_to",
     "href": "lectures/lecture04/lecture04.html#values_to",
-    "title": "Tidy Data",
+    "title": "\n            Tidy Data\n        ",
     "section": "values_to",
     "text": "values_to\n\nthe name of the column/variable in the “tidy” frame containing the rows and columns of values in the original data frame we want to tidy"
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#values_to-1",
     "href": "lectures/lecture04/lecture04.html#values_to-1",
-    "title": "Tidy Data",
+    "title": "\n            Tidy Data\n        ",
     "section": "values_to",
     "text": "values_to"
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#columns-we-do-or-do-not-want-to-tidy",
     "href": "lectures/lecture04/lecture04.html#columns-we-do-or-do-not-want-to-tidy",
-    "title": "Tidy Data",
+    "title": "\n            Tidy Data\n        ",
     "section": "Columns we do, or do not, want to tidy",
     "text": "Columns we do, or do not, want to tidy\n\nwant ( c(var1, var2, var3))\nor do not want (-var1, -var2)"
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#columns-we-do-or-do-not-want-to-tidy-1",
     "href": "lectures/lecture04/lecture04.html#columns-we-do-or-do-not-want-to-tidy-1",
-    "title": "Tidy Data",
+    "title": "\n            Tidy Data\n        ",
     "section": "Columns we do, or do not, want to tidy",
     "text": "Columns we do, or do not, want to tidy"
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#tidy-billboard-rankings",
     "href": "lectures/lecture04/lecture04.html#tidy-billboard-rankings",
-    "title": "Tidy Data",
+    "title": "\n            Tidy Data\n        ",
     "section": "Tidy Billboard Rankings",
-    "text": "Tidy Billboard Rankings\n\nbillboard_tidy <- billboard %>% \n  pivot_longer(\n    names_to = \"week\", \n    values_to = \"rank\", \n    wk1:wk76,\n    values_drop_na = TRUE\n  )\nbillboard_tidy\n\n# A tibble: 5,307 × 5\n   artist  track                   date.entered week   rank\n   <chr>   <chr>                   <date>       <chr> <dbl>\n 1 2 Pac   Baby Don't Cry (Keep... 2000-02-26   wk1      87\n 2 2 Pac   Baby Don't Cry (Keep... 2000-02-26   wk2      82\n 3 2 Pac   Baby Don't Cry (Keep... 2000-02-26   wk3      72\n 4 2 Pac   Baby Don't Cry (Keep... 2000-02-26   wk4      77\n 5 2 Pac   Baby Don't Cry (Keep... 2000-02-26   wk5      87\n 6 2 Pac   Baby Don't Cry (Keep... 2000-02-26   wk6      94\n 7 2 Pac   Baby Don't Cry (Keep... 2000-02-26   wk7      99\n 8 2Ge+her The Hardest Part Of ... 2000-09-02   wk1      91\n 9 2Ge+her The Hardest Part Of ... 2000-09-02   wk2      87\n10 2Ge+her The Hardest Part Of ... 2000-09-02   wk3      92\n# … with 5,297 more rows"
+    "text": "Tidy Billboard Rankings\n\nbillboard_tidy &lt;- billboard %&gt;% \n  pivot_longer(\n    names_to = \"week\", \n    values_to = \"rank\", \n    wk1:wk76,\n    values_drop_na = TRUE\n  )\nbillboard_tidy\n\n# A tibble: 5,307 × 5\n   artist  track                   date.entered week   rank\n   &lt;chr&gt;   &lt;chr&gt;                   &lt;date&gt;       &lt;chr&gt; &lt;dbl&gt;\n 1 2 Pac   Baby Don't Cry (Keep... 2000-02-26   wk1      87\n 2 2 Pac   Baby Don't Cry (Keep... 2000-02-26   wk2      82\n 3 2 Pac   Baby Don't Cry (Keep... 2000-02-26   wk3      72\n 4 2 Pac   Baby Don't Cry (Keep... 2000-02-26   wk4      77\n 5 2 Pac   Baby Don't Cry (Keep... 2000-02-26   wk5      87\n 6 2 Pac   Baby Don't Cry (Keep... 2000-02-26   wk6      94\n 7 2 Pac   Baby Don't Cry (Keep... 2000-02-26   wk7      99\n 8 2Ge+her The Hardest Part Of ... 2000-09-02   wk1      91\n 9 2Ge+her The Hardest Part Of ... 2000-09-02   wk2      87\n10 2Ge+her The Hardest Part Of ... 2000-09-02   wk3      92\n# … with 5,297 more rows"
   },
   {
     "objectID": "labs/lab04.html#load-packages",
@@ -1656,14 +1656,14 @@
     "href": "lectures/lecture01/lecture01.html#research-question",
     "title": "Introduction to \\(R\\) and Social Science",
     "section": "Research Question",
-    "text": "Research Question\n ::: incremental ## Research Question - The question you plan to answer in a given study - Can be challenging—should be narrow enough to answer in a given study, but broad enough to matter - Too broad: How can we reduce recidivism in the US? - Too narrow: What was the recidivism rate in the US in 2014? - Just right: Do work release programs reduce recidivism? :::"
+    "text": "Research Question"
   },
   {
     "objectID": "lectures/lecture01/lecture01.html#research-question-1",
     "href": "lectures/lecture01/lecture01.html#research-question-1",
     "title": "Introduction to \\(R\\) and Social Science",
     "section": "Research Question",
-    "text": "Research Question\n\nThe question you plan to answer in a given study\nCan be challenging—should be narrow enough to answer in a given study, but broad enough to matter\n\nToo broad: How can we reduce recidivism in the US?\nToo narrow: What was the recidivism rate in the US in 2014?\nJust right: Do work release programs reduce recidivism?"
+    "text": "Research Question\n\n\nThe question you plan to answer in a given study\nCan be challenging—should be narrow enough to answer in a given study, but broad enough to matter\n\nToo broad: How can we reduce recidivism in the US?\nToo narrow: What was the recidivism rate in the US in 2014?\nJust right: Do work release programs reduce recidivism?"
   },
   {
     "objectID": "lectures/lecture01/lecture01.html#review-previous-research",
@@ -1797,5 +1797,19 @@
     "title": "Introduction to \\(R\\) and Social Science",
     "section": "Develop Theory",
     "text": "Develop Theory\n\n\nWhere does theory come from?\n\nLogic (deduction)\nObservation (induction)"
+  },
+  {
+    "objectID": "lectures/lecture04/lecture04.html",
+    "href": "lectures/lecture04/lecture04.html",
+    "title": "\n            Tidy Data\n        ",
+    "section": "",
+    "text": "SPS 502"
+  },
+  {
+    "objectID": "lectures/lecture03/lecture03.html",
+    "href": "lectures/lecture03/lecture03.html",
+    "title": "\n            Data Wrangling\n        ",
+    "section": "",
+    "text": "SPS 502\nlibrary(tidyverse)\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──\n✔ ggplot2 3.4.2     ✔ purrr   1.0.1\n✔ tibble  3.2.1     ✔ dplyr   1.1.2\n✔ tidyr   1.2.1     ✔ stringr 1.5.0\n✔ readr   2.1.4     ✔ forcats 1.0.0\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\nlibrary(fGarch)\n\nNOTE: Packages 'fBasics', 'timeDate', and 'timeSeries' are no longer\nattached to the search() path when 'fGarch' is attached.\n\nIf needed attach them yourself in your R script by e.g.,\n        require(\"timeSeries\")\n\nlibrary(gganimate)\nlibrary(lubridate)\n\n\nAttaching package: 'lubridate'\n\nThe following objects are masked from 'package:base':\n\n    date, intersect, setdiff, union\n\nlibrary(scales)\n\n\nAttaching package: 'scales'\n\nThe following object is masked from 'package:purrr':\n\n    discard\n\nThe following object is masked from 'package:readr':\n\n    col_factor\n\noptions(knitr.table.format = \"latex\")"
   }
 ]

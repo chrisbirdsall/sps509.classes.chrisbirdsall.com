@@ -55,8 +55,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Research Question
 ![](images/researchquestion.png)
-::: incremental
+
 ## Research Question
+::: incremental
 - The question you plan to answer in a given study
 - Can be challenging---should be narrow enough to answer in a given study, but broad enough to matter
     - Too broad: How can we reduce recidivism in the US? 
