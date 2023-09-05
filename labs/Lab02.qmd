@@ -11,7 +11,6 @@ execute:
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
-
 # Introduction
 
 Plastic pollution is a major and growing problem, negatively affecting oceans and wildlife health. [Our World in Data](https://ourworldindata.org/plastic-pollution) has a lot of great data at various levels including globally, per country, and over time. For this lab we focus on data from 2010.
@@ -24,7 +23,7 @@ Plastic pollution is a major and growing problem, negatively affecting oceans an
 
 # Getting started
 
-First, open the R Markdown document starter document,`lab-02.Rmd`, enter your name and date in the YAML header, rename the file and Knit it. Make sure it compiles without errors. The output will be in the `.html` file with the same name, which you will submit on Canvas once you're done.
+First, open the R Markdown document starter document,`lab-02 - lastname_firstname.Rmd`, enter your name and date in the YAML header, rename the file and Knit it. Make sure it compiles without errors. The output will be in the `.html` file with the same name, which you will submit on Canvas once you're done.
 
 ## Packages
 
@@ -42,7 +41,7 @@ The dataset for this assignment can be found as a csv file in the `data` folder 
 plastic_waste <- read_csv("data/plastic-waste.csv")
 ```
 
-The variable descriptions are as follows:
+The dataset is now loaded as a dataframe called "plastic_waste" in your Environment pane. The dataframe contains the following variables (columns):
 
 -   `code`: 3 Letter country code
 -   `entity`: Country name
@@ -97,19 +96,32 @@ Plot, using histograms, the distribution of plastic waste per capita [faceted](h
 **NOTE:** Moving forward, the plots and the output of the code are not displayed in the lab instructions, but, as previously stated, you can and should copy the code to your R Markdown file and view the results yourself.
 :::
 
-### Desnsity plots
+You probably noticed that it's difficult to glean much from the visualization because Trinidad and Tobago is such an outlier. Let's remove it from the dataframe and take another look.
+
+First, create a new data frame called `plastic_waste_no` (no for no outliers) and use the filter function to only keep observations (rows) where `entity`, the variable for country, is NOT Trinidad and Tobago. Note that the operator `!=` means "is not equal to".
+
+```{r}
+plastic_waste_no <- plastic_waste %>%
+  filter(entity != "Trinidad and Tobago")
+```
+
+Copy your histogram code from the beginning of exercise 1 and paste it into a new code block. Replace plastic_waste with plastic_waste_no and run the code again.
+
+What differences do you notice between this histogram and the first? From now on we'll use `plastic_waste_no` to generate our visualizations, mindful that we're omitting Trinidad and Tobago. If, at any point, you would like to see what the data look like with Trinidad and Tobago included, simply use `plastic_waste` instead of `plastic_waste_no`.
+
+### Density plots
 
 Another way of visualizing numerical data is using density plots.
 
 ```{r plastic_waste_per_cap-dens}
-ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) +
+ggplot(data = plastic_waste_no, aes(x = plastic_waste_per_cap)) +
   geom_density()
 ```
 
 And compare distributions across continents by coloring density curves by continent.
 
 ```{r plastic_waste_per_cap-dens-color}
-ggplot(data = plastic_waste, 
+ggplot(data = plastic_waste_no, 
        mapping = aes(x = plastic_waste_per_cap, 
                      color = continent)) +
   geom_density()
@@ -118,7 +130,7 @@ ggplot(data = plastic_waste,
 The resulting plot may be a little difficult to read, so let's also fill the curves in with colors as well.
 
 ```{r plastic_waste_per_cap-dens-color-fill}
-ggplot(data = plastic_waste, 
+ggplot(data = plastic_waste_no, 
        mapping = aes(x = plastic_waste_per_cap, 
                      color = continent, 
                      fill = continent)) +
@@ -128,7 +140,7 @@ ggplot(data = plastic_waste,
 The overlapping colors make it difficult to tell what's happening with the distributions in continents plotted first, and hence covered by continents plotted over them. We can change the transparency level of the fill color to help with this. The `alpha` argument takes values between 0 and 1 (e.g., 0.5): 0 is completely transparent and 1 is completely opaque. There is no way to tell what value will work best, so you just need to try a few.
 
 ```{r plastic_waste_per_cap-dens-color-fill-alpha}
-ggplot(data = plastic_waste, 
+ggplot(data = plastic_waste_no, 
        mapping = aes(x = plastic_waste_per_cap, 
                      color = continent, 
                      fill = continent)) +
@@ -143,16 +155,18 @@ Recreate the density plots above using a different (lower) alpha level that work
 
 ## Exercise 3
 
-Why do we define the `color` and `fill` of the curves by mapping aesthetics of the plot, but  define the `alpha` level as a characteristic of the plotting geom?
+Why do we define the `color` and `fill` of the curves by mapping aesthetics of the plot, but define the `alpha` level as a characteristic of the plotting geom?
 
 ::: column-margin
 **Hint:** you may need to go back and read about the `alpha` argument in [ModernDive](https://moderndive.com/2-viz.html#overplotting) to answer this question.
 :::
 
+------------------------------------------------------------------------
+
 And yet another way to visualize this relationship is using side-by-side box plots.
 
 ```{r plastic_waste_per_cap-box}
-ggplot(data = plastic_waste, 
+ggplot(data = plastic_waste_no, 
        mapping = aes(x = continent, 
                      y = plastic_waste_per_cap)) +
   geom_boxplot()
@@ -164,7 +178,7 @@ Convert your side-by-side box plots from the previous task to [violin plots](htt
 
 ## Exercise 5
 
-Visualize the relationship between plastic waste per capita and mismanaged plastic waste per capita using a scatterplot. Describe the relationship.
+Visualize the relationship between plastic waste per capita (y) and mismanaged plastic waste per capita (x) using a scatterplot. Describe the relationship.
 
 ::: column-margin
 **Remember:** We use `geom_point()` to make scatterplots.
@@ -176,7 +190,7 @@ Color the points in the scatterplot by continent. Does there seem to be any clea
 
 ## Exercise 7
 
-Visualize the relationship between plastic waste per capita and total population as well as plastic waste per capita and coastal population. You will need to make two separate plots. Do either of these pairs of variables appear to be more strongly linearly associated?
+Visualize the relationship between plastic waste per capita (y) and total population (x) as well as plastic waste per capita (y) and coastal population (x). You will need to make two separate plots. Do either of these pairs of variables appear to be more strongly linearly associated?
 
 # Submission
 

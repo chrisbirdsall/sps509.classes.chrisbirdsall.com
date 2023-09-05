@@ -158,7 +158,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link" data-scroll-target="#exercise-1">Exercise 1</a>
   <ul class="collapse">
-  <li><a href="#desnsity-plots" id="toc-desnsity-plots" class="nav-link" data-scroll-target="#desnsity-plots">Desnsity plots</a></li>
+  <li><a href="#density-plots" id="toc-density-plots" class="nav-link" data-scroll-target="#density-plots">Density plots</a></li>
   </ul></li>
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a></li>
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a></li>
@@ -209,7 +209,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="getting-started" class="level1">
 <h1>Getting started</h1>
-<p>First, open the R Markdown document starter document,<code>lab-02.Rmd</code>, enter your name and date in the YAML header, rename the file and Knit it. Make sure it compiles without errors. The output will be in the <code>.html</code> file with the same name, which you will submit on Canvas once you’re done.</p>
+<p>First, open the R Markdown document starter document,<code>lab-02 - lastname_firstname.Rmd</code>, enter your name and date in the YAML header, rename the file and Knit it. Make sure it compiles without errors. The output will be in the <code>.html</code> file with the same name, which you will submit on Canvas once you’re done.</p>
 <section id="packages" class="level2">
 <h2 class="anchored" data-anchor-id="packages">Packages</h2>
 <p>We’ll use the <strong>tidyverse</strong> package for this analysis. Run the following code to load this package.</p>
@@ -223,7 +223,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>plastic_waste <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/plastic-waste.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The variable descriptions are as follows:</p>
+<p>The dataset is now loaded as a dataframe called “plastic_waste” in your Environment pane. The dataframe contains the following variables (columns):</p>
 <ul>
 <li><code>code</code>: 3 Letter country code</li>
 <li><code>entity</code>: Country name</li>
@@ -285,35 +285,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p><strong>NOTE:</strong> Moving forward, the plots and the output of the code are not displayed in the lab instructions, but, as previously stated, you can and should copy the code to your R Markdown file and view the results yourself.</p>
-</div></div><section id="desnsity-plots" class="level3">
-<h3 class="anchored" data-anchor-id="desnsity-plots">Desnsity plots</h3>
+</div></div><p>You probably noticed that it’s difficult to glean much from the visualization because Trinidad and Tobago is such an outlier. Let’s remove it from the dataframe and take another look.</p>
+<p>First, create a new data frame called <code>plastic_waste_no</code> (no for no outliers) and use the filter function to only keep observations (rows) where <code>entity</code>, the variable for country, is NOT Trinidad and Tobago. Note that the operator <code>!=</code> means “is not equal to”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>plastic_waste_no <span class="ot">&lt;-</span> plastic_waste <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(entity <span class="sc">!=</span> <span class="st">"Trinidad and Tobago"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Copy your histogram code from the beginning of exercise 1 and paste it into a new code block. Replace plastic_waste with plastic_waste_no and run the code again.</p>
+<p>What differences do you notice between this histogram and the first? From now on we’ll use <code>plastic_waste_no</code> to generate our visualizations, mindful that we’re omitting Trinidad and Tobago. If, at any point, you would like to see what the data look like with Trinidad and Tobago included, simply use <code>plastic_waste</code> instead of <code>plastic_waste_no</code>.</p>
+<section id="density-plots" class="level3">
+<h3 class="anchored" data-anchor-id="density-plots">Density plots</h3>
 <p>Another way of visualizing numerical data is using density plots.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> plastic_waste, <span class="fu">aes</span>(<span class="at">x =</span> plastic_waste_per_cap)) <span class="sc">+</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> plastic_waste_no, <span class="fu">aes</span>(<span class="at">x =</span> plastic_waste_per_cap)) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And compare distributions across continents by coloring density curves by continent.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> plastic_waste, </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> plastic_waste_per_cap, </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">color =</span> continent)) <span class="sc">+</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> plastic_waste_no, </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> plastic_waste_per_cap, </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">color =</span> continent)) <span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The resulting plot may be a little difficult to read, so let’s also fill the curves in with colors as well.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> plastic_waste, </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> plastic_waste_per_cap, </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">color =</span> continent, </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fill =</span> continent)) <span class="sc">+</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>The overlapping colors make it difficult to tell what’s happening with the distributions in continents plotted first, and hence covered by continents plotted over them. We can change the transparency level of the fill color to help with this. The <code>alpha</code> argument takes values between 0 and 1 (e.g., 0.5): 0 is completely transparent and 1 is completely opaque. There is no way to tell what value will work best, so you just need to try a few.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> plastic_waste, </span>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> plastic_waste_no, </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> plastic_waste_per_cap, </span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">color =</span> continent, </span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fill =</span> continent)) <span class="sc">+</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The overlapping colors make it difficult to tell what’s happening with the distributions in continents plotted first, and hence covered by continents plotted over them. We can change the transparency level of the fill color to help with this. The <code>alpha</code> argument takes values between 0 and 1 (e.g., 0.5): 0 is completely transparent and 1 is completely opaque. There is no way to tell what value will work best, so you just need to try a few.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> plastic_waste_no, </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> plastic_waste_per_cap, </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">color =</span> continent, </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fill =</span> continent)) <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This still doesn’t look great…</p>
 </section>
@@ -328,12 +336,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p><strong>Hint:</strong> you may need to go back and read about the <code>alpha</code> argument in <a href="https://moderndive.com/2-viz.html#overplotting">ModernDive</a> to answer this question.</p>
-</div></div><p>And yet another way to visualize this relationship is using side-by-side box plots.</p>
+</div></div><hr>
+<p>And yet another way to visualize this relationship is using side-by-side box plots.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> plastic_waste, </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> continent, </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> plastic_waste_per_cap)) <span class="sc">+</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> plastic_waste_no, </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> continent, </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> plastic_waste_per_cap)) <span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="exercise-4" class="level2">
@@ -342,7 +351,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="exercise-5" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<p>Visualize the relationship between plastic waste per capita and mismanaged plastic waste per capita using a scatterplot. Describe the relationship.</p>
+<p>Visualize the relationship between plastic waste per capita (y) and mismanaged plastic waste per capita (x) using a scatterplot. Describe the relationship.</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p><strong>Remember:</strong> We use <code>geom_point()</code> to make scatterplots.</p>
@@ -353,7 +362,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="exercise-7" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-7">Exercise 7</h2>
-<p>Visualize the relationship between plastic waste per capita and total population as well as plastic waste per capita and coastal population. You will need to make two separate plots. Do either of these pairs of variables appear to be more strongly linearly associated?</p>
+<p>Visualize the relationship between plastic waste per capita (y) and total population (x) as well as plastic waste per capita (y) and coastal population (x). You will need to make two separate plots. Do either of these pairs of variables appear to be more strongly linearly associated?</p>
 </section>
 </section>
 <section id="submission" class="level1">
