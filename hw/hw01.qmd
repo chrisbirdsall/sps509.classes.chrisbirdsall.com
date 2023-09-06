@@ -1,6 +1,6 @@
 ---
 title: "SPS 502 - Homework 1"
-subtitle: "Due by 11:59 p.m., Friday September 16"
+subtitle: "Due by 11:59 p.m., Friday, September 29"
 toc: true
 editor: source
 execute: 
@@ -17,17 +17,17 @@ Welcome to your first homework assignment! We're going to use local data to anal
 
 ## Logistics and tips for success
 
-This lab will require you to write some of your own code (similar to lab 2). Read these instructions carefully as you work through the homework assignment.
+This homework will require you to write some of your own code. Read these instructions carefully as you work through the homework assignment.
 
 ### How to answer questions
 
-Some questions will direct you to write code, while others will direct you to write a response. You'll see `TYPE YOUR ANSWER HERE` in your RMarkdown file in places where I expect you to write a response. And you'll see code blocks with `#Delete and enter your code` where I expect you to write your own code.
+Some questions will direct you to write code, while others will direct you to write a response. You'll see `TYPE YOUR ANSWER HERE` in your RMarkdown file in places where you should write a response. And you'll see code blocks with `#Delete and enter your code` where you should write your own code.
 
 ### Copying/pasting and writing code
 Copying and editing code from other answers or examples is a great way to both save time and learn. If you copy code over and something isn't working, look carefully at the edits you made to see whether you missed something in the copying/pasting process. Also, be sure you've edited ALL the variable/object names appropriately so you're accomplishing what the question is asking you to do. You should also make sure that you're typing the variable and object names EXACTLY as they appear in the dataset or environment pane (spelling and case must match exactly).
 
 ### If you're stuck
-If you get stuck, don't panic! Before you ask for help, give yourself a few minutes to figure it out. Search ModernDive, look at your previous labs, and google your problem with "tidyverse". Also, step away from your computer for a few minutes if you need a break. Finally (and this doesn't have to be the last step), ask for help on [Slack!](https://sps502f22.slack.com)
+If you get stuck, don't panic! Before you ask for help, give yourself a few minutes to figure it out. Search ModernDive, look at your previous labs, and google your problem with "tidyverse". Also, step away from your computer for a few minutes if you need a break. Finally (and this doesn't have to be the last step), ask for help on [Slack!](https://sps502f23.slack.com)
 
 # Setup
 
@@ -76,7 +76,7 @@ Run the already provided code in your Rmarkdown file to get a sense of the datas
 
 ### Question 1
 
-1.  What is another method you've used/learned to View a dataset? (HINT: The command is in the question). Type the code in the code block under "Question 1" in your RMarkdown file in RStudio Cloud. 
+1.  What is another method you've used/learned to View a dataset? (HINT: The command is in the question). 
 
 ### Question 2
 
