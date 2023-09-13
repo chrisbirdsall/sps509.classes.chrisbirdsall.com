@@ -228,7 +228,7 @@
     "href": "hw/hw01.html#clean-the-data",
     "title": "\n            SPS 502 - Homework 1\n        ",
     "section": "Clean the data",
-    "text": "Clean the data\nOkay, let’s clean up the raw data a little and get some useful information along the way. First, we’ll use the lubridate package to get useful information from the Accident_Date_Time variable, as well as rename a variable to make it easier to remember (we’ll cover more about the lubridate package in the future).\n\nidaho_crashes_clean &lt;- idaho_crashes_raw %&gt;% \n  mutate(Hour= hour(Accident_Date_Time),\n         Month = month(Accident_Date_Time, label = TRUE, abbr = TRUE),\n         Day = wday(Accident_Date_Time, label = TRUE, abbr = TRUE)) %&gt;%\n    rename(Year = Accident_Year)\n\nThe lubridate package allowed us to extract useful information from the Accident_Date_Time variable.\nRun the code below to learn more about the lubridate package:\n\n?lubridate\n\nNow we have a “cleaned” version of the data stored in a dataframe called ‘idaho_crashes_clean’.\nLet’s take another look at the data:\n\nidaho_crashes_clean\n\n\nQuestion 3\n\nWhat’s new in this dataset (idaho_crashes_clean) compared to the raw version? Write your answer in your RMarkdown sheet."
+    "text": "Clean the data\nOkay, let’s clean up the raw data a little and get some useful information along the way. First, we’ll use the lubridate package to get useful information from the Accident_Date_Time variable, as well as rename a variable to make it easier to remember (we’ll cover more about the lubridate package in the future). For now, just run the code.\n\nidaho_crashes_clean &lt;- idaho_crashes_raw %&gt;% \n  mutate(Hour= hour(Accident_Date_Time),\n         Month = month(Accident_Date_Time, label = TRUE, abbr = TRUE),\n         Day = wday(Accident_Date_Time, label = TRUE, abbr = TRUE)) %&gt;%\n    rename(Year = Accident_Year)\n\nThe lubridate package allowed us to extract useful information from the Accident_Date_Time variable.\nRun the code below to learn more about the lubridate package:\n\n?lubridate\n\nNow we have a “cleaned” version of the data stored in a dataframe called ‘idaho_crashes_clean’.\nLet’s take another look at the data:\n\nidaho_crashes_clean\n\n\nQuestion 3\n\nWhat’s new in this dataset (idaho_crashes_clean) compared to the raw version? Write your answer in your RMarkdown sheet."
   },
   {
     "objectID": "hw/hw01.html#accidents-over-time",
@@ -282,105 +282,105 @@
   {
     "objectID": "labs/Lab03.html#packages",
     "href": "labs/Lab03.html#packages",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 03 - Data Wrangling\n        ",
     "section": "Packages",
     "text": "Packages\nRun the following to load the necessary packages for this lab:\n\nlibrary(ggplot2)\nlibrary(dplyr)"
   },
   {
     "objectID": "labs/Lab03.html#data",
     "href": "labs/Lab03.html#data",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 03 - Data Wrangling\n        ",
     "section": "Data",
     "text": "Data\nRun the following to load and take a glimpse of the data:\n\ndata(txhousing)\nglimpse(txhousing)\n\nThese data are about housing in Texas. Each row is monthly data for a given city in Texas in a given year. There are multiple years of data for each city."
   },
   {
     "objectID": "labs/Lab03.html#exercise-1",
     "href": "labs/Lab03.html#exercise-1",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 03 - Data Wrangling\n        ",
     "section": "Exercise 1",
-    "text": "Exercise 1\nTake a look at the data in the data viewer. You can accomplish this two different ways: A) click on the name of the data in the Environment pane, or b) type View(txhousing) in the console. What is the last city listed in the data set (in row 8602)?\n\n\nIn homework 1 we learned (and I was reminded) that RStudio does not like to knit documents that execute the View() command. So from now on, we’ll just run it in the console to avoid additional headaches."
+    "text": "Exercise 1\nTake a look at the data in the data viewer. You can accomplish this two different ways: A) click on the name of the data in the Environment pane, or b) type View(txhousing) in the console. What is the last city listed in the data set (in row 8602)?\n\n\nRStudio does not like to knit documents that execute the View() command. So be sure to run it in the console to avoid additional headaches."
   },
   {
     "objectID": "labs/Lab03.html#exercise-2",
     "href": "labs/Lab03.html#exercise-2",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 03 - Data Wrangling\n        ",
     "section": "Exercise 2",
     "text": "Exercise 2\nTake a look at the variable descriptions by typing ?txhousing into the console. What is the listings variable in this data set?"
   },
   {
     "objectID": "labs/Lab03.html#select",
     "href": "labs/Lab03.html#select",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 03 - Data Wrangling\n        ",
     "section": "select",
-    "text": "select\nSometimes we want to pull out or extract just one or two columns of data. The following code will extract only the column in the data set for the variables sales and volume.\n\ntxhousing %>% select(sales, volume)\n\nThe %>% symbol is called the piping operator. Here, it takes the txhousing data frame and “pipes” or feeds it into the select function. You can think of the %>% symbol as the word “then”.\nNote that we did not use an assignment operator <- so we did not save these extracted, selected values. In the following code, we save the results, in a data frame ASLO called txhousing. By putting - in front of the date variable we tell R to select all except the date variable. Run the following code:\n\ntxhousing <- txhousing %>% select(-date)\n\nIf you look at txhousing in the data viewer, the date variable is no longer included."
+    "text": "select\nSometimes we want to pull out or extract just one or two columns of data. The following code will extract only the column in the data set for the variables sales and volume.\n\ntxhousing %&gt;% select(sales, volume)\n\nThe %&gt;% symbol is called the piping operator. Here, it takes the txhousing data frame and “pipes” or feeds it into the select function. You can think of the %&gt;% symbol as the word “then”.\nNote that we did not use an assignment operator &lt;- so we did not save these extracted, selected values. In the following code, we save the results, in a data frame ALSO called txhousing. By putting - in front of the date variable we tell R to select all except the date variable. Run the following code:\n\ntxhousing &lt;- txhousing %&gt;% select(-date)\n\nIf you look at txhousing in the data viewer, the date variable is no longer included."
   },
   {
     "objectID": "labs/Lab03.html#filter",
     "href": "labs/Lab03.html#filter",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 03 - Data Wrangling\n        ",
     "section": "filter",
-    "text": "filter\nThe filter function allows you to pull out just the rows (cases or observations) you want, based on some criteria in one of the columns.\nImagine for instance that we wanted to reduce the data set include data for only 2012, in Austin. This code chunk takes the txhousing data, then filters it to only include rows in which the year is 2012, and the city is Austin. The results are saved in a new data frame called austin_12 that shows up in the workspace.\n\naustin_12 <- txhousing %>% filter(year == 2012, city == \"Austin\")\n\n\nNote that we use == to identify the desired criteria.\n\nWhat if we wanted to restrict our data set to only years before 2004 and the City of Austin? Below we use the < symbol to accomplish this. Note we did not SAVE these results in a new data frame…so no new data frame showed up in our Environment pane, but the results print out immediately below the code chunk.\n\ntxhousing %>% filter(year < 2004, city == \"Austin\")\n\nWhat if we wanted to use multiple cities? Below we use the | symbol to indicate that the city could be Austin OR Abilene. In this case, we saved these results as a new data frame called aust_ab that appears in your Environment pane.\n\naust_ab <- txhousing %>% filter(city == \"Austin\" | city == \"Abilene\")"
+    "text": "filter\nThe filter function allows you to pull out just the rows (cases or observations) you want, based on some criteria in one of the columns.\nImagine for instance that we wanted to reduce the data set include data for only 2012, in Austin. This code chunk takes the txhousing data, then filters it to only include rows in which the year is 2012, and the city is Austin. The results are saved in a new data frame called austin_12 that shows up in the workspace.\n\naustin_12 &lt;- txhousing %&gt;% filter(year == 2012, city == \"Austin\")\n\n\nNote that we use == to identify the desired criteria.\n\nWhat if we wanted to restrict our data set to only years before 2004 and the City of Austin? Below we use the &lt; symbol to accomplish this. Note we did not SAVE these results in a new data frame…so no new data frame showed up in our Environment pane, but the results print out immediately below the code chunk.\n\ntxhousing %&gt;% filter(year &lt; 2004, city == \"Austin\")\n\nWhat if we wanted to use multiple cities? Below we use the | symbol to indicate that the city could be Austin OR Abilene. In this case, we saved these results as a new data frame called aust_ab that appears in your Environment pane.\n\naust_ab &lt;- txhousing %&gt;% filter(city == \"Austin\" | city == \"Abilene\")"
   },
   {
     "objectID": "labs/Lab03.html#mutate",
     "href": "labs/Lab03.html#mutate",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 03 - Data Wrangling\n        ",
     "section": "mutate",
-    "text": "mutate\nThe mutate function can add new columns (variables) to a data frame. For instance, the following will add a new column to the data called vol_100k that expresses volume in units of $100000.\n\ntxhousing <- txhousing %>%\n  mutate(vol_100k = volume/100000)\n\nNote that we SAVED these results in new data frame called txhousing. This therefore overwrote the old txhousing data frame with a new version that contains this column. You can open the txhousing data frame in the viewer to confirm that it now contains this new column."
+    "text": "mutate\nThe mutate function can add new columns (variables) to a data frame. For instance, the following will add a new column to the data called vol_100k that expresses volume in units of $100000.\n\ntxhousing &lt;- txhousing %&gt;%\n  mutate(vol_100k = volume/100000)\n\nNote that we SAVED these results in new data frame called txhousing. This therefore overwrote the old txhousing data frame with a new version that contains this column. You can open the txhousing data frame in the viewer to confirm that it now contains this new column."
   },
   {
     "objectID": "labs/Lab03.html#summarize",
     "href": "labs/Lab03.html#summarize",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 03 - Data Wrangling\n        ",
     "section": "summarize",
-    "text": "summarize\nOne of the first tasks in data analysis is often to get descriptive statistics that help to understand the central tendency and variability in the data. The summarize() command can take a column of data, and reduce it to a summary statistic.\nFor instance, the code below uses the austin_12 data set made earlier to calculate the mean monthly number of sales in Austin in 2012.\n\naustin_12 %>% summarize(x_bar_sales = mean(sales))\n\nThis code tells R to calculate the mean of the variable sales, and to save the results in a variable called x_bar_sales.\nYou can also calculate multiple summary statistics at once, and even for multiple variables. Below we also calculate a standard deviation sd() of sales, a minimum min() of the volume variable, a maximum max() of the volume variable, etc. The n() calculates sample size…or the number of rows/ cases in the data frame.\n\naustin_12 %>% summarize(x_bar_sales = mean(sales), \n                        sd_sales = sd(sales), \n                        min_vol = min(volume), \n                        max_vol = max(volume), \n                        mdn_list = median(listings), \n                        iqr_list = IQR(listings),\n                        sample_size = n())\n\n# A tibble: 1 × 7\n  x_bar_sales sd_sales   min_vol   max_vol mdn_list iqr_list sample_size\n        <dbl>    <dbl>     <dbl>     <dbl>    <dbl>    <dbl>       <int>\n1       2127.     501. 265821275 791281075     7925     949.          12\n\n\nNote that the names of the elements you calculate are user defined, like xbar_sales, min_vol, and mdn_list. You could customize these names as you like (but don’t use spaces in your names)."
+    "text": "summarize\nOne of the first tasks in data analysis is often to get descriptive statistics that help to understand the central tendency and variability in the data. The summarize() command can take a column of data, and reduce it to a summary statistic.\nFor instance, the code below uses the austin_12 data set made earlier to calculate the mean monthly number of sales in Austin in 2012.\n\naustin_12 %&gt;% summarize(x_bar_sales = mean(sales))\n\nThis code tells R to calculate the mean of the variable sales, and to save the results in a variable called x_bar_sales.\nYou can also calculate multiple summary statistics at once, and even for multiple variables. Below we also calculate a standard deviation sd() of sales, a minimum min() of the volume variable, a maximum max() of the volume variable, etc. The n() calculates sample size…or the number of rows/ cases in the data frame.\n\naustin_12 %&gt;% summarize(x_bar_sales = mean(sales), \n                        sd_sales = sd(sales), \n                        min_vol = min(volume), \n                        max_vol = max(volume), \n                        mdn_list = median(listings), \n                        iqr_list = IQR(listings),\n                        sample_size = n())\n\n# A tibble: 1 × 7\n  x_bar_sales sd_sales   min_vol   max_vol mdn_list iqr_list sample_size\n        &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;int&gt;\n1       2127.     501. 265821275 791281075     7925     949.          12\n\n\nNote that the names of the elements you calculate are user defined, like xbar_sales, min_vol, and mdn_list. You could customize these names as you like (but don’t use spaces in your names)."
   },
   {
     "objectID": "labs/Lab03.html#arrange",
     "href": "labs/Lab03.html#arrange",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 03 - Data Wrangling\n        ",
     "section": "arrange",
-    "text": "arrange\nYou just determined that the maximum volume of monthly sales in Austin in 2012 was a total of $791,281,075 ….but what if you wanted to know WHAT MONTH that occurred in? Copy paste, and run the following into a new code chunk:\n\naustin_12 %>%\n  arrange(desc(volume))\n\nThis tells R to arrange the rows in the data set based on the volume column, and to do so in descending order. So the row with the $791,281,075 in sales is shown at the top! We can see that this volume occurred in the sixth month (June)."
+    "text": "arrange\nYou just determined that the maximum volume of monthly sales in Austin in 2012 was a total of $791,281,075 ….but what if you wanted to know WHAT MONTH that occurred in? Copy paste, and run the following into a new code chunk:\n\naustin_12 %&gt;%\n  arrange(desc(volume))\n\nThis tells R to arrange the rows in the data set based on the volume column, and to do so in descending order. So the row with the $791,281,075 in sales is shown at the top! We can see that this volume occurred in the sixth month (June)."
   },
   {
     "objectID": "labs/Lab03.html#group_by",
     "href": "labs/Lab03.html#group_by",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 03 - Data Wrangling\n        ",
     "section": "group_by",
-    "text": "group_by\nSometimes we also want to calculate summary statistics across different levels of another variable. For instance, here we find the average number of monthly sales that occurred in Abilene and Austin across all years in the data set. Note that we use the aust_ab data frame we created earlier, to restrict our analysis to those two cities.\n\naust_ab %>% group_by(city) %>% \n  summarize(x_bar_sales = mean(sales))\n\n# A tibble: 2 × 2\n  city    x_bar_sales\n  <chr>         <dbl>\n1 Abilene        150.\n2 Austin        1997.\n\n\nFrom the results we can see that there were an average of 150 sales per month in Abilene, and 1996 in Austin.\nWe can give R multiple variables to group by. For instance, this code gives us the mean sales for each month in each city, averaged across all the years. So for instance the mean number of sales in January, in Abilene was 96 homes.\n\naust_ab %>% group_by(city, month) %>% \n  summarize(x_bar_sales = mean(sales))"
+    "text": "group_by\nSometimes we also want to calculate summary statistics across different levels of another variable. For instance, here we find the average number of monthly sales that occurred in Abilene and Austin across all years in the data set. Note that we use the aust_ab data frame we created earlier, to restrict our analysis to those two cities.\n\naust_ab %&gt;% group_by(city) %&gt;% \n  summarize(x_bar_sales = mean(sales))\n\n# A tibble: 2 × 2\n  city    x_bar_sales\n  &lt;chr&gt;         &lt;dbl&gt;\n1 Abilene        150.\n2 Austin        1997.\n\n\nFrom the results we can see that there were an average of 150 sales per month in Abilene, and 1996 in Austin.\nWe can give R multiple variables to group by. For instance, this code gives us the mean sales for each month in each city, averaged across all the years. So for instance the mean number of sales in January, in Abilene was 96 homes.\n\naust_ab %&gt;% group_by(city, month) %&gt;% \n  summarize(x_bar_sales = mean(sales))"
   },
   {
     "objectID": "labs/Lab03.html#exercise-3",
     "href": "labs/Lab03.html#exercise-3",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 03 - Data Wrangling\n        ",
     "section": "Exercise 3",
     "text": "Exercise 3\nWrite a code chunk to remove the inventory variable. Save the results in a data frame called txhousing. Confirm in the data viewer that the variable has been removed."
   },
   {
     "objectID": "labs/Lab03.html#exercise-4",
     "href": "labs/Lab03.html#exercise-4",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 03 - Data Wrangling\n        ",
     "section": "Exercise 4",
     "text": "Exercise 4\nMake a data set called dallas_sub that includes data only from the city of Dallas in 2012 & 2013."
   },
   {
     "objectID": "labs/Lab03.html#exercise-5",
     "href": "labs/Lab03.html#exercise-5",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 03 - Data Wrangling\n        ",
     "section": "Exercise 5",
     "text": "Exercise 5\nAdd a column to the dallas_sub data set called prct_sold that calculates the percentage of listings that were sold (sales/listings * 100). Be sure to save the results also as a data frame called dallas_sub."
   },
   {
     "objectID": "labs/Lab03.html#exercise-6",
     "href": "labs/Lab03.html#exercise-6",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 03 - Data Wrangling\n        ",
     "section": "Exercise 6",
     "text": "Exercise 6\nCalculate the average percentage of listings that were sold in Dallas in each month of the year based on your dallas_sub data set. Save the results of the calculation in an data frame called dallas_summary."
   },
   {
     "objectID": "labs/Lab03.html#exercise-7",
     "href": "labs/Lab03.html#exercise-7",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 03 - Data Wrangling\n        ",
     "section": "Exercise 7",
     "text": "Exercise 7\nArrange the dallas_summary in descending order based on the average percentage of listings, so you can see which month had the greatest average percentage of listings sold. You do not need to save the results."
   },
@@ -394,28 +394,28 @@
   {
     "objectID": "labs/Lab03.html#exercise-8",
     "href": "labs/Lab03.html#exercise-8",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 03 - Data Wrangling\n        ",
     "section": "Exercise 8",
-    "text": "Exercise 8\nRun the following code chunk. Study the code, and the output. Explain in your own words what this code chunk calculated.\n\ntxhousing %>% \n  filter(year == 2012 | year == 2013, city == \"Dallas\") %>%\n  mutate(prct_sold = sales/listings *100) %>%\n  group_by(month) %>%\n  summarize(mean_prct_sold = mean(prct_sold)) %>% \n  arrange(desc(mean_prct_sold))"
+    "text": "Exercise 8\nRun the following code chunk. Study the code, and the output. Explain in your own words what this code chunk calculated.\n\ntxhousing %&gt;% \n  filter(year == 2012 | year == 2013, city == \"Dallas\") %&gt;%\n  mutate(prct_sold = sales/listings *100) %&gt;%\n  group_by(month) %&gt;%\n  summarize(mean_prct_sold = mean(prct_sold)) %&gt;% \n  arrange(desc(mean_prct_sold))"
   },
   {
     "objectID": "labs/Lab03.html#exercise-9",
     "href": "labs/Lab03.html#exercise-9",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 03 - Data Wrangling\n        ",
     "section": "Exercise 9",
     "text": "Exercise 9\nIn January of 2015, what city had the fewest houses listed for sale?"
   },
   {
     "objectID": "labs/Lab03.html#exercise-10",
     "href": "labs/Lab03.html#exercise-10",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 03 - Data Wrangling\n        ",
     "section": "Exercise 10",
     "text": "Exercise 10\nIn 2012, in which month were the most houses sold in Texas?"
   },
   {
     "objectID": "labs/Lab03.html#exercise-11",
     "href": "labs/Lab03.html#exercise-11",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 03 - Data Wrangling\n        ",
     "section": "Exercise 11",
     "text": "Exercise 11\nGenerate a single table that shows the total number of houses sold in Austin in 2000 and 2001 (total over the entire period), and the total number of houses sold in Dallas in 2000 and 2001 (total over the entire period). This calculation requires a number of steps, so it might help you to first write out on paper the different steps you will need to take. That will help you set out a “blueprint” for tackling the problem.\n\n\nHint: recall the sum() function can add(+) values."
   },
@@ -436,23 +436,23 @@
   {
     "objectID": "lectures/lecture03/lecture03.html#mean",
     "href": "lectures/lecture03/lecture03.html#mean",
-    "title": "\n            Data Wrangling\n        ",
+    "title": "Data Wrangling",
     "section": "Mean",
     "text": "Mean\n\n\nArithmetic Mean (\\(\\bar{x}\\) or \\(\\mu\\)): the sum of a series of observations divided by the number of observations \\[\\bar{x} = \\frac{1}{n}\\left (\\sum_{i=1}^n{x_i}\\right ) = \\frac{x_1+x_2+\\cdots +x_n}{n}\\]\nUse when describing continuous variables\nSensitive to extreme values (e.g., income)"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#median",
     "href": "lectures/lecture03/lecture03.html#median",
-    "title": "\n            Data Wrangling\n        ",
+    "title": "Data Wrangling",
     "section": "Median",
     "text": "Median\n\n\nThe middle value in a series of observations\n\nArrange a series of observations from smallest to greatest then take the middle value\n\nNote: if there is an even number of observations, then there is no single middle value; the median is then usually defined to be the mean of the two middle values\n\n\nIn a distribution, the median is the \\(2^{nd}\\) quartile and the \\(50^{th}\\) percentile\nUse when describing continuous variables\nRobust to extreme values (e.g., income)"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#normal-distribution",
     "href": "lectures/lecture03/lecture03.html#normal-distribution",
-    "title": "\n            Data Wrangling\n        ",
+    "title": "Data Wrangling",
     "section": "Normal Distribution",
-    "text": "Normal Distribution\n\nset.seed(1)\nd &lt;- data.frame(Height = round(rnorm(mean = 65, sd = 2, n = 1000), 1))\nggplot(d, aes(Height)) +\n  stat_density(geom = \"line\", size = 2) +\n  theme(axis.text = element_text(size = 16), axis.title = element_text(size = 18,face = \"bold\")) +\n  geom_vline(xintercept = mean(d$Height), linetype = 1, size = 1, color = \"red\") +\n  geom_vline(xintercept = median(d$Height), linetype = 1, size = 1, color = \"blue\") +\n  annotate(\"text\", y = 0, label = \"Mean\", size = 8, color = \"red\", x = mean(d$Height), vjust = 0.5, hjust = 0) +\n  annotate(\"text\", y = 0, label = \"Median\", size = 8, color = \"blue\", x = median(d$Height), vjust = 0.5, hjust = 1) +\n  ylab(\"Density\") + xlab(\"Height (Inches)\")\n\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead."
+    "text": "Normal Distribution"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#central-tendency-normal-distribution",
@@ -471,42 +471,42 @@
   {
     "objectID": "lectures/lecture03/lecture03.html#postive-skewed-distribution",
     "href": "lectures/lecture03/lecture03.html#postive-skewed-distribution",
-    "title": "\n            Data Wrangling\n        ",
+    "title": "Data Wrangling",
     "section": "Postive Skewed Distribution",
-    "text": "Postive Skewed Distribution\n\nset.seed(1)\nd &lt;- data.frame(Height = round(rsnorm(mean = 65, sd = 2, xi = 3, n = 1000), 1))\nggplot(d, aes(Height)) +\n  stat_density(geom = \"line\", size = 2) +\n  theme(axis.text = element_text(size = 16), axis.title = element_text(size = 18,face = \"bold\")) +\n  geom_vline(xintercept = mean(d$Height), linetype = 1, size = 1, color = \"red\") +\n  geom_vline(xintercept = median(d$Height), linetype = 1, size = 1, color = \"blue\") +\n  annotate(\"text\", y = 0, label = \"Mean\", size = 8, color = \"red\", x = mean(d$Height), vjust = 0.5, hjust = 0) +\n  annotate(\"text\", y = 0, label = \"Median\", size = 8, color = \"blue\", x = median(d$Height), vjust = 0.5, hjust = 1) +\n  ylab(\"Density\") + xlab(\"Height (Inches)\")"
+    "text": "Postive Skewed Distribution"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#negative-skewed-distribution",
     "href": "lectures/lecture03/lecture03.html#negative-skewed-distribution",
-    "title": "\n            Data Wrangling\n        ",
+    "title": "Data Wrangling",
     "section": "Negative Skewed Distribution",
-    "text": "Negative Skewed Distribution\n\nset.seed(1)\nd &lt;- data.frame(Height = round(rsnorm(mean = 65, sd = 2, xi = -3, n = 1000), 1))\nggplot(d, aes(Height)) +\n  stat_density(geom = \"line\", size = 2) +\n  theme(axis.text = element_text(size = 16), axis.title = element_text(size = 18,face = \"bold\")) +\n  geom_vline(xintercept = mean(d$Height), linetype = 1, size = 1, color = \"red\") +\n  geom_vline(xintercept = median(d$Height), linetype = 1, size = 1, color = \"blue\") +\n  annotate(\"text\", y = 0, label = \"Mean\", size = 8, color = \"red\", x = mean(d$Height), vjust = 0.5, hjust = 1.2) +\n  annotate(\"text\", y = 0, label = \"Median\", size = 8, color = \"blue\", x = median(d$Height), vjust = 0.5, hjust = -0.2) +\n  ylab(\"Density\") + xlab(\"Height (Inches)\")"
+    "text": "Negative Skewed Distribution"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#mode",
     "href": "lectures/lecture03/lecture03.html#mode",
-    "title": "\n            Data Wrangling\n        ",
+    "title": "Data Wrangling",
     "section": "Mode",
     "text": "Mode\n\nMode: the most common value in a series of observations\n\nSome variables include multiple modes (multimodal)\n\nUse when describing discrete (e.g., categorical) variables"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#central-tendency-review",
     "href": "lectures/lecture03/lecture03.html#central-tendency-review",
-    "title": "\n            Data Wrangling\n        ",
+    "title": "Data Wrangling",
     "section": "Central Tendency Review",
     "text": "Central Tendency Review\n\nArithmetic mean: sum of values divided by number of values\nMedian: middle value\nMode: most frequent value\nWhat is the mean, median, and mode of \\(x\\)?\n\n\\(x\\) = {1, 2, 2, 3, 4, 7, 9, 10, 11, 12, 12}"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#variance",
     "href": "lectures/lecture03/lecture03.html#variance",
-    "title": "\n            Data Wrangling\n        ",
+    "title": "Data Wrangling",
     "section": "Variance",
-    "text": "Variance\n\nVariance (\\(s^{2}\\), \\(\\sigma^{2}\\)): the extent to which a variable’s values deviate from or vary around it’s mean; the average distance of each observation from the mean \\[s^{2} = \\frac{1}{n-1} \\sum_{i=1}^n (x_i - \\bar{x})^2\\]"
+    "text": "Variance\n\nVariance (\\(s^{2}\\), \\(\\sigma^{2}\\)): the extent to which a variable’s values deviate from or vary around its mean; the average distance of each observation from the mean \\[s^{2} = \\frac{1}{n-1} \\sum_{i=1}^n (x_i - \\bar{x})^2\\]"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#variance-1",
     "href": "lectures/lecture03/lecture03.html#variance-1",
-    "title": "\n            Data Wrangling\n        ",
+    "title": "Data Wrangling",
     "section": "Variance",
     "text": "Variance\n\nMeasures how far observations are from their average value (spread of the data)\n\nLow variance \\(\\rightarrow\\) observations are relatively close to the mean value\nHigh variance \\(\\rightarrow\\) observations are relatively far from the mean value\n\nExpressed in square units (i.e., \\(\\text{inches}^2\\))"
   },
@@ -520,14 +520,14 @@
   {
     "objectID": "lectures/lecture03/lecture03.html#standard-deviation",
     "href": "lectures/lecture03/lecture03.html#standard-deviation",
-    "title": "\n            Data Wrangling\n        ",
+    "title": "Data Wrangling",
     "section": "Standard Deviation",
     "text": "Standard Deviation\n\nStandard Deviation (\\(s\\), \\(\\sigma\\)): standardized measure of variance \\[s = \\sqrt{s^2} = \\sqrt{\\frac{1}{n-1} \\sum_{i=1}^n (x_i - \\bar{x})^2}\\]\nExpressed in the same units as the mean (i.e., inches)\n\nMean distance from the mean"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#pipe",
     "href": "lectures/lecture03/lecture03.html#pipe",
-    "title": "\n            Data Wrangling\n        ",
+    "title": "Data Wrangling",
     "section": "pipe %>%",
     "text": "pipe %&gt;%\n\nleave_house(get_dressed(get_out_of_bed(wake_up(chris))))\n\n\n“Pipe” a data frame into a “verb” command\n“Chain” the results from one “verb” command into another\nThink of it as the word “then”\n\n\nWriting it out using pipes give it a more natural (and easier to read) structure\n\n\nchris %&gt;% \n  wake_up() %&gt;% \n  get_out_of_bed() %&gt;% \n  get_dressed() %&gt;% \n  leave_house()"
   },
@@ -541,7 +541,7 @@
   {
     "objectID": "lectures/lecture03/lecture03.html#data-wrangling-1",
     "href": "lectures/lecture03/lecture03.html#data-wrangling-1",
-    "title": "\n            Data Wrangling\n        ",
+    "title": "Data Wrangling",
     "section": "Data Wrangling",
     "text": "Data Wrangling"
   },
@@ -562,7 +562,7 @@
   {
     "objectID": "lectures/lecture03/lecture03.html#filter",
     "href": "lectures/lecture03/lecture03.html#filter",
-    "title": "\n            Data Wrangling\n        ",
+    "title": "Data Wrangling",
     "section": "filter()",
     "text": "filter()"
   },
@@ -583,21 +583,21 @@
   {
     "objectID": "lectures/lecture03/lecture03.html#summarize",
     "href": "lectures/lecture03/lecture03.html#summarize",
-    "title": "\n            Data Wrangling\n        ",
+    "title": "Data Wrangling",
     "section": "summarize()",
     "text": "summarize()\n\n\nSummary functions take many values and return one value meant to describe all those values as a group."
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#summarize-1",
     "href": "lectures/lecture03/lecture03.html#summarize-1",
-    "title": "\n            Data Wrangling\n        ",
+    "title": "Data Wrangling",
     "section": "summarize()",
     "text": "summarize()\n\nidaho_crashes %&gt;% \n  summarize(avg_injuries = mean(Number_Of_Injuries))\n\n# A tibble: 1 × 1\n  avg_injuries\n         &lt;dbl&gt;\n1        0.521"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#group_by-summarize",
     "href": "lectures/lecture03/lecture03.html#group_by-summarize",
-    "title": "\n            Data Wrangling\n        ",
+    "title": "Data Wrangling",
     "section": "group_by() & summarize()",
     "text": "group_by() & summarize()\n\nidaho_crashes %&gt;% \n  group_by(IntersectionRelated) %&gt;% \n  summarize(avg_injuries = mean(Number_Of_Injuries))\n\n# A tibble: 2 × 2\n  IntersectionRelated avg_injuries\n  &lt;chr&gt;                      &lt;dbl&gt;\n1 N                          0.478\n2 Y                          0.583"
   },
@@ -625,21 +625,21 @@
   {
     "objectID": "lectures/lecture03/lecture03.html#traditional-nested-functions",
     "href": "lectures/lecture03/lecture03.html#traditional-nested-functions",
-    "title": "\n            Data Wrangling\n        ",
+    "title": "Data Wrangling",
     "section": "Traditional Nested Functions",
     "text": "Traditional Nested Functions\n\nleave_house(get_dressed(get_out_of_bed(wake_up(chris))))"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#filter-to-select-a-subset-of-rows",
     "href": "lectures/lecture03/lecture03.html#filter-to-select-a-subset-of-rows",
-    "title": "\n            Data Wrangling\n        ",
+    "title": "Data Wrangling",
     "section": "filter() to select a subset of rows",
     "text": "filter() to select a subset of rows\nfor crashes in Canyon county\n\nidaho_crashes %&gt;%\n  filter(County == \"Canyon\") \n\n# A tibble: 35,492 × 12\n   OBJECTID Severity            Mile_Point  Year County Number_Of_Fatalities\n      &lt;dbl&gt; &lt;chr&gt;                    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;                 &lt;dbl&gt;\n 1    20294 Property Dmg Report      0.004  2005 Canyon                    0\n 2    21886 Property Dmg Report      5.25   2005 Canyon                    0\n 3    26693 Property Dmg Report     NA      2005 Canyon                    0\n 4    18673 Property Dmg Report      9.27   2005 Canyon                    0\n 5    17678 Property Dmg Report     NA      2005 Canyon                    0\n 6    17287 B Injury Accident       NA      2005 Canyon                    0\n 7    26710 Property Dmg Report     NA      2005 Canyon                    0\n 8    19529 Property Dmg Report     39      2005 Canyon                    0\n 9    20899 B Injury Accident       50.0    2005 Canyon                    0\n10    19655 B Injury Accident       23.5    2005 Canyon                    0\n# ℹ 35,482 more rows\n# ℹ 6 more variables: Number_Of_Injuries &lt;dbl&gt;, IntersectionRelated &lt;chr&gt;,\n#   Accident_Date_Time &lt;dttm&gt;, Hour &lt;int&gt;, Month &lt;ord&gt;, Day &lt;ord&gt;\n\n\n\ndbl = numerical chr = text data See moderndive 1.4.3 for more info"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#filter-for-many-conditions-at-once",
     "href": "lectures/lecture03/lecture03.html#filter-for-many-conditions-at-once",
-    "title": "\n            Data Wrangling\n        ",
+    "title": "Data Wrangling",
     "section": "filter() for many conditions at once",
     "text": "filter() for many conditions at once\nfor crashes in Canyon county in 2017\n\nidaho_crashes %&gt;%\n  filter(County == \"Canyon\", Year == 2017) \n\n# A tibble: 3,191 × 12\n   OBJECTID Severity            Mile_Point  Year County Number_Of_Fatalities\n      &lt;dbl&gt; &lt;chr&gt;                    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;                 &lt;dbl&gt;\n 1   295441 B Injury Accident         4.32  2017 Canyon                    0\n 2   288513 Fatal Accident           31.1   2017 Canyon                    1\n 3   293711 Property Dmg Report      31.1   2017 Canyon                    0\n 4   291456 Property Dmg Report     105.    2017 Canyon                    0\n 5   306112 C Injury Accident        31.5   2017 Canyon                    0\n 6   299918 A Injury Accident        11.2   2017 Canyon                    0\n 7   295624 C Injury Accident        31.2   2017 Canyon                    0\n 8   304753 Property Dmg Report      59.3   2017 Canyon                    0\n 9   293682 Property Dmg Report       3.03  2017 Canyon                    0\n10   292901 Property Dmg Report      28.8   2017 Canyon                    0\n# ℹ 3,181 more rows\n# ℹ 6 more variables: Number_Of_Injuries &lt;dbl&gt;, IntersectionRelated &lt;chr&gt;,\n#   Accident_Date_Time &lt;dttm&gt;, Hour &lt;int&gt;, Month &lt;ord&gt;, Day &lt;ord&gt;"
   },
@@ -653,203 +653,203 @@
   {
     "objectID": "lectures/lecture03/lecture03.html#select-to-keep-variables",
     "href": "lectures/lecture03/lecture03.html#select-to-keep-variables",
-    "title": "\n            Data Wrangling\n        ",
+    "title": "Data Wrangling",
     "section": "select() to keep variables",
     "text": "select() to keep variables\n\nidaho_crashes %&gt;%\n  filter(County == \"Canyon\", Year == 2017) %&gt;% \n  select(IntersectionRelated, Number_Of_Injuries)\n\n# A tibble: 3,191 × 2\n   IntersectionRelated Number_Of_Injuries\n   &lt;chr&gt;                            &lt;dbl&gt;\n 1 N                                    1\n 2 N                                    1\n 3 N                                    0\n 4 Y                                    0\n 5 N                                    1\n 6 N                                    1\n 7 N                                    1\n 8 Y                                    0\n 9 Y                                    0\n10 N                                    0\n# ℹ 3,181 more rows"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#select-to-exclude-variables",
     "href": "lectures/lecture03/lecture03.html#select-to-exclude-variables",
-    "title": "\n            Data Wrangling\n        ",
+    "title": "Data Wrangling",
     "section": "select() to exclude variables",
     "text": "select() to exclude variables\n\nidaho_crashes %&gt;% \n  select(-OBJECTID)\n\n# A tibble: 299,135 × 11\n   Severity      Mile_Point  Year County Number_Of_Fatalities Number_Of_Injuries\n   &lt;chr&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;                 &lt;dbl&gt;              &lt;dbl&gt;\n 1 Property Dmg…    270.     2005 Oneida                    0                  0\n 2 Property Dmg…      0.004  2005 Canyon                    0                  0\n 3 Property Dmg…      5.25   2005 Canyon                    0                  0\n 4 Property Dmg…      4.6    2005 Twin …                    0                  0\n 5 C Injury Acc…      1.62   2005 Koote…                    0                  2\n 6 Property Dmg…     20.5    2005 Ada                       0                  0\n 7 Property Dmg…     NA      2005 Canyon                    0                  0\n 8 Property Dmg…     NA      2005 Latah                     0                  0\n 9 Property Dmg…     NA      2005 Koote…                    0                  0\n10 Property Dmg…     NA      2005 Bonne…                    0                  0\n# ℹ 299,125 more rows\n# ℹ 5 more variables: IntersectionRelated &lt;chr&gt;, Accident_Date_Time &lt;dttm&gt;,\n#   Hour &lt;int&gt;, Month &lt;ord&gt;, Day &lt;ord&gt;"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#select-a-range-of-variables",
     "href": "lectures/lecture03/lecture03.html#select-a-range-of-variables",
-    "title": "\n            Data Wrangling\n        ",
+    "title": "Data Wrangling",
     "section": "select() a range of variables",
     "text": "select() a range of variables\n\nidaho_crashes %&gt;% \n  select(Severity:Mile_Point)\n\n# A tibble: 299,135 × 2\n   Severity            Mile_Point\n   &lt;chr&gt;                    &lt;dbl&gt;\n 1 Property Dmg Report    270.   \n 2 Property Dmg Report      0.004\n 3 Property Dmg Report      5.25 \n 4 Property Dmg Report      4.6  \n 5 C Injury Accident        1.62 \n 6 Property Dmg Report     20.5  \n 7 Property Dmg Report     NA    \n 8 Property Dmg Report     NA    \n 9 Property Dmg Report     NA    \n10 Property Dmg Report     NA    \n# ℹ 299,125 more rows"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#mutate-to-add-new-variables",
     "href": "lectures/lecture03/lecture03.html#mutate-to-add-new-variables",
-    "title": "\n            Data Wrangling\n        ",
+    "title": "Data Wrangling",
     "section": "mutate() to add new variables",
     "text": "mutate() to add new variables"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#mutate-to-add-new-variables-1",
     "href": "lectures/lecture03/lecture03.html#mutate-to-add-new-variables-1",
-    "title": "\n            Data Wrangling\n        ",
+    "title": "Data Wrangling",
     "section": "mutate() to add new variables",
     "text": "mutate() to add new variables\n\nidaho_crashes %&gt;% \n  mutate(total_inj_fat = Number_Of_Injuries + Number_Of_Fatalities)\n\n# A tibble: 299,135 × 13\n   OBJECTID Severity            Mile_Point  Year County     Number_Of_Fatalities\n      &lt;dbl&gt; &lt;chr&gt;                    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;                     &lt;dbl&gt;\n 1    17633 Property Dmg Report    270.     2005 Oneida                        0\n 2    20294 Property Dmg Report      0.004  2005 Canyon                        0\n 3    21886 Property Dmg Report      5.25   2005 Canyon                        0\n 4    22038 Property Dmg Report      4.6    2005 Twin Falls                    0\n 5    18025 C Injury Accident        1.62   2005 Kootenai                      0\n 6    19661 Property Dmg Report     20.5    2005 Ada                           0\n 7    26693 Property Dmg Report     NA      2005 Canyon                        0\n 8    18787 Property Dmg Report     NA      2005 Latah                         0\n 9    19633 Property Dmg Report     NA      2005 Kootenai                      0\n10    22197 Property Dmg Report     NA      2005 Bonneville                    0\n# ℹ 299,125 more rows\n# ℹ 7 more variables: Number_Of_Injuries &lt;dbl&gt;, IntersectionRelated &lt;chr&gt;,\n#   Accident_Date_Time &lt;dttm&gt;, Hour &lt;int&gt;, Month &lt;ord&gt;, Day &lt;ord&gt;,\n#   total_inj_fat &lt;dbl&gt;"
   },
   {
     "objectID": "lectures/lecture03/lecture03.html#save-when-you-mutate",
     "href": "lectures/lecture03/lecture03.html#save-when-you-mutate",
-    "title": "\n            Data Wrangling\n        ",
+    "title": "Data Wrangling",
     "section": "“Save” when you mutate",
     "text": "“Save” when you mutate\n\nidaho_crashes &lt;- idaho_crashes %&gt;% \n  mutate(total_inj_fat = Number_Of_Injuries + Number_Of_Fatalities)\n\n\nMost often when you define a new variable with mutate you’ll also want to save the resulting data frame, often by writing over the original data frame."
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#what-is-tidy-data",
     "href": "lectures/lecture04/lecture04.html#what-is-tidy-data",
-    "title": "\n            Tidy Data\n        ",
+    "title": "Tidy Data",
     "section": "What is tidy data?",
     "text": "What is tidy data?\nClean perfect data?"
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#what-is-tidy-data-1",
     "href": "lectures/lecture04/lecture04.html#what-is-tidy-data-1",
-    "title": "\n            Tidy Data\n        ",
+    "title": "Tidy Data",
     "section": "What is “tidy” data?",
     "text": "What is “tidy” data?\n\n“Tidy” data is a standard way of mapping the meaning of a dataset to its structure. A dataset is messy or tidy depending on how rows, columns and tables are matched up with observations, variables and types."
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#what-is-a-dataset",
     "href": "lectures/lecture04/lecture04.html#what-is-a-dataset",
-    "title": "\n            Tidy Data\n        ",
+    "title": "Tidy Data",
     "section": "What is a dataset?",
     "text": "What is a dataset?\n\nA dataset is a collection of values, usually either numbers (if quantitative) or strings AKA text data (if qualitative/categorical). Values are organised in two ways. Every value belongs to a variable and an observation. A variable contains all values that measure the same underlying attribute (like height, temperature, duration) across units. An observation contains all values measured on the same unit (like a person, or a day, or a city) across attributes."
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#what-is-tidy-data-2",
     "href": "lectures/lecture04/lecture04.html#what-is-tidy-data-2",
-    "title": "\n            Tidy Data\n        ",
+    "title": "Tidy Data",
     "section": "What is “tidy” data?",
     "text": "What is “tidy” data?\n\n\n\nEach variable forms a column\nEach observation forms a row\nEach type of observational unit forms a table"
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#untidy-column-headers-are-values",
     "href": "lectures/lecture04/lecture04.html#untidy-column-headers-are-values",
-    "title": "\n            Tidy Data\n        ",
+    "title": "Tidy Data",
     "section": "Untidy: Column headers are values",
     "text": "Untidy: Column headers are values"
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#tidy",
     "href": "lectures/lecture04/lecture04.html#tidy",
-    "title": "\n            Tidy Data\n        ",
+    "title": "Tidy Data",
     "section": "Tidy",
     "text": "Tidy"
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#case-study-billboard-ranking-data",
     "href": "lectures/lecture04/lecture04.html#case-study-billboard-ranking-data",
-    "title": "\n            Tidy Data\n        ",
+    "title": "Tidy Data",
     "section": "Case study: Billboard ranking data",
-    "text": "Case study: Billboard ranking data\n\n\n# A tibble: 317 × 79\n   artist track date.ent…¹   wk1   wk2   wk3   wk4   wk5   wk6   wk7   wk8   wk9\n   &lt;chr&gt;  &lt;chr&gt; &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1 2 Pac  Baby… 2000-02-26    87    82    72    77    87    94    99    NA    NA\n 2 2Ge+h… The … 2000-09-02    91    87    92    NA    NA    NA    NA    NA    NA\n 3 3 Doo… Kryp… 2000-04-08    81    70    68    67    66    57    54    53    51\n 4 3 Doo… Loser 2000-10-21    76    76    72    69    67    65    55    59    62\n 5 504 B… Wobb… 2000-04-15    57    34    25    17    17    31    36    49    53\n 6 98^0   Give… 2000-08-19    51    39    34    26    26    19     2     2     3\n 7 A*Tee… Danc… 2000-07-08    97    97    96    95   100    NA    NA    NA    NA\n 8 Aaliy… I Do… 2000-01-29    84    62    51    41    38    35    35    38    38\n 9 Aaliy… Try … 2000-03-18    59    53    38    28    21    18    16    14    12\n10 Adams… Open… 2000-08-26    76    76    74    69    68    67    61    58    57\n# … with 307 more rows, 67 more variables: wk10 &lt;dbl&gt;, wk11 &lt;dbl&gt;, wk12 &lt;dbl&gt;,\n#   wk13 &lt;dbl&gt;, wk14 &lt;dbl&gt;, wk15 &lt;dbl&gt;, wk16 &lt;dbl&gt;, wk17 &lt;dbl&gt;, wk18 &lt;dbl&gt;,\n#   wk19 &lt;dbl&gt;, wk20 &lt;dbl&gt;, wk21 &lt;dbl&gt;, wk22 &lt;dbl&gt;, wk23 &lt;dbl&gt;, wk24 &lt;dbl&gt;,\n#   wk25 &lt;dbl&gt;, wk26 &lt;dbl&gt;, wk27 &lt;dbl&gt;, wk28 &lt;dbl&gt;, wk29 &lt;dbl&gt;, wk30 &lt;dbl&gt;,\n#   wk31 &lt;dbl&gt;, wk32 &lt;dbl&gt;, wk33 &lt;dbl&gt;, wk34 &lt;dbl&gt;, wk35 &lt;dbl&gt;, wk36 &lt;dbl&gt;,\n#   wk37 &lt;dbl&gt;, wk38 &lt;dbl&gt;, wk39 &lt;dbl&gt;, wk40 &lt;dbl&gt;, wk41 &lt;dbl&gt;, wk42 &lt;dbl&gt;,\n#   wk43 &lt;dbl&gt;, wk44 &lt;dbl&gt;, wk45 &lt;dbl&gt;, wk46 &lt;dbl&gt;, wk47 &lt;dbl&gt;, wk48 &lt;dbl&gt;, …"
+    "text": "Case study: Billboard ranking data\n\n\n# A tibble: 317 × 79\n   artist     track date.entered   wk1   wk2   wk3   wk4   wk5   wk6   wk7   wk8\n   &lt;chr&gt;      &lt;chr&gt; &lt;date&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1 2 Pac      Baby… 2000-02-26      87    82    72    77    87    94    99    NA\n 2 2Ge+her    The … 2000-09-02      91    87    92    NA    NA    NA    NA    NA\n 3 3 Doors D… Kryp… 2000-04-08      81    70    68    67    66    57    54    53\n 4 3 Doors D… Loser 2000-10-21      76    76    72    69    67    65    55    59\n 5 504 Boyz   Wobb… 2000-04-15      57    34    25    17    17    31    36    49\n 6 98^0       Give… 2000-08-19      51    39    34    26    26    19     2     2\n 7 A*Teens    Danc… 2000-07-08      97    97    96    95   100    NA    NA    NA\n 8 Aaliyah    I Do… 2000-01-29      84    62    51    41    38    35    35    38\n 9 Aaliyah    Try … 2000-03-18      59    53    38    28    21    18    16    14\n10 Adams, Yo… Open… 2000-08-26      76    76    74    69    68    67    61    58\n# ℹ 307 more rows\n# ℹ 68 more variables: wk9 &lt;dbl&gt;, wk10 &lt;dbl&gt;, wk11 &lt;dbl&gt;, wk12 &lt;dbl&gt;,\n#   wk13 &lt;dbl&gt;, wk14 &lt;dbl&gt;, wk15 &lt;dbl&gt;, wk16 &lt;dbl&gt;, wk17 &lt;dbl&gt;, wk18 &lt;dbl&gt;,\n#   wk19 &lt;dbl&gt;, wk20 &lt;dbl&gt;, wk21 &lt;dbl&gt;, wk22 &lt;dbl&gt;, wk23 &lt;dbl&gt;, wk24 &lt;dbl&gt;,\n#   wk25 &lt;dbl&gt;, wk26 &lt;dbl&gt;, wk27 &lt;dbl&gt;, wk28 &lt;dbl&gt;, wk29 &lt;dbl&gt;, wk30 &lt;dbl&gt;,\n#   wk31 &lt;dbl&gt;, wk32 &lt;dbl&gt;, wk33 &lt;dbl&gt;, wk34 &lt;dbl&gt;, wk35 &lt;dbl&gt;, wk36 &lt;dbl&gt;,\n#   wk37 &lt;dbl&gt;, wk38 &lt;dbl&gt;, wk39 &lt;dbl&gt;, wk40 &lt;dbl&gt;, wk41 &lt;dbl&gt;, wk42 &lt;dbl&gt;, …"
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#how-do-we-tidy-data",
     "href": "lectures/lecture04/lecture04.html#how-do-we-tidy-data",
-    "title": "\n            Tidy Data\n        ",
+    "title": "Tidy Data",
     "section": "How do we tidy data?",
     "text": "How do we tidy data?\n\nWe use the pivot_longer function from the tidyr package\nThree arguments:\n\nnames_to,\nvalues_to,\nthe column(s) we do or do not want to tidy\n\n\n\n\nAdditional arguments may be necessary in some cases"
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#names_to",
     "href": "lectures/lecture04/lecture04.html#names_to",
-    "title": "\n            Tidy Data\n        ",
+    "title": "Tidy Data",
     "section": "names_to",
     "text": "names_to\n\nthe name of the column/variable in the new “tidy” frame containing the column names of the original data frame we want to tidy"
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#names_to-1",
     "href": "lectures/lecture04/lecture04.html#names_to-1",
-    "title": "\n            Tidy Data\n        ",
+    "title": "Tidy Data",
     "section": "names_to",
     "text": "names_to"
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#values_to",
     "href": "lectures/lecture04/lecture04.html#values_to",
-    "title": "\n            Tidy Data\n        ",
+    "title": "Tidy Data",
     "section": "values_to",
     "text": "values_to\n\nthe name of the column/variable in the “tidy” frame containing the rows and columns of values in the original data frame we want to tidy"
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#values_to-1",
     "href": "lectures/lecture04/lecture04.html#values_to-1",
-    "title": "\n            Tidy Data\n        ",
+    "title": "Tidy Data",
     "section": "values_to",
     "text": "values_to"
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#columns-we-do-or-do-not-want-to-tidy",
     "href": "lectures/lecture04/lecture04.html#columns-we-do-or-do-not-want-to-tidy",
-    "title": "\n            Tidy Data\n        ",
+    "title": "Tidy Data",
     "section": "Columns we do, or do not, want to tidy",
     "text": "Columns we do, or do not, want to tidy\n\nwant ( c(var1, var2, var3))\nor do not want (-var1, -var2)"
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#columns-we-do-or-do-not-want-to-tidy-1",
     "href": "lectures/lecture04/lecture04.html#columns-we-do-or-do-not-want-to-tidy-1",
-    "title": "\n            Tidy Data\n        ",
+    "title": "Tidy Data",
     "section": "Columns we do, or do not, want to tidy",
     "text": "Columns we do, or do not, want to tidy"
   },
   {
     "objectID": "lectures/lecture04/lecture04.html#tidy-billboard-rankings",
     "href": "lectures/lecture04/lecture04.html#tidy-billboard-rankings",
-    "title": "\n            Tidy Data\n        ",
+    "title": "Tidy Data",
     "section": "Tidy Billboard Rankings",
-    "text": "Tidy Billboard Rankings\n\nbillboard_tidy &lt;- billboard %&gt;% \n  pivot_longer(\n    names_to = \"week\", \n    values_to = \"rank\", \n    wk1:wk76,\n    values_drop_na = TRUE\n  )\nbillboard_tidy\n\n# A tibble: 5,307 × 5\n   artist  track                   date.entered week   rank\n   &lt;chr&gt;   &lt;chr&gt;                   &lt;date&gt;       &lt;chr&gt; &lt;dbl&gt;\n 1 2 Pac   Baby Don't Cry (Keep... 2000-02-26   wk1      87\n 2 2 Pac   Baby Don't Cry (Keep... 2000-02-26   wk2      82\n 3 2 Pac   Baby Don't Cry (Keep... 2000-02-26   wk3      72\n 4 2 Pac   Baby Don't Cry (Keep... 2000-02-26   wk4      77\n 5 2 Pac   Baby Don't Cry (Keep... 2000-02-26   wk5      87\n 6 2 Pac   Baby Don't Cry (Keep... 2000-02-26   wk6      94\n 7 2 Pac   Baby Don't Cry (Keep... 2000-02-26   wk7      99\n 8 2Ge+her The Hardest Part Of ... 2000-09-02   wk1      91\n 9 2Ge+her The Hardest Part Of ... 2000-09-02   wk2      87\n10 2Ge+her The Hardest Part Of ... 2000-09-02   wk3      92\n# … with 5,297 more rows"
+    "text": "Tidy Billboard Rankings\n\nbillboard_tidy &lt;- billboard %&gt;% \n  pivot_longer(\n    names_to = \"week\", \n    values_to = \"rank\", \n    wk1:wk76,\n    values_drop_na = TRUE\n  )\nbillboard_tidy\n\n# A tibble: 5,307 × 5\n   artist  track                   date.entered week   rank\n   &lt;chr&gt;   &lt;chr&gt;                   &lt;date&gt;       &lt;chr&gt; &lt;dbl&gt;\n 1 2 Pac   Baby Don't Cry (Keep... 2000-02-26   wk1      87\n 2 2 Pac   Baby Don't Cry (Keep... 2000-02-26   wk2      82\n 3 2 Pac   Baby Don't Cry (Keep... 2000-02-26   wk3      72\n 4 2 Pac   Baby Don't Cry (Keep... 2000-02-26   wk4      77\n 5 2 Pac   Baby Don't Cry (Keep... 2000-02-26   wk5      87\n 6 2 Pac   Baby Don't Cry (Keep... 2000-02-26   wk6      94\n 7 2 Pac   Baby Don't Cry (Keep... 2000-02-26   wk7      99\n 8 2Ge+her The Hardest Part Of ... 2000-09-02   wk1      91\n 9 2Ge+her The Hardest Part Of ... 2000-09-02   wk2      87\n10 2Ge+her The Hardest Part Of ... 2000-09-02   wk3      92\n# ℹ 5,297 more rows"
   },
   {
     "objectID": "labs/lab04.html#load-packages",
     "href": "labs/lab04.html#load-packages",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 04 - Tidy Data\n        ",
     "section": "Load packages",
     "text": "Load packages\n\nlibrary(tidyverse)\nlibrary(googlesheets4)"
   },
   {
     "objectID": "labs/lab04.html#import-data",
     "href": "labs/lab04.html#import-data",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 04 - Tidy Data\n        ",
     "section": "Import Data",
-    "text": "Import Data\nWe’re going to import our data from a google sheet:\n\ngapminder_wide <- read_sheet(\"https://docs.google.com/spreadsheets/d/1E8u2GL0aCmWiU2AnpNirfUPxWSJBN50Tyrf5ilapwSw/edit?usp=sharing\")\n\n\nAuthorize tidyverse to use your google account\nType 1 for yes: \n Copy the authorization code:\n\nPaste it into the console:"
+    "text": "Import Data\nWe’re going to import our data from a google sheet:\n\ngapminder_wide &lt;- read_sheet(\"https://docs.google.com/spreadsheets/d/1E8u2GL0aCmWiU2AnpNirfUPxWSJBN50Tyrf5ilapwSw/edit?usp=sharing\")\n\n\nAuthorize tidyverse to use your google account\nType 1 for yes: \n Copy the authorization code:\n\nPaste it into the console:"
   },
   {
     "objectID": "labs/lab04.html#exercise-1",
     "href": "labs/lab04.html#exercise-1",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 04 - Tidy Data\n        ",
     "section": "Exercise 1",
     "text": "Exercise 1\nHow many observations and how many variables are in the dataset? What does each row represent? Is the dataset tidy? Enter the code you need to get this information and answer the questions.\n\nglimpse(gapminder_wide)"
   },
   {
     "objectID": "labs/lab04.html#exercise-2",
     "href": "labs/lab04.html#exercise-2",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 04 - Tidy Data\n        ",
     "section": "Exercise 2",
-    "text": "Exercise 2\nSpoiler: It ain’t tidy! Tidying data can be really tricky in some cases so we’re going to go through this together.\nLet’s look at the data again, but this time we’re going to use the tbl_vars() function from the dyplyr package to just give us a list of all the variables in the dataset.\n\ngapminder_wide %>% \n  tbl_vars()\n\nSo, we see from the output above that each variable has a year at the end of its name (e.g., pop_1952). If we’re interested in analyzing these data, we know we don’t want to have multiple columns for each variable (e.g., a life expectancy column for each year). We want ONE life expectancy variable (column) with values recorded for each year for each country in the dataset. So, let’s use the pivot_longer() function from the dplyr package to make our data tidy:\n\ngapminder_tidy <- gapminder_wide %>% \n  pivot_longer(names_to = c(\".value\", \"year\"),\n               names_sep = \"_\",\n               names_transform = list(year = as.integer),\n              cols = c(-continent, -country))\n\nThis code looks a little bit different than the pivot_longer code we went over in the lecture. For more information about all of these arguments visit the the pivot longer webpage for the tidyrpackage.\n\ngapminder_tidy %>% \n  tbl_vars()"
+    "text": "Exercise 2\nSpoiler: It ain’t tidy! Tidying data can be really tricky in some cases so we’re going to go through this together.\nLet’s look at the data again, but this time we’re going to use the tbl_vars() function from the dyplyr package to just give us a list of all the variables in the dataset.\n\ngapminder_wide %&gt;% \n  tbl_vars()\n\nSo, we see from the output above that each variable has a year at the end of its name (e.g., pop_1952). If we’re interested in analyzing these data, we know we don’t want to have multiple columns for each variable (e.g., a life expectancy column for each year). We want ONE life expectancy variable (column) with values recorded for each year for each country in the dataset. So, let’s use the pivot_longer() function from the dplyr package to make our data tidy:\n\ngapminder_tidy &lt;- gapminder_wide %&gt;% \n  pivot_longer(names_to = c(\".value\", \"year\"),\n               names_sep = \"_\",\n               names_transform = list(year = as.integer),\n              cols = c(-continent, -country))\n\nThis code looks a little bit different than the pivot_longer code we went over in the lecture. For more information about all of these arguments visit the the pivot longer webpage for the tidyrpackage.\n\ngapminder_tidy %&gt;% \n  tbl_vars()"
   },
   {
     "objectID": "labs/lab04.html#exercise-3",
     "href": "labs/lab04.html#exercise-3",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 04 - Tidy Data\n        ",
     "section": "Exercise 3",
-    "text": "Exercise 3\nFirst, let’s get a sense of our new tidy dataset using the glimpse command:\n\n\n\nAnswer the following:\n\nHow many observations are there?\nHow many variables?\nWhat is the unit of analysis (what does each row represent)? How does this differ from the unit of analysis in the untidy(wide) data you started with?\n\nNext, let’s calculate some basic descriptive statistics to get a sense of our variables."
+    "text": "Exercise 3\nFirst, let’s get a sense of our new tidy dataset using the glimpse command:\nAnswer the following:\n\nHow many observations are there?\nHow many variables?\nWhat is the unit of analysis (what does each row represent)? How does this differ from the unit of analysis in the untidy(wide) data you started with?\n\nNext, let’s calculate some basic descriptive statistics to get a sense of our variables."
   },
   {
     "objectID": "labs/lab04.html#exercise-4",
     "href": "labs/lab04.html#exercise-4",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 04 - Tidy Data\n        ",
     "section": "Exercise 4",
     "text": "Exercise 4\nWhat is the average population in the tidy dataset?"
   },
   {
     "objectID": "labs/lab04.html#exercise-5",
     "href": "labs/lab04.html#exercise-5",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 04 - Tidy Data\n        ",
     "section": "Exercise 5",
-    "text": "Exercise 5\nAverage population for so many countries over many years isn’t super useful to us. How can we come up with a more meaningful average population statistic? Let’s break the data down a bit to find something more interesting. Write and run code to calculate the average population for each year in the dataset.\n\n\n\nOkay, slightly more useful. A lot more people in 2007 than in 1952!"
+    "text": "Exercise 5\nAverage population for so many countries over many years isn’t super useful to us. How can we come up with a more meaningful average population statistic? Let’s break the data down a bit to find something more interesting. Write and run code to calculate the average population for each year in the dataset.\nOkay, slightly more useful. A lot more people in 2007 than in 1952!"
   },
   {
     "objectID": "labs/lab04.html#exercise-6",
     "href": "labs/lab04.html#exercise-6",
-    "title": "SPS 502 | Data Science",
+    "title": "\n            Lab 04 - Tidy Data\n        ",
     "section": "Exercise 6",
     "text": "Exercise 6\nLet’s create a visualization of population over time. One thing we could try is visualizing population over time for each continent. Think about which kind of graph would be best for communicating this then write and run the code (HINT: You’re going to need to add group = continent to your aes() arguments to make the graph legible:"
   },

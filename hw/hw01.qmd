@@ -84,7 +84,7 @@ Run the already provided code in your Rmarkdown file to get a sense of the datas
 
 ## Clean the data
 
-Okay, let's clean up the raw data a little and get some useful information along the way. First, we'll use the `lubridate` package to get useful information from the Accident_Date_Time variable, as well as rename a variable to make it easier to remember (we'll cover more about the lubridate package in the future).
+Okay, let's clean up the raw data a little and get some useful information along the way. First, we'll use the `lubridate` package to get useful information from the Accident_Date_Time variable, as well as rename a variable to make it easier to remember (we'll cover more about the lubridate package in the future). For now, just run the code. 
 
 ```{r clean-data}
 idaho_crashes_clean <- idaho_crashes_raw %>% 
@@ -238,4 +238,4 @@ Based on your tables and visualizations, how do *fatal* accidents by month diffe
 
 # Wrap-up and submission
 
-We're going to `KNIT` a bit differently than we do for the labs. First, make sure you rename your RMarkdown folder before you knit (adding your last name and first name). Next, knit the document and instead of an html file, you'll get a pdf. Save the pdf to your computer (just as you do with the .html files in the labs) and upload to Canvas under "Homework 1".
+We're going to `KNIT` a bit differently than we do for the labs. First, make sure you rename your RMarkdown file before you knit (adding your last name and first name). Next, knit the document and instead of an html file, you'll get a pdf. Save the pdf to your computer (just as you do with the .html files in the labs) and upload to Canvas under "Homework 1".

@@ -112,7 +112,7 @@ ggplot(d, aes(Height)) +
 
 ## Variance
 
--   **Variance (**$s^{2}$, $\sigma^{2}$): the extent to which a variable's values deviate from or vary around it's mean; the average distance of each observation from the mean $$s^{2} = \frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})^2$$
+-   **Variance (**$s^{2}$, $\sigma^{2}$): the extent to which a variable's values deviate from or vary around its mean; the average distance of each observation from the mean $$s^{2} = \frac{1}{n-1} \sum_{i=1}^n (x_i - \bar{x})^2$$
 
 ## Variance
 

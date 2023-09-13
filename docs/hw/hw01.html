@@ -322,7 +322,7 @@ dttm (1): Accident_Date_Time
 </section>
 <section id="clean-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="clean-the-data">Clean the data</h2>
-<p>Okay, let’s clean up the raw data a little and get some useful information along the way. First, we’ll use the <code>lubridate</code> package to get useful information from the Accident_Date_Time variable, as well as rename a variable to make it easier to remember (we’ll cover more about the lubridate package in the future).</p>
+<p>Okay, let’s clean up the raw data a little and get some useful information along the way. First, we’ll use the <code>lubridate</code> package to get useful information from the Accident_Date_Time variable, as well as rename a variable to make it easier to remember (we’ll cover more about the lubridate package in the future). For now, just run the code.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>idaho_crashes_clean <span class="ot">&lt;-</span> idaho_crashes_raw <span class="sc">%&gt;%</span> </span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Hour=</span> <span class="fu">hour</span>(Accident_Date_Time),</span>
@@ -493,7 +493,7 @@ dttm (1): Accident_Date_Time
 </section>
 <section id="wrap-up-and-submission" class="level1">
 <h1>Wrap-up and submission</h1>
-<p>We’re going to <code>KNIT</code> a bit differently than we do for the labs. First, make sure you rename your RMarkdown folder before you knit (adding your last name and first name). Next, knit the document and instead of an html file, you’ll get a pdf. Save the pdf to your computer (just as you do with the .html files in the labs) and upload to Canvas under “Homework 1”.</p>
+<p>We’re going to <code>KNIT</code> a bit differently than we do for the labs. First, make sure you rename your RMarkdown file before you knit (adding your last name and first name). Next, knit the document and instead of an html file, you’ll get a pdf. Save the pdf to your computer (just as you do with the .html files in the labs) and upload to Canvas under “Homework 1”.</p>
 
 
 </section>

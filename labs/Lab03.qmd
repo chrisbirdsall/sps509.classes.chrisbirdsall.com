@@ -52,7 +52,7 @@ These data are about housing in Texas. Each row is monthly data for a given city
 Take a look at the data in the data viewer. You can accomplish this two different ways: A) click on the name of the data in the Environment pane, or b) type `View(txhousing)` in the **console**. What is the last city listed in the data set (in row 8602)?
 
 ::: column-margin
-In homework 1 we learned (and I was reminded) that RStudio does not like to knit documents that execute the `View()` command. So from now on, we'll just run it in the console to avoid additional headaches.
+RStudio does not like to knit documents that execute the `View()` command. So be sure to run it in the console to avoid additional headaches.
 :::
 
 ## Exercise 2
@@ -73,7 +73,7 @@ txhousing %>% select(sales, volume)
 
 The `%>%` symbol is called the **piping** operator. Here, it takes the `txhousing` **data frame** and "pipes" or feeds it into the `select` function. You can think of the `%>%` symbol as the word "then".
 
-Note that we did not use an assignment operator `<-` so we did not save these extracted, selected values. In the following code, we **save** the results, in a data frame **ASLO** called txhousing. By putting - in front of the `date` variable we tell R to select all **except** the `date` variable. Run the following code:
+Note that we did not use an assignment operator `<-` so we did not save these extracted, selected values. In the following code, we **save** the results, in a data frame **ALSO** called txhousing. By putting - in front of the `date` variable we tell R to select all **except** the `date` variable. Run the following code:
 
 ```{r }
 txhousing <- txhousing %>% select(-date)
