@@ -150,10 +150,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a>
   <ul class="collapse">
   <li><a href="#load-packages" id="toc-load-packages" class="nav-link" data-scroll-target="#load-packages">Load packages</a></li>
-  <li><a href="#import-data" id="toc-import-data" class="nav-link" data-scroll-target="#import-data">Import Data</a>
-  <ul class="collapse">
-  <li><a href="#authorize-tidyverse-to-use-your-google-account" id="toc-authorize-tidyverse-to-use-your-google-account" class="nav-link" data-scroll-target="#authorize-tidyverse-to-use-your-google-account">Authorize <code>tidyverse</code> to use your google account</a></li>
-  </ul></li>
+  <li><a href="#import-data" id="toc-import-data" class="nav-link" data-scroll-target="#import-data">Import Data</a></li>
   </ul></li>
   <li><a href="#tidy-data-walkthrough" id="toc-tidy-data-walkthrough" class="nav-link" data-scroll-target="#tidy-data-walkthrough">Tidy Data Walkthrough</a>
   <ul class="collapse">
@@ -206,24 +203,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="load-packages" class="level2">
 <h2 class="anchored" data-anchor-id="load-packages">Load packages</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(googlesheets4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="import-data" class="level2">
 <h2 class="anchored" data-anchor-id="import-data">Import Data</h2>
-<p>We’re going to import our data from a google sheet:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>gapminder_wide <span class="ot">&lt;-</span> <span class="fu">read_sheet</span>(<span class="st">"https://docs.google.com/spreadsheets/d/1E8u2GL0aCmWiU2AnpNirfUPxWSJBN50Tyrf5ilapwSw/edit?usp=sharing"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>gapminder_wide <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/gapminder_wide.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="authorize-tidyverse-to-use-your-google-account" class="level3">
-<h3 class="anchored" data-anchor-id="authorize-tidyverse-to-use-your-google-account">Authorize <code>tidyverse</code> to use your google account</h3>
-<p>Type 1 for yes: <img src="images/paste-9C0DD36C.png" class="img-fluid"></p>
-<p><img src="images/paste-511DDA0A.png" class="img-fluid"> Copy the authorization code:</p>
-<p><img src="images/paste-DA2BA91B.png" class="img-fluid"></p>
-<p>Paste it into the console:</p>
-<p><img src="images/paste-AA99E0D4.png" class="img-fluid"></p>
-</section>
 </section>
 </section>
 <section id="tidy-data-walkthrough" class="level1">
@@ -263,27 +250,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Okay, our data are tidy. Now let’s do some analyzing.</p>
 <section id="exercise-3" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-3">Exercise 3</h2>
-<p>First, let’s get a sense of our new tidy dataset using the glimpse command:</p>
-<p><em>Answer the following:</em></p>
+<p>First, let’s get a sense of our new tidy dataset. Use the <code>glimpse</code> command to analyze the <code>gapminder_tidy</code> dataframe and answer the following questions:</p>
 <ul>
 <li><p>How many observations are there?</p></li>
 <li><p>How many variables?</p></li>
 <li><p>What is the unit of analysis (what does each row represent)? How does this differ from the unit of analysis in the untidy(wide) data you started with?</p></li>
 </ul>
-<p>Next, let’s calculate some basic descriptive statistics to get a sense of our variables.</p>
 </section>
 <section id="exercise-4" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-4">Exercise 4</h2>
-<p>What is the average population in the tidy dataset?</p>
+<p>Next, let’s calculate some basic descriptive statistics to get a sense of our variables. Using code you learned in last week’s lab, answer the following: What is the average population in the tidy dataset?</p>
 </section>
 <section id="exercise-5" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-5">Exercise 5</h2>
-<p>Average population for so many countries over many years isn’t super useful to us. How can we come up with a more meaningful average population statistic? Let’s break the data down a bit to find something more interesting. Write and run code to calculate the average population for each year in the dataset.</p>
+<p>Average population for so many countries over many years isn’t super useful to us. How can we come up with a more meaningful average population statistic? Let’s break the data down a bit to find something more interesting. Write and run code to calculate the average population <strong>for each year</strong> in the dataset.</p>
 <p>Okay, slightly more useful. A lot more people in 2007 than in 1952!</p>
 </section>
 <section id="exercise-6" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-6">Exercise 6</h2>
-<p>Let’s create a visualization of population over time. One thing we could try is visualizing population over time for each continent. Think about which kind of graph would be best for communicating this then write and run the code (HINT: You’re going to need to add <code>group = continent</code> to your <code>aes()</code> arguments to make the graph legible:</p>
+<p>Let’s create a visualization of population over time. One thing we could try is visualizing population over time for each continent. Think about which kind of graph would be best for communicating this.</p>
+<p>This is a tough one, so here are a couple of hints: before your ggplot command you’ll want to group by year and continent THEN ( %&gt;% ) create the average population variable with the summarize command THEN enter your ggplot code. You’ll also want to add a color=continent argument in your aes().</p>
 </section>
 </section>
 <section id="exercise-7" class="level1">
