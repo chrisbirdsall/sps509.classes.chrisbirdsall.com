@@ -25,7 +25,8 @@ format:
 
 - Structure of the code for plots can be summarized as
 
-```{r eval = FALSE}
+```{r eval=FALSE, echo=TRUE}
+
 
 ggplot(data = [dataset],
 
@@ -109,7 +110,7 @@ glimpse(idaho_county_merged)
 
 ## Income and Education Visualization
 
-```{r'}
+```{r}
 ggplot(data = idaho_county_merged, 
        mapping = aes(x = pct_collegeE, y = median_incomeE,
                      color = win_candidate)) +
@@ -118,8 +119,7 @@ ggplot(data = idaho_county_merged,
        subtitle = "Linear relationship between education and income",
        x = "Pct Adults w/ Bachelor's Degree or Higher", y = "Median Income",
        color = "Winning Pres. Candidate (2020)",
-       caption = "Source:Education and income data from U.S. Census Bureau. \n Voting data from the Harvard Dataverse") +
-  
+       caption = "Source:Education and income data from U.S. Census Bureau. \n Voting data from the Harvard Dataverse")
 ```
 
 
@@ -382,7 +382,7 @@ Commonly used characteristics of plotting characters that can be **mapped to a s
 ::: {.column width="60%"}
 
 ```{r idaho-color, fig.show = "hide", warning = FALSE, echo = TRUE}
-#| code-line-numbers: 9
+#| code-line-numbers: 3
 ggplot(data = idaho_county_merged, 
        mapping = aes(x = pct_collegeE, y = median_incomeE,
                      color = win_candidate)) +
@@ -485,7 +485,8 @@ ggplot(data = idaho_county_merged,
 
 ## Extra Stuff: Pulling Census Data with `tidycensus`
 
-```{r}
+```{r echo=TRUE}
+#| output: false
 id_education <- get_acs(
   geography = "county", 
   variables = "DP02_0068P",
