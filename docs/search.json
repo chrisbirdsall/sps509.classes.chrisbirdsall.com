@@ -242,7 +242,7 @@
     "href": "hw/hw01.html#accidents-by-month",
     "title": "\n            SPS 502 - Homework 1\n        ",
     "section": "Accidents by month",
-    "text": "Accidents by month\n\nQuestion 6\n\nWhich is the most dangerous month? Let’s create a new dataframe that groups accidents by month then create a line graph to visualize the data. Try writing the code yourself this time. (HINT: the code is nearly identical to the three codeblocks above)."
+    "text": "Accidents by month\n\nQuestion 6\n\nWhich is the most dangerous month? Let’s create a new dataframe that groups accidents by month then create a bar graph geom_col() to visualize the data. Try writing the code yourself this time."
   },
   {
     "objectID": "hw/hw01.html#accidents-by-time-of-day",
