@@ -1439,7 +1439,7 @@
     "href": "lectures/lecture10/lecture_10.html#regression-review",
     "title": "LAST CLASS!!!",
     "section": "Regression Review",
-    "text": "Regression Review\nEstimating the effects of age and sex on teaching evaluations"
+    "text": "Regression Review\nEstimating the effects of age and sex on teaching evaluations\n\n```{r}\n#| eval: false\nscore_model_2 &lt;- lm(score ~ age + gendermale, \n                    data = evals_multiple)\nget_regression_table(score_model_2)\n```\n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd_error\nstatistic\np_value\nlower_ci\nupper_ci\n\n\n\n\nintercept\n4.484\n0.125\n35.79\n0.000\n4.238\n4.730\n\n\nage\n-0.009\n0.003\n-3.28\n0.001\n-0.014\n-0.003\n\n\ngendermale\n0.191\n0.052\n3.63\n0.000\n0.087\n0.294"
   },
   {
     "objectID": "lectures/lecture10/lecture_10.html#results-tables-in-public-policy-administration-journals",

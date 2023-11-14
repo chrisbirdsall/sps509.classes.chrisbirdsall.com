@@ -67,21 +67,23 @@ Which is worse: Type 1 or Type 2 error?
 
 ### Estimating the effects of age and sex on teaching evaluations
 
-```{r}
-#| eval: false
-#| echo: fenced
-score_model_2 <- lm(score ~ age + gendermale, 
+```{r, eval=FALSE}
+score_model_2 <- lm(score ~ age + gender, 
                     data = evals_multiple)
 get_regression_table(score_model_2)
 ```
 
-
-| **term**      | **estimate** | **std_error** | **statistic** | **p_value** | **lower_ci** | **upper_ci** |
-|---------------|--------------|---------------|---------------|-------------|--------------|--------------|
-| intercept     | 4.484        | 0.125         | 35.79         | 0.000       | 4.238        | 4.730        |
-| age           | -0.009       | 0.003         | -3.28         | 0.001       | -0.014       | -0.003       |
-| gendermale    | 0.191        | 0.052         | 3.63          | 0.000       | 0.087        | 0.294        |
-
+\begin{table}[]
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|l|l|l|l|}
+\hline
+\textbf{term}       & \textbf{estimate} & \textbf{std\_error} & \textbf{statistic} & \textbf{p\_value} & \textbf{lower\_ci} & \textbf{upper\_ci} \\ \hline
+intercept  & 4.484    & 0.125      & 35.79     & 0.000    & 4.238     & 4.730     \\ \hline
+age        & -0.009   & 0.003      & -3.28     & 0.001    & -0.014    & -0.003    \\ \hline
+gendermale & 0.191    & 0.052      & 3.63      & 0.000    & 0.087     & 0.294     \\ \hline
+\end{tabular}%
+}
+\end{table}
 
  
 ## Results tables in public policy / administration journals
