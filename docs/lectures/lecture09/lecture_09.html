@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="SPS 502">
+<meta name="dcterms.date" content="2022-11-10">
 
-<title>SPS 502 | Data Science - SPS 502 - Homework 3: Inference for regression</title>
+<title>SPS 502 | Data Science - LAST CLASS!!!</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,24 +59,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -96,6 +98,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -106,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">SPS 502 | Data Science</span>
     </a>
   </div>
@@ -117,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html" rel="" target="">
+    <a class="nav-link" href="../../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item compact">
@@ -143,28 +147,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started">Getting Started</a>
-  <ul class="collapse">
-  <li><a href="#export-data-from-your-data-proposal" id="toc-export-data-from-your-data-proposal" class="nav-link" data-scroll-target="#export-data-from-your-data-proposal">Export data from your data proposal</a></li>
-  <li><a href="#import-data-into-your-final-project" id="toc-import-data-into-your-final-project" class="nav-link" data-scroll-target="#import-data-into-your-final-project">Import data into your Final Project</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+        
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lecture_09.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <div class="grid title-block">
     <div class="course-details-title-block g-col-12 g-col-sm-8 order-2 order-sm-1 text-center text-sm-start">
         <h1 class="course-title">
-            SPS 502 - Homework 3: Inference for regression
+            LAST CLASS!!!
         </h1>
         <div class="course-subtitle">
-            <p>Due by 11:59 p.m., Thursday November 28</p>
+            <p></p>
         </div>
         <div class="course-meta">
             <p></p>
@@ -179,33 +173,114 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
 </div>
 
-<p>In this lab, you will develop preliminary hypotheses and use your data to run preliminary regressions. Completing this lab will get you much closer to completing your projects.</p>
-<section id="getting-started" class="level1">
-<h1>Getting Started</h1>
-<section id="export-data-from-your-data-proposal" class="level2">
-<h2 class="anchored" data-anchor-id="export-data-from-your-data-proposal">Export data from your data proposal</h2>
-<ol type="1">
-<li>Go back to your data proposal homework and run the following code block at <strong>the end</strong> of the RMarkdown file (if you haven’t already):</li>
-</ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(mydata, <span class="st">"mydata.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="hypothesis-testing" class="level1">
+<h1>Hypothesis Testing</h1>
+<section id="hypothesis-testing-1" class="level2">
+<h2 class="anchored" data-anchor-id="hypothesis-testing-1">Hypothesis testing</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ht.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">hypothesis testing</figcaption>
+</figure>
 </div>
-<ol start="2" type="1">
-<li>Replace “mydata” with the name of your final dataframe in the homework.</li>
-<li>Run the codeblock. If you get an error: first, check that you typed the name correctly; second, make sure you see the dataframe in your environment pane. If it’s not there, go ahead and knit the document.</li>
-<li>Click the checkmark next to “mydata.csv” then export it exactly as you’ve done for html files and PDFs in our other labs.</li>
-</ol>
 </section>
-<section id="import-data-into-your-final-project" class="level2">
-<h2 class="anchored" data-anchor-id="import-data-into-your-final-project">Import data into your Final Project</h2>
-<ol type="1">
-<li>Find and open the new “Final Project” assignment in Posit Cloud.</li>
-<li>Click on the “data” folder in the files pane</li>
-<li>Click “Upload” and upload mydata.csv</li>
-<li>Navigate out of the data folder</li>
-<li>Open “Lastname_Firstname - HW03 - Final Project Lab.rmd”</li>
-<li>Continue with the lab</li>
-</ol>
+<section id="specifying-hypotheses" class="level2">
+<h2 class="anchored" data-anchor-id="specifying-hypotheses">Specifying Hypotheses</h2>
+<p><span class="math inline">\(H_0\)</span>: The null hypothesis (statement of no difference or no effect)</p>
+<p><span class="math inline">\(H_A\)</span>: The research hypothesis (statement of different or effect)</p>
+</section>
+<section id="example-hypotheses" class="level2">
+<h2 class="anchored" data-anchor-id="example-hypotheses">Example Hypotheses</h2>
+<p><span class="math inline">\(H_0\)</span>: There is no difference in average latté consumption between democrats and republicans</p>
+<p><span class="math inline">\(H_A\)</span>: Democrats consume more lattés than republicans, on average</p>
+</section>
+<section id="statistical-significance" class="level2">
+<h2 class="anchored" data-anchor-id="statistical-significance">Statistical Significance</h2>
+<ul>
+<li>Statistical significance = enough evidence to safely reject the null hypothesis
+<ul>
+<li>Court of law analogy: not enough evidence to prove guilt</li>
+</ul></li>
+<li>P-Values: standard measure for determining statistical significance
+<ul>
+<li>The probability of observing an effect at least that large when no effect exists</li>
+<li>In other words, probability that effect was observed due to chance alone (we want this to be as small as possible)</li>
+</ul></li>
+</ul>
+</section>
+<section id="decision-errors-in-hypothesis-testing" class="level2">
+<h2 class="anchored" data-anchor-id="decision-errors-in-hypothesis-testing">Decision Errors in Hypothesis Testing</h2>
+<ul>
+<li>Statistical inference involves uncertainty, so hypothesis tests are never 100% accurate
+<ul>
+<li><strong>Type I error (“false positive”):</strong> reject <span class="math inline">\(H_0\)</span> when <span class="math inline">\(H_0\)</span> is actually true
+<ul>
+<li>Detect a difference (or effect) that is not present</li>
+<li>To reduce type I error, we increase our standard of evidence (i.e., from 95% to 99%)</li>
+</ul></li>
+<li><strong>Type II error (“false negative”):</strong> fail to reject <span class="math inline">\(H_0\)</span> when <span class="math inline">\(H_A\)</span> is actually true
+<ul>
+<li>Fail to detect a difference (or effect) that is present</li>
+<li>To reduce type II error, we reduce our standard of evidence (i.e., from 95% to 90%)</li>
+</ul></li>
+<li><strong>In a court of law</strong>
+<ul>
+<li>Null hypothesis: Defendant is innocent</li>
+<li>Alternative hypothesis: Defendant is guilty</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>Which is worse: Type 1 or Type 2 error?</p>
+</section>
+<section id="type-i-vs.-type-ii-error" class="level2">
+<h2 class="anchored" data-anchor-id="type-i-vs.-type-ii-error">Type I vs.&nbsp;Type II Error</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="error_type.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">error type</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="regression" class="level1">
+<h1>Regression</h1>
+<section id="the-real-world" class="level2">
+<h2 class="anchored" data-anchor-id="the-real-world">The Real World</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="sorting_regression.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">sorting regression</figcaption>
+</figure>
+</div>
+</section>
+<section id="regression-review" class="level2">
+<h2 class="anchored" data-anchor-id="regression-review">Regression Review</h2>
+<section id="estimating-the-effects-of-age-and-sex-on-teaching-evaluations" class="level3">
+<h3 class="anchored" data-anchor-id="estimating-the-effects-of-age-and-sex-on-teaching-evaluations">Estimating the effects of age and sex on teaching evaluations</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>score_model_2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(score <span class="sc">~</span> age <span class="sc">+</span> gender, </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">data =</span> evals_multiple)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">get_regression_table</span>(score_model_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="results-tables-in-public-policy-administration-journals" class="level2">
+<h2 class="anchored" data-anchor-id="results-tables-in-public-policy-administration-journals">Results tables in public policy / administration journals</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="journal_example.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">journal example</figcaption>
+</figure>
+</div>
+</section>
+<section id="datascience-pipeline" class="level2">
+<h2 class="anchored" data-anchor-id="datascience-pipeline">Datascience Pipeline</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="datascience.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">datascience pipeline</figcaption>
+</figure>
+</div>
 
 
 </section>

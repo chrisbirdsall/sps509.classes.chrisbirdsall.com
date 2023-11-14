@@ -1,6 +1,6 @@
 ---
-title: "SPS 502 - Homework 4: Inference for regression"
-subtitle: "Due by 11:59 p.m., Thursday November 17"
+title: "SPS 502 - Homework 3: Inference for regression"
+subtitle: "Due by 11:59 p.m., Thursday November 28"
 toc: true
 editor: source
 execute: 
@@ -13,7 +13,7 @@ In this lab, you will develop preliminary hypotheses and use your data to run pr
 
 ## Export data from your data proposal
 
-1.  Go back to your data proposal homework and add the following code block to **the end** of the RMarkdown file:
+1.  Go back to your data proposal homework and run the following code block at **the end** of the RMarkdown file (if you haven't already):
 
 ```{r export, eval=FALSE, include=TRUE}
 write_csv(mydata, "mydata.csv")
@@ -25,10 +25,10 @@ write_csv(mydata, "mydata.csv")
 
 ## Import data into your Final Project
 
-1.  Find and open the new "Final Project" assignment in RStudio Cloud.
+1.  Find and open the new "Final Project" assignment in Posit Cloud.
 2.  Click on the "data" folder in the files pane
 3.  Click "Upload" and upload mydata.csv
 4.  Navigate out of the data folder
-5.  Open "Lastname_Firstname - HW04 - Final Project Lab.rmd"
+5.  Open "Lastname_Firstname - HW03 - Final Project Lab.rmd"
 6. Continue with the lab
 
