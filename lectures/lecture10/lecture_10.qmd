@@ -12,9 +12,6 @@ format:
 
 # Hypothesis Testing
 
-## Hypothesis testing
-
-![hypothesis testing](ht)
 
 ## Specifying Hypotheses
 
