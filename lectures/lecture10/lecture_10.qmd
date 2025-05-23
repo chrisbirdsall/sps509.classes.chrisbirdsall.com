@@ -15,7 +15,7 @@ format:
 
 ## Specifying Hypotheses
 
-$H_0$: The null hypothesis (statement of no difference or no effect)
+$H_0$: The null hypothesis (statement of no difference or no effect
 
 $H_A$: The research hypothesis (statement of different or effect)
 
