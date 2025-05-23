@@ -3,17 +3,17 @@ project:
   output-dir: docs
 
 website:
-  title: "SPS 502 | Data Science"
+  title: "SPS 509 | Advanced Quantitative Methods"
   navbar:
     right:
       - href: index.qmd
         text: Home
       - icon: slack
-        href: "https://sps502f22.slack.com"
+        href: "https://sps509.slack.com"
         aria-label: Slack
       - icon: cloud-fill
-        href: "https://rstudio.cloud"
-        aria-label: RStudio.cloud
+        href: "https://posit.cloud"
+        aria-label: posit.cloud
 
 
 format:

@@ -13,16 +13,16 @@ instructor:
 
 
 course:
-  number: "SPS 502"
-  semester: "Fall 2023"
-  days: "Tuesdays"
-  time: "6:00-8:45 p.m."
-  location: "ERB 1100"
-  dates: "August 22–December 12, 2023"
-  github: "https://github.com/SPS-502"
-  url: "https://sps-502.github.io/website/"
+  number: "SPS 509"
+  semester: "Summer 2025"
+  days: "Remote"
+  time: "Asynchronous"
+  location: "Remote"
+  dates: "May 12–August 19, 2025"
+  github: "https://github.com/sps509"
+  url: "https://sps509.classes.chrisbirdsall.com"
   copyright_year: "2023"
-  slack: "https://sps502f23.slack.com"
+  slack: "https://sps509.slack.com"
 
 university:
   name: Boise State University
