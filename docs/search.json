@@ -933,7 +933,7 @@
   {
     "objectID": "lectures/lecture05/lecture05.html#data-idaho-county-demographics-and-2020-voting",
     "href": "lectures/lecture05/lecture05.html#data-idaho-county-demographics-and-2020-voting",
-    "title": "Data Visualization II",
+    "title": "\n            Data Visualization II\n        ",
     "section": "Data: Idaho County Demographics and 2020 Voting",
     "text": "Data: Idaho County Demographics and 2020 Voting\nData on 2020 Presidential election results, income, age, education, total population, and median home value.\n\nglimpse(idaho_county_merged)\n\nRows: 44\nColumns: 23\n$ county_fips           &lt;dbl&gt; 16001, 16003, 16005, 16007, 16009, 16011, 16013,…\n$ NAME                  &lt;chr&gt; \"Ada County, Idaho\", \"Adams County, Idaho\", \"Ban…\n$ median_incomeE        &lt;dbl&gt; 69952, 50309, 51977, 52829, 47983, 58260, 64627,…\n$ median_incomeM        &lt;dbl&gt; 1549, 3186, 2046, 3650, 2962, 2673, 4953, 7210, …\n$ median_ageE           &lt;dbl&gt; 37.2, 55.3, 34.1, 39.4, 46.0, 34.1, 43.7, 54.4, …\n$ median_ageM           &lt;dbl&gt; 0.2, 1.3, 0.3, 0.9, 0.5, 0.3, 0.6, 0.4, 0.4, 0.3…\n$ total_populationE     &lt;dbl&gt; 469473, 4200, 86742, 6054, 9231, 46246, 22729, 7…\n$ total_populationM     &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …\n$ median_valueE         &lt;dbl&gt; 298600, 228500, 167300, 154500, 177500, 168200, …\n$ median_valueM         &lt;dbl&gt; 3927, 20118, 3431, 11139, 8795, 7821, 32716, 227…\n$ pct_collegeE          &lt;dbl&gt; 40.1, 18.8, 27.0, 18.3, 17.9, 20.5, 39.3, 28.4, …\n$ pct_collegeM          &lt;dbl&gt; 0.8, 3.0, 1.3, 2.9, 3.1, 2.2, 3.6, 3.4, 2.1, 1.4…\n$ county_name           &lt;chr&gt; \"ADA\", \"ADAMS\", \"BANNOCK\", \"BEAR LAKE\", \"BENEWAH…\n$ totalvotes            &lt;dbl&gt; 259389, 2586, 39553, 3315, 4973, 19996, 13289, 4…\n$ democrat_votes        &lt;dbl&gt; 120539, 591, 14682, 350, 977, 4124, 8919, 1204, …\n$ libertarian_votes     &lt;dbl&gt; 5310, 34, 947, 25, 58, 307, 168, 67, 401, 1288, …\n$ other_votes           &lt;dbl&gt; 2841, 20, 593, 26, 60, 270, 170, 64, 255, 648, 7…\n$ republican_votes      &lt;dbl&gt; 130699, 1941, 23331, 2914, 3878, 15295, 4032, 34…\n$ pct_democrat_votes    &lt;dbl&gt; 46.470359, 22.853828, 37.119814, 10.558069, 19.6…\n$ pct_libertarian_votes &lt;dbl&gt; 2.0471184, 1.3147718, 2.3942558, 0.7541478, 1.16…\n$ pct_other_votes       &lt;dbl&gt; 1.0952662, 0.7733952, 1.4992542, 0.7843137, 1.20…\n$ pct_republican_votes  &lt;dbl&gt; 50.38726, 75.05800, 58.98668, 87.90347, 77.98110…\n$ win_candidate         &lt;chr&gt; \"Trump\", \"Trump\", \"Trump\", \"Trump\", \"Trump\", \"Tr…"
   },
@@ -961,156 +961,156 @@
   {
     "objectID": "lectures/lecture05/lecture05.html#income-and-education-visualization",
     "href": "lectures/lecture05/lecture05.html#income-and-education-visualization",
-    "title": "Data Visualization II",
+    "title": "\n            Data Visualization II\n        ",
     "section": "Income and Education Visualization",
-    "text": "Income and Education Visualization"
+    "text": "Income and Education Visualization\n\nggplot(data = idaho_county_merged, \n       mapping = aes(x = pct_collegeE, y = median_incomeE,\n                     color = win_candidate)) +\n  geom_point() +\n  labs(title = \"Education and Median Income\",\n       subtitle = \"Linear relationship between education and income\",\n       x = \"Pct Adults w/ Bachelor's Degree or Higher\", y = \"Median Income\",\n       color = \"Winning Pres. Candidate (2020)\",\n       caption = \"Source:Education and income data from U.S. Census Bureau. \\n Voting data from the Harvard Dataverse\")"
   },
   {
     "objectID": "lectures/lecture05/lecture05.html#coding-out-loud",
     "href": "lectures/lecture05/lecture05.html#coding-out-loud",
-    "title": "Data Visualization II",
+    "title": "\n            Data Visualization II\n        ",
     "section": "Coding Out Loud",
-    "text": "Coding Out Loud\nStart with the idaho_county_merged data frame\n\n\n```{r}\n#| output-location: column\n#| code-line-numbers: \"|4\"\nggplot(data = idaho_county_merged)\n```"
+    "text": "Coding Out Loud\nStart with the idaho_county_merged data frame\n\n```{r}\n#| output-location: column\n#| code-line-numbers: \"|4\"\nggplot(data = idaho_county_merged)\n```"
   },
   {
     "objectID": "lectures/lecture05/lecture05.html#coding-out-loud-1",
     "href": "lectures/lecture05/lecture05.html#coding-out-loud-1",
-    "title": "Data Visualization II",
+    "title": "\n            Data Visualization II\n        ",
     "section": "Coding Out Loud",
-    "text": "Coding Out Loud\nStart with the idaho_county_merged data frame, map college attainment to the x-axis\n\n\n```{r}\n#| output-location: column\n#| code-line-numbers: \"|5\"\nggplot(data = idaho_county_merged,\n       mapping = aes(x = pct_collegeE))\n```"
+    "text": "Coding Out Loud\nStart with the idaho_county_merged data frame, map college attainment to the x-axis\n\n```{r}\n#| output-location: column\n#| code-line-numbers: \"|5\"\nggplot(data = idaho_county_merged,\n       mapping = aes(x = pct_collegeE))\n```"
   },
   {
     "objectID": "lectures/lecture05/lecture05.html#coding-out-loud-2",
     "href": "lectures/lecture05/lecture05.html#coding-out-loud-2",
-    "title": "Data Visualization II",
+    "title": "\n            Data Visualization II\n        ",
     "section": "Coding Out Loud",
-    "text": "Coding Out Loud\nStart with the idaho_county_merged data frame, map college attainment to the x-axis and map median income to the y-axis\n\n\n```{r}\n#| output-location: column\n#| code-line-numbers: \"|6\"\nggplot(data = idaho_county_merged,\n       mapping = aes(x = pct_collegeE, \n                     y = median_incomeE))\n```"
+    "text": "Coding Out Loud\nStart with the idaho_county_merged data frame, map college attainment to the x-axis and map median income to the y-axis\n\n```{r}\n#| output-location: column\n#| code-line-numbers: \"|6\"\nggplot(data = idaho_county_merged,\n       mapping = aes(x = pct_collegeE, \n                     y = median_incomeE))\n```"
   },
   {
     "objectID": "lectures/lecture05/lecture05.html#coding-out-loud-3",
     "href": "lectures/lecture05/lecture05.html#coding-out-loud-3",
-    "title": "Data Visualization II",
+    "title": "\n            Data Visualization II\n        ",
     "section": "Coding Out Loud",
-    "text": "Coding Out Loud\nStart with the idaho_county_merged data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point\n\n\n```{r}\n#| output-location: column\n#| code-line-numbers: \"|7\"\nggplot(data = idaho_county_merged,\n       mapping = aes(x = pct_collegeE, \n                     y = median_incomeE))+\n  geom_point()\n```"
+    "text": "Coding Out Loud\nStart with the idaho_county_merged data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point\n\n```{r}\n#| output-location: column\n#| code-line-numbers: \"|7\"\nggplot(data = idaho_county_merged,\n       mapping = aes(x = pct_collegeE, \n                     y = median_incomeE))+\n  geom_point()\n```"
   },
   {
     "objectID": "lectures/lecture05/lecture05.html#coding-out-loud-4",
     "href": "lectures/lecture05/lecture05.html#coding-out-loud-4",
-    "title": "Data Visualization II",
+    "title": "\n            Data Visualization II\n        ",
     "section": "Coding Out Loud",
-    "text": "Coding Out Loud\nStart with the idaho_county_merged data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point and map election winner to the color of each point.\n\n\n```{r}\n#| output-location: column\n#| code-line-numbers: \"|8\"\nggplot(data = idaho_county_merged,\n       mapping = aes(x = pct_collegeE, \n                     y = median_incomeE,\n                     color = win_candidate))+\n  geom_point()\n```"
+    "text": "Coding Out Loud\nStart with the idaho_county_merged data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point and map election winner to the color of each point.\n\n```{r}\n#| output-location: column\n#| code-line-numbers: \"|8\"\nggplot(data = idaho_county_merged,\n       mapping = aes(x = pct_collegeE, \n                     y = median_incomeE,\n                     color = win_candidate))+\n  geom_point()\n```"
   },
   {
     "objectID": "lectures/lecture05/lecture05.html#coding-out-loud-5",
     "href": "lectures/lecture05/lecture05.html#coding-out-loud-5",
-    "title": "Data Visualization II",
+    "title": "\n            Data Visualization II\n        ",
     "section": "Coding Out Loud",
-    "text": "Coding Out Loud\nStart with the idaho_county_merged data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point and map election winner to the color of each point. Title the plot “Education and Median Income”.\n\n\n```{r}\n#| output-location: column\n#| code-line-numbers: |8\nggplot(data = idaho_county_merged, \n       mapping = aes(x = pct_collegeE, y = median_incomeE,\n                     color = win_candidate)) +\n  geom_point() +\n  labs(title = \"Education and Median Income\")\n```"
+    "text": "Coding Out Loud\nStart with the idaho_county_merged data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point and map election winner to the color of each point. Title the plot “Education and Median Income”.\n\n```{r}\n#| output-location: column\n#| code-line-numbers: |8\nggplot(data = idaho_county_merged, \n       mapping = aes(x = pct_collegeE, y = median_incomeE,\n                     color = win_candidate)) +\n  geom_point() +\n  labs(title = \"Education and Median Income\")\n```"
   },
   {
     "objectID": "lectures/lecture05/lecture05.html#coding-out-loud-6",
     "href": "lectures/lecture05/lecture05.html#coding-out-loud-6",
-    "title": "Data Visualization II",
+    "title": "\n            Data Visualization II\n        ",
     "section": "Coding Out Loud",
-    "text": "Coding Out Loud\nStart with the idaho_county_merged data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point and map election winner to the color of each point. Title the plot “Education and Median Income”. Add the subtitle, “Linear relationship between education and income”\n\n\n```{r}\n#| output-location: column\n#| code-line-numbers: \"|9\"\nggplot(data = idaho_county_merged, \n       mapping = aes(x = pct_collegeE, y = median_incomeE,\n                     color = win_candidate)) +\n  geom_point() +\n  labs(title = \"Education and Median Income\",\n       subtitle = \"Linear relationship between education and income\")\n```"
+    "text": "Coding Out Loud\nStart with the idaho_county_merged data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point and map election winner to the color of each point. Title the plot “Education and Median Income”. Add the subtitle, “Linear relationship between education and income”\n\n```{r}\n#| output-location: column\n#| code-line-numbers: \"|9\"\nggplot(data = idaho_county_merged, \n       mapping = aes(x = pct_collegeE, y = median_incomeE,\n                     color = win_candidate)) +\n  geom_point() +\n  labs(title = \"Education and Median Income\",\n       subtitle = \"Linear relationship between education and income\")\n```"
   },
   {
     "objectID": "lectures/lecture05/lecture05.html#coding-out-loud-7",
     "href": "lectures/lecture05/lecture05.html#coding-out-loud-7",
-    "title": "Data Visualization II",
+    "title": "\n            Data Visualization II\n        ",
     "section": "Coding Out Loud",
-    "text": "Coding Out Loud\nStart with the idaho_county_merged data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point and map election winner to the color of each point. Title the plot “Education and Median Income”. Add the subtitle, “Linear relationship between education and income”. Label the x and y axes “Pct Adults w/ Bachelor’s Degree or Higher” and “Median Income”, respectively\n\n\n```{r}\n#| output-location: column\n#| code-line-numbers: \"|10|11\"\nggplot(data = idaho_county_merged, \n       mapping = aes(x = pct_collegeE, y = median_incomeE,\n                     color = win_candidate)) +\n  geom_point() +\n  labs(title = \"Education and Median Income\",\n       subtitle = \"Linear relationship between education and income\",\n       x = \"Pct Adults w/ Bachelor's Degree or Higher\", \n       y = \"Median Income\")\n```"
+    "text": "Coding Out Loud\nStart with the idaho_county_merged data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point and map election winner to the color of each point. Title the plot “Education and Median Income”. Add the subtitle, “Linear relationship between education and income”. Label the x and y axes “Pct Adults w/ Bachelor’s Degree or Higher” and “Median Income”, respectively\n\n```{r}\n#| output-location: column\n#| code-line-numbers: \"|10|11\"\nggplot(data = idaho_county_merged, \n       mapping = aes(x = pct_collegeE, y = median_incomeE,\n                     color = win_candidate)) +\n  geom_point() +\n  labs(title = \"Education and Median Income\",\n       subtitle = \"Linear relationship between education and income\",\n       x = \"Pct Adults w/ Bachelor's Degree or Higher\", \n       y = \"Median Income\")\n```"
   },
   {
     "objectID": "lectures/lecture05/lecture05.html#coding-out-loud-8",
     "href": "lectures/lecture05/lecture05.html#coding-out-loud-8",
-    "title": "Data Visualization II",
+    "title": "\n            Data Visualization II\n        ",
     "section": "Coding Out Loud",
-    "text": "Coding Out Loud\nStart with the idaho_county_merged data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point and map election winner to the color of each point. Title the plot “Education and Median Income”. Add the subtitle, “Linear relationship between education and income”. Label the x and y axes “Pct Adults w/ Bachelor’s Degree or Higher” and “Median Income”, respectively, label the legend “Winning Pres. Candidate (2020)”\n\n\n```{r}\n#| output-location: column\n#| code-line-numbers: \"|12\"\nggplot(data = idaho_county_merged, \n       mapping = aes(x = pct_collegeE, y = median_incomeE,\n                     color = win_candidate)) +\n  geom_point() +\n  labs(title = \"Education and Median Income\",\n       subtitle = \"Linear relationship between education and income\",\n       x = \"Pct Adults w/ Bachelor's Degree or Higher\", \n       y = \"Median Income\",\n       color = \"Winning Pres. Candidate (2020)\")\n```"
+    "text": "Coding Out Loud\nStart with the idaho_county_merged data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point and map election winner to the color of each point. Title the plot “Education and Median Income”. Add the subtitle, “Linear relationship between education and income”. Label the x and y axes “Pct Adults w/ Bachelor’s Degree or Higher” and “Median Income”, respectively, label the legend “Winning Pres. Candidate (2020)”\n\n```{r}\n#| output-location: column\n#| code-line-numbers: \"|12\"\nggplot(data = idaho_county_merged, \n       mapping = aes(x = pct_collegeE, y = median_incomeE,\n                     color = win_candidate)) +\n  geom_point() +\n  labs(title = \"Education and Median Income\",\n       subtitle = \"Linear relationship between education and income\",\n       x = \"Pct Adults w/ Bachelor's Degree or Higher\", \n       y = \"Median Income\",\n       color = \"Winning Pres. Candidate (2020)\")\n```"
   },
   {
     "objectID": "lectures/lecture05/lecture05.html#coding-out-loud-9",
     "href": "lectures/lecture05/lecture05.html#coding-out-loud-9",
-    "title": "Data Visualization II",
+    "title": "\n            Data Visualization II\n        ",
     "section": "Coding Out Loud",
-    "text": "Coding Out Loud\nStart with the idaho_county_merged data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point and map election winner to the color of each point. Title the plot “Education and Median Income”. Add the subtitle, “Linear relationship between education and income”. Label the x and y axes “Pct Adults w/ Bachelor’s Degree or Higher” and “Median Income”, respectively, label the legend “Winning Pres. Candidate (2020)”, and add a caption for the data source.\n\n\n```{r}\n#| output-location: column\n#| code-line-numbers: \"|13\"\nggplot(data = idaho_county_merged, \n       mapping = aes(x = pct_collegeE, y = median_incomeE,\n                     color = win_candidate)) +\n  geom_point() +\n  labs(title = \"Education and Median Income\",\n       subtitle = \"Linear relationship between education and income\",\n       x = \"Pct Adults w/ Bachelor's Degree or Higher\", \n       y = \"Median Income\",\n       color = \"Winning Pres. Candidate (2020)\",\n       caption = \"Source:Education and income data from U.S. Census Bureau. \\n Voting data from the Harvard Dataverse\")\n```"
+    "text": "Coding Out Loud\nStart with the idaho_county_merged data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point and map election winner to the color of each point. Title the plot “Education and Median Income”. Add the subtitle, “Linear relationship between education and income”. Label the x and y axes “Pct Adults w/ Bachelor’s Degree or Higher” and “Median Income”, respectively, label the legend “Winning Pres. Candidate (2020)”, and add a caption for the data source.\n\n```{r}\n#| output-location: column\n#| code-line-numbers: \"|13\"\nggplot(data = idaho_county_merged, \n       mapping = aes(x = pct_collegeE, y = median_incomeE,\n                     color = win_candidate)) +\n  geom_point() +\n  labs(title = \"Education and Median Income\",\n       subtitle = \"Linear relationship between education and income\",\n       x = \"Pct Adults w/ Bachelor's Degree or Higher\", \n       y = \"Median Income\",\n       color = \"Winning Pres. Candidate (2020)\",\n       caption = \"Source:Education and income data from U.S. Census Bureau. \\n Voting data from the Harvard Dataverse\")\n```"
   },
   {
     "objectID": "lectures/lecture05/lecture05.html#argument-names",
     "href": "lectures/lecture05/lecture05.html#argument-names",
-    "title": "Data Visualization II",
+    "title": "\n            Data Visualization II\n        ",
     "section": "Argument names",
     "text": "Argument names\n\nYou can omit the names of first two arguments when building plots with ggplot().\n\n\n\n\nggplot(data = idaho_county_merged, \n       mapping = aes(x = pct_collegeE, y = median_incomeE,\n                     color = win_candidate)) +\n  geom_point() +\n  labs(title = \"Education and Median Income\",\n       subtitle = \"Linear relationship between education and income\",\n       x = \"Pct Adults w/ Bachelor's Degree or Higher\", \n       y = \"Median Income\",\n       color = \"Winning Pres. Candidate (2020)\",\n       caption = \"Source:Education and income data from U.S. Census Bureau. \\n Voting data from the Harvard Dataverse\") +\n scale_color_manual(values = c(\"blue\",\"red\")) \n\n\n\nggplot(idaho_county_merged, \n       aes(x = pct_collegeE, y = median_incomeE,\n                     color = win_candidate)) +\n  geom_point() +\n  labs(title = \"Education and Median Income\",\n       subtitle = \"Linear relationship between education and income\",\n       x = \"Pct Adults w/ Bachelor's Degree or Higher\", \n       y = \"Median Income\",\n       color = \"Winning Pres. Candidate (2020)\",\n       caption = \"Source:Education and income data from U.S. Census Bureau. \\n Voting data from the Harvard Dataverse\") +\n scale_color_manual(values = c(\"blue\",\"red\"))"
   },
   {
     "objectID": "lectures/lecture05/lecture05.html#aesthetics-options",
     "href": "lectures/lecture05/lecture05.html#aesthetics-options",
-    "title": "Data Visualization II",
+    "title": "\n            Data Visualization II\n        ",
     "section": "Aesthetics options",
     "text": "Aesthetics options\nCommonly used characteristics of plotting characters that can be mapped to a specific variable in the data are\n\ncolor\nshape\nsize\nalpha (transparency)"
   },
   {
     "objectID": "lectures/lecture05/lecture05.html#color",
     "href": "lectures/lecture05/lecture05.html#color",
-    "title": "Data Visualization II",
+    "title": "\n            Data Visualization II\n        ",
     "section": "Color",
     "text": "Color\n\n\nggplot(data = idaho_county_merged, \n       mapping = aes(x = pct_collegeE, y = median_incomeE,\n                     color = win_candidate)) +\n  geom_point() +\n  labs(title = \"Education and Median Income\",\n       subtitle = \"Linear relationship between education and income\",\n       x = \"Pct Adults w/ Bachelor's Degree or Higher\", \n       y = \"Median Income\",\n       color = \"Winning Pres. Candidate (2020)\")"
   },
   {
     "objectID": "lectures/lecture05/lecture05.html#shape",
     "href": "lectures/lecture05/lecture05.html#shape",
-    "title": "Data Visualization II",
+    "title": "\n            Data Visualization II\n        ",
     "section": "Shape",
     "text": "Shape\n\n\nggplot(data = idaho_county_merged, \n       mapping = aes(x = pct_collegeE, y = median_incomeE,\n                     shape = win_candidate)) +\n  geom_point() +\n  labs(title = \"Education and Median Income\",\n       subtitle = \"Linear relationship between education and income\",\n       x = \"Pct Adults w/ Bachelor's Degree or Higher\", \n       y = \"Median Income\",\n       shape = \"Winning Pres. Candidate (2020)\")"
   },
   {
     "objectID": "lectures/lecture05/lecture05.html#alpha",
     "href": "lectures/lecture05/lecture05.html#alpha",
-    "title": "Data Visualization II",
+    "title": "\n            Data Visualization II\n        ",
     "section": "Alpha",
     "text": "Alpha\n\n\nggplot(data = idaho_county_merged, \n       mapping = aes(x = pct_collegeE, y = median_incomeE,\n                     color = win_candidate,\n                     size = total_populationE,\n                     alpha = pct_democrat_votes)) +\n  geom_point() +\n  labs(title = \"Education and Median Income\",\n       subtitle = \"Linear relationship between education and income\",\n       x = \"Pct Adults w/ Bachelor's Degree or Higher\", \n       y = \"Median Income\",\n       color = \"Winning Pres. Candidate (2020)\")"
   },
   {
     "objectID": "lectures/lecture05/lecture05.html#size",
     "href": "lectures/lecture05/lecture05.html#size",
-    "title": "Data Visualization II",
+    "title": "\n            Data Visualization II\n        ",
     "section": "Size",
     "text": "Size\n\n\nggplot(data = idaho_county_merged, \n       mapping = aes(x = pct_collegeE, y = median_incomeE,\n                     color = win_candidate,\n                     size = total_populationM)) +\n  geom_point() +\n  labs(title = \"Education and Median Income\",\n       subtitle = \"Linear relationship between education and income\",\n       x = \"Pct Adults w/ Bachelor's Degree or Higher\", \n       y = \"Median Income\",\n       color = \"Winning Pres. Candidate (2020)\")"
   },
   {
     "objectID": "lectures/lecture05/lecture05.html#extra-stuff-pulling-census-data-with-tidycensus",
     "href": "lectures/lecture05/lecture05.html#extra-stuff-pulling-census-data-with-tidycensus",
-    "title": "Data Visualization II",
+    "title": "\n            Data Visualization II\n        ",
     "section": "Extra Stuff: Pulling Census Data with tidycensus",
     "text": "Extra Stuff: Pulling Census Data with tidycensus\n\nid_education &lt;- get_acs(\n  geography = \"county\", \n  variables = \"DP02_0068P\",\n  state = \"ID\", \n  year = 2020,\n  geometry = TRUE\n)"
   },
   {
     "objectID": "lectures/lecture05/lecture05.html#extra-stuff-visualizing-census-data-with-tidycensus",
     "href": "lectures/lecture05/lecture05.html#extra-stuff-visualizing-census-data-with-tidycensus",
-    "title": "Data Visualization II",
+    "title": "\n            Data Visualization II\n        ",
     "section": "Extra Stuff: Visualizing Census Data with tidycensus",
-    "text": "Extra Stuff: Visualizing Census Data with tidycensus"
+    "text": "Extra Stuff: Visualizing Census Data with tidycensus\n\nggplot(data = id_education, aes(fill = estimate)) + \n  geom_sf() + \n  scale_fill_distiller(direction = 1) + \n  labs(title = \"  Educational Attainment by County\",\n       caption = \"Data source: 2020 5-year ACS, US Census Bureau\",\n       fill = \"ACS estimate\") + \n  theme_void()"
   },
   {
     "objectID": "lectures/lecture05/lecture05.html#grammar-of-graphics",
     "href": "lectures/lecture05/lecture05.html#grammar-of-graphics",
-    "title": "Data Visualization II",
+    "title": "\n            Data Visualization II\n        ",
     "section": "Grammar of Graphics",
     "text": "Grammar of Graphics\n\nA grammar of graphics is a tool that enables us to concisely describe the components of a graphic\nA statistical graphic is a mapping of data variables to aesthetic attributes of geometric objects. # ggplot Review"
   },
   {
     "objectID": "lectures/lecture05/lecture05.html#anatomy-of-a-ggplot",
     "href": "lectures/lecture05/lecture05.html#anatomy-of-a-ggplot",
-    "title": "Data Visualization II",
+    "title": "\n            Data Visualization II\n        ",
     "section": "Anatomy of a ggplot",
     "text": "Anatomy of a ggplot\n\nggplot() is the main function in ggplot2\nPlots are constructed in layers\nStructure of the code for plots can be summarized as\n\n\nggplot(data = [dataset],\n\nmapping = aes(x = [x-variable], y = [y-variable])) +\n\ngeom_xxx() +\n\nother options\n\n\nFor help with ggplot2, see ggplot2.tidyverse.org"
   },
   {
     "objectID": "lectures/lecture05/lecture05.html#coding-out-loud-10",
     "href": "lectures/lecture05/lecture05.html#coding-out-loud-10",
-    "title": "Data Visualization II",
+    "title": "\n            Data Visualization II\n        ",
     "section": "Coding Out Loud",
-    "text": "Coding Out Loud\nStart with the idaho_county_merged data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point and map election winner to the color of each point. Title the plot “Education and Median Income”. Add the subtitle, “Linear relationship between education and income”. Label the x and y axes “Pct Adults w/ Bachelor’s Degree or Higher” and “Median Income”, respectively, label the legend “Winning Pres. Candidate (2020)”, and add a caption for the data source. Oh! AND fix the candidate name colors with one more layer of code for ggplot\n\n\n```{r}\n#| output-location: column\n#| code-line-numbers: \"|14\"\nggplot(data = idaho_county_merged, \n       mapping = aes(x = pct_collegeE, y = median_incomeE,\n                     color = win_candidate)) +\n  geom_point() +\n  labs(title = \"Education and Median Income\",\n       subtitle = \"Linear relationship between education and income\",\n       x = \"Pct Adults w/ Bachelor's Degree or Higher\", \n       y = \"Median Income\",\n       color = \"Winning Pres. Candidate (2020)\",\n       caption = \"Source:Education and income data from U.S. Census Bureau. \\n Voting data from the Harvard Dataverse\") +\n scale_color_manual(values = c(\"blue\",\"red\")) \n```"
+    "text": "Coding Out Loud\nStart with the idaho_county_merged data frame, map college attainment to the x-axis and map median income to the y-axis. Represent each observation with a point and map election winner to the color of each point. Title the plot “Education and Median Income”. Add the subtitle, “Linear relationship between education and income”. Label the x and y axes “Pct Adults w/ Bachelor’s Degree or Higher” and “Median Income”, respectively, label the legend “Winning Pres. Candidate (2020)”, and add a caption for the data source. Oh! AND fix the candidate name colors with one more layer of code for ggplot\n\n```{r}\n#| output-location: column\n#| code-line-numbers: \"|14\"\nggplot(data = idaho_county_merged, \n       mapping = aes(x = pct_collegeE, y = median_incomeE,\n                     color = win_candidate)) +\n  geom_point() +\n  labs(title = \"Education and Median Income\",\n       subtitle = \"Linear relationship between education and income\",\n       x = \"Pct Adults w/ Bachelor's Degree or Higher\", \n       y = \"Median Income\",\n       color = \"Winning Pres. Candidate (2020)\",\n       caption = \"Source:Education and income data from U.S. Census Bureau. \\n Voting data from the Harvard Dataverse\") +\n scale_color_manual(values = c(\"blue\",\"red\")) \n```"
   },
   {
     "objectID": "finalproject/finalproject.html",
@@ -1248,35 +1248,35 @@
   {
     "objectID": "lectures/lecture08/lecture08.html#defining-the-population",
     "href": "lectures/lecture08/lecture08.html#defining-the-population",
-    "title": "Sampling",
+    "title": "\n            Sampling\n        ",
     "section": "Defining the Population",
-    "text": "Defining the Population\nPopulation\n\n\nA collection of things (examples?)\n\n\nPopulation paramater\n\n\nSomething we want to know about the population (examples?)"
+    "text": "Defining the Population\n\nPopulation\n\n\nA collection of things (examples?)\n\n\n\n\nPopulation paramater\n\n\nSomething we want to know about the population (examples?)"
   },
   {
     "objectID": "lectures/lecture08/lecture08.html#counting-the-population",
     "href": "lectures/lecture08/lecture08.html#counting-the-population",
-    "title": "Sampling",
+    "title": "\n            Sampling\n        ",
     "section": "Counting the Population",
-    "text": "Counting the Population\nCensus\n\n\nCount every single thing in the whole population\n\n\nSample\n\n\nSelect parts of the population and count those"
+    "text": "Counting the Population\n\nCensus\n\n\nCount every single thing in the whole population\n\n\n\n\nSample\n\n\nSelect parts of the population and count those"
   },
   {
     "objectID": "lectures/lecture08/lecture08.html#measure-the-sample",
     "href": "lectures/lecture08/lecture08.html#measure-the-sample",
-    "title": "Sampling",
+    "title": "\n            Sampling\n        ",
     "section": "Measure the Sample",
-    "text": "Measure the Sample\nSample statistic or point\n\n\nThe population parameter, but for the sample\n\nUses the hat sign\n\n\n\\(p\\) \\(\\hat{p}\\)"
+    "text": "Measure the Sample\n\nSample statistic or point\n\n\nThe population parameter, but for the sample\n\nUses the hat sign\n\n\n\\(p\\) \\(\\hat{p}\\)"
   },
   {
     "objectID": "lectures/lecture08/lecture08.html#is-the-sample-good",
     "href": "lectures/lecture08/lecture08.html#is-the-sample-good",
-    "title": "Sampling",
+    "title": "\n            Sampling\n        ",
     "section": "Is the Sample Good?",
-    "text": "Is the Sample Good?\nRepresentativeness\n\n\nDoes the sample look like the population?\n\n\nBias and randomness\n\n\nDoes every part of the population have the same chance of being sampled?\n\n\nGeneralizability\n\n\nIs \\(\\hat{p}\\) a good guess of \\(p\\)?"
+    "text": "Is the Sample Good?\n\nRepresentativeness\n\n\nDoes the sample look like the population?\n\n\n\n\nBias and randomness\n\n\nDoes every part of the population have the same chance of being sampled?\n\n\n\n\nGeneralizability\n\n\nIs \\(\\hat{p}\\) a good guess of \\(p\\)?"
   },
   {
     "objectID": "lectures/lecture08/lecture08.html#sampling-is-a-powerful-tool",
     "href": "lectures/lecture08/lecture08.html#sampling-is-a-powerful-tool",
-    "title": "Sampling",
+    "title": "\n            Sampling\n        ",
     "section": "Sampling is a powerful tool",
     "text": "Sampling is a powerful tool\n\nSampling gets us accurate estimates of population parameter, even if the sample is small.\nWhy?"
   },
@@ -1311,9 +1311,9 @@
   {
     "objectID": "lectures/lecture08/lecture08.html#central-limit-theorem",
     "href": "lectures/lecture08/lecture08.html#central-limit-theorem",
-    "title": "Sampling",
+    "title": "\n            Sampling\n        ",
     "section": "Central Limit Theorem",
-    "text": "Central Limit Theorem\n\n\nTrue population proportion p is shown by vertical red line"
+    "text": "Central Limit Theorem\n\n\n\n\n\nTrue population proportion p is shown by vertical red line"
   },
   {
     "objectID": "tutorials/tidycensus.html#multiple-years",
@@ -1888,5 +1888,152 @@
     "title": "\n            LAST CLASS!!!\n        ",
     "section": "Datascience Pipeline",
     "text": "Datascience Pipeline\n\n\n\ndatascience pipeline"
+  },
+  {
+    "objectID": "labs/Lab02_SPS509.html#packages",
+    "href": "labs/Lab02_SPS509.html#packages",
+    "title": "\n            Lab 02 - Data Wrangling\n        ",
+    "section": "Packages",
+    "text": "Packages\nRun the following to load the necessary packages for this lab:\n\nlibrary(ggplot2)\nlibrary(dplyr)"
+  },
+  {
+    "objectID": "labs/Lab02_SPS509.html#data",
+    "href": "labs/Lab02_SPS509.html#data",
+    "title": "\n            Lab 02 - Data Wrangling\n        ",
+    "section": "Data",
+    "text": "Data\nRun the following to load and take a glimpse of the data:\n\ndata(txhousing)\nglimpse(txhousing)\n\nThese data are about housing in Texas. Each row is monthly data for a given city in Texas in a given year. There are multiple years of data for each city."
+  },
+  {
+    "objectID": "labs/Lab02_SPS509.html#exercise-1",
+    "href": "labs/Lab02_SPS509.html#exercise-1",
+    "title": "\n            Lab 02 - Data Wrangling\n        ",
+    "section": "Exercise 1",
+    "text": "Exercise 1\nTake a look at the data in the data viewer. You can accomplish this two different ways: A) click on the name of the data in the Environment pane, or b) type View(txhousing) in the console. What is the last city listed in the data set (in row 8602)?\n\n\nRStudio does not like to knit documents that execute the View() command. So be sure to run it in the console to avoid additional headaches."
+  },
+  {
+    "objectID": "labs/Lab02_SPS509.html#exercise-2",
+    "href": "labs/Lab02_SPS509.html#exercise-2",
+    "title": "\n            Lab 02 - Data Wrangling\n        ",
+    "section": "Exercise 2",
+    "text": "Exercise 2\nTake a look at the variable descriptions by typing ?txhousing into the console. What is the listings variable in this data set?"
+  },
+  {
+    "objectID": "labs/Lab02_SPS509.html#select",
+    "href": "labs/Lab02_SPS509.html#select",
+    "title": "\n            Lab 02 - Data Wrangling\n        ",
+    "section": "select",
+    "text": "select\nSometimes we want to pull out or extract just one or two columns of data. The following code will extract only the column in the data set for the variables sales and volume.\n\ntxhousing %&gt;% select(sales, volume)\n\nThe %&gt;% symbol is called the piping operator. Here, it takes the txhousing data frame and “pipes” or feeds it into the select function. You can think of the %&gt;% symbol as the word “then”.\nNote that we did not use an assignment operator &lt;- so we did not save these extracted, selected values. In the following code, we save the results, in a data frame ALSO called txhousing. By putting - in front of the date variable we tell R to select all except the date variable. Run the following code:\n\ntxhousing &lt;- txhousing %&gt;% select(-date)\n\nIf you look at txhousing in the data viewer, the date variable is no longer included."
+  },
+  {
+    "objectID": "labs/Lab02_SPS509.html#filter",
+    "href": "labs/Lab02_SPS509.html#filter",
+    "title": "\n            Lab 02 - Data Wrangling\n        ",
+    "section": "filter",
+    "text": "filter\nThe filter function allows you to pull out just the rows (cases or observations) you want, based on some criteria in one of the columns.\nImagine for instance that we wanted to reduce the data set include data for only 2012, in Austin. This code chunk takes the txhousing data, then filters it to only include rows in which the year is 2012, and the city is Austin. The results are saved in a new data frame called austin_12 that shows up in the workspace.\n\naustin_12 &lt;- txhousing %&gt;% filter(year == 2012, city == \"Austin\")\n\n\nNote that we use == to identify the desired criteria.\n\nWhat if we wanted to restrict our data set to only years before 2004 and the City of Austin? Below we use the &lt; symbol to accomplish this. Note we did not SAVE these results in a new data frame…so no new data frame showed up in our Environment pane, but the results print out immediately below the code chunk.\n\ntxhousing %&gt;% filter(year &lt; 2004, city == \"Austin\")\n\nWhat if we wanted to use multiple cities? Below we use the | symbol to indicate that the city could be Austin OR Abilene. In this case, we saved these results as a new data frame called aust_ab that appears in your Environment pane.\n\naust_ab &lt;- txhousing %&gt;% filter(city == \"Austin\" | city == \"Abilene\")"
+  },
+  {
+    "objectID": "labs/Lab02_SPS509.html#mutate",
+    "href": "labs/Lab02_SPS509.html#mutate",
+    "title": "\n            Lab 02 - Data Wrangling\n        ",
+    "section": "mutate",
+    "text": "mutate\nThe mutate function can add new columns (variables) to a data frame. For instance, the following will add a new column to the data called vol_100k that expresses volume in units of $100000.\n\ntxhousing &lt;- txhousing %&gt;%\n  mutate(vol_100k = volume/100000)\n\nNote that we SAVED these results in new data frame called txhousing. This therefore overwrote the old txhousing data frame with a new version that contains this column. You can open the txhousing data frame in the viewer to confirm that it now contains this new column."
+  },
+  {
+    "objectID": "labs/Lab02_SPS509.html#summarize",
+    "href": "labs/Lab02_SPS509.html#summarize",
+    "title": "\n            Lab 02 - Data Wrangling\n        ",
+    "section": "summarize",
+    "text": "summarize\nOne of the first tasks in data analysis is often to get descriptive statistics that help to understand the central tendency and variability in the data. The summarize() command can take a column of data, and reduce it to a summary statistic.\nFor instance, the code below uses the austin_12 data set made earlier to calculate the mean monthly number of sales in Austin in 2012.\n\naustin_12 %&gt;% summarize(x_bar_sales = mean(sales))\n\nThis code tells R to calculate the mean of the variable sales, and to save the results in a variable called x_bar_sales.\nYou can also calculate multiple summary statistics at once, and even for multiple variables. Below we also calculate a standard deviation sd() of sales, a minimum min() of the volume variable, a maximum max() of the volume variable, etc. The n() calculates sample size…or the number of rows/ cases in the data frame.\n\naustin_12 %&gt;% summarize(x_bar_sales = mean(sales), \n                        sd_sales = sd(sales), \n                        min_vol = min(volume), \n                        max_vol = max(volume), \n                        mdn_list = median(listings), \n                        iqr_list = IQR(listings),\n                        sample_size = n())\n\n# A tibble: 1 × 7\n  x_bar_sales sd_sales   min_vol   max_vol mdn_list iqr_list sample_size\n        &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;       &lt;int&gt;\n1       2127.     501. 265821275 791281075     7925     949.          12\n\n\nNote that the names of the elements you calculate are user defined, like xbar_sales, min_vol, and mdn_list. You could customize these names as you like (but don’t use spaces in your names)."
+  },
+  {
+    "objectID": "labs/Lab02_SPS509.html#arrange",
+    "href": "labs/Lab02_SPS509.html#arrange",
+    "title": "\n            Lab 02 - Data Wrangling\n        ",
+    "section": "arrange",
+    "text": "arrange\nYou just determined that the maximum volume of monthly sales in Austin in 2012 was a total of $791,281,075 ….but what if you wanted to know WHAT MONTH that occurred in? Copy paste, and run the following into a new code chunk:\n\naustin_12 %&gt;%\n  arrange(desc(volume))\n\nThis tells R to arrange the rows in the data set based on the volume column, and to do so in descending order. So the row with the $791,281,075 in sales is shown at the top! We can see that this volume occurred in the sixth month (June)."
+  },
+  {
+    "objectID": "labs/Lab02_SPS509.html#group_by",
+    "href": "labs/Lab02_SPS509.html#group_by",
+    "title": "\n            Lab 02 - Data Wrangling\n        ",
+    "section": "group_by",
+    "text": "group_by\nSometimes we also want to calculate summary statistics across different levels of another variable. For instance, here we find the average number of monthly sales that occurred in Abilene and Austin across all years in the data set. Note that we use the aust_ab data frame we created earlier, to restrict our analysis to those two cities.\n\naust_ab %&gt;% group_by(city) %&gt;% \n  summarize(x_bar_sales = mean(sales))\n\n# A tibble: 2 × 2\n  city    x_bar_sales\n  &lt;chr&gt;         &lt;dbl&gt;\n1 Abilene        150.\n2 Austin        1997.\n\n\nFrom the results we can see that there were an average of 150 sales per month in Abilene, and 1996 in Austin.\nWe can give R multiple variables to group by. For instance, this code gives us the mean sales for each month in each city, averaged across all the years. So for instance the mean number of sales in January, in Abilene was 96 homes.\n\naust_ab %&gt;% group_by(city, month) %&gt;% \n  summarize(x_bar_sales = mean(sales))"
+  },
+  {
+    "objectID": "labs/Lab02_SPS509.html#exercise-3",
+    "href": "labs/Lab02_SPS509.html#exercise-3",
+    "title": "\n            Lab 02 - Data Wrangling\n        ",
+    "section": "Exercise 3",
+    "text": "Exercise 3\nWrite a code chunk to remove the inventory variable. Save the results in a data frame called txhousing. Confirm in the data viewer that the variable has been removed."
+  },
+  {
+    "objectID": "labs/Lab02_SPS509.html#exercise-4",
+    "href": "labs/Lab02_SPS509.html#exercise-4",
+    "title": "\n            Lab 02 - Data Wrangling\n        ",
+    "section": "Exercise 4",
+    "text": "Exercise 4\nMake a data set called dallas_sub that includes data only from the city of Dallas in 2012 & 2013."
+  },
+  {
+    "objectID": "labs/Lab02_SPS509.html#exercise-5",
+    "href": "labs/Lab02_SPS509.html#exercise-5",
+    "title": "\n            Lab 02 - Data Wrangling\n        ",
+    "section": "Exercise 5",
+    "text": "Exercise 5\nAdd a column to the dallas_sub data set called prct_sold that calculates the percentage of listings that were sold (sales/listings * 100). Be sure to save the results also as a data frame called dallas_sub."
+  },
+  {
+    "objectID": "labs/Lab02_SPS509.html#exercise-6",
+    "href": "labs/Lab02_SPS509.html#exercise-6",
+    "title": "\n            Lab 02 - Data Wrangling\n        ",
+    "section": "Exercise 6",
+    "text": "Exercise 6\nCalculate the average percentage of listings that were sold in Dallas in each month of the year based on your dallas_sub data set. Save the results of the calculation in an data frame called dallas_summary."
+  },
+  {
+    "objectID": "labs/Lab02_SPS509.html#exercise-7",
+    "href": "labs/Lab02_SPS509.html#exercise-7",
+    "title": "\n            Lab 02 - Data Wrangling\n        ",
+    "section": "Exercise 7",
+    "text": "Exercise 7\nArrange the dallas_summary in descending order based on the average percentage of listings, so you can see which month had the greatest average percentage of listings sold. You do not need to save the results."
+  },
+  {
+    "objectID": "labs/Lab02_SPS509.html#exercise-8",
+    "href": "labs/Lab02_SPS509.html#exercise-8",
+    "title": "\n            Lab 02 - Data Wrangling\n        ",
+    "section": "Exercise 8",
+    "text": "Exercise 8\nRun the following code chunk. Study the code, and the output. Explain in your own words what this code chunk calculated.\n\ntxhousing %&gt;% \n  filter(year == 2012 | year == 2013, city == \"Dallas\") %&gt;%\n  mutate(prct_sold = sales/listings *100) %&gt;%\n  group_by(month) %&gt;%\n  summarize(mean_prct_sold = mean(prct_sold)) %&gt;% \n  arrange(desc(mean_prct_sold))"
+  },
+  {
+    "objectID": "labs/Lab02_SPS509.html#exercise-9",
+    "href": "labs/Lab02_SPS509.html#exercise-9",
+    "title": "\n            Lab 02 - Data Wrangling\n        ",
+    "section": "Exercise 9",
+    "text": "Exercise 9\nIn January of 2015, what city had the fewest houses listed for sale?"
+  },
+  {
+    "objectID": "labs/Lab02_SPS509.html#exercise-10",
+    "href": "labs/Lab02_SPS509.html#exercise-10",
+    "title": "\n            Lab 02 - Data Wrangling\n        ",
+    "section": "Exercise 10",
+    "text": "Exercise 10\nIn 2012, in which month were the most houses sold in Texas?"
+  },
+  {
+    "objectID": "labs/Lab02_SPS509.html#exercise-11",
+    "href": "labs/Lab02_SPS509.html#exercise-11",
+    "title": "\n            Lab 02 - Data Wrangling\n        ",
+    "section": "Exercise 11",
+    "text": "Exercise 11\nGenerate a single table that shows the total number of houses sold in Austin in 2000 and 2001 (total over the entire period), and the total number of houses sold in Dallas in 2000 and 2001 (total over the entire period). This calculation requires a number of steps, so it might help you to first write out on paper the different steps you will need to take. That will help you set out a “blueprint” for tackling the problem.\n\n\nHint: recall the sum() function can add(+) values."
+  },
+  {
+    "objectID": "lectures/lecture05/lecture05.html",
+    "href": "lectures/lecture05/lecture05.html",
+    "title": "\n            Data Visualization II\n        ",
+    "section": "",
+    "text": "SPS 502"
+  },
+  {
+    "objectID": "lectures/lecture08/lecture08.html",
+    "href": "lectures/lecture08/lecture08.html",
+    "title": "\n            Sampling\n        ",
+    "section": "",
+    "text": "SPS 502"
   }
 ]
